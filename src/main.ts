@@ -2,6 +2,7 @@ import { Triple, type Op } from "@graphprotocol/grc-20";
 import { publish } from "./publish.js";
 import { readFileSync } from "fs";
 import { wallet } from "./wallet.js";
+import 'dotenv/config';
 
 type Triple = {
   attributeId: string;
@@ -17,8 +18,8 @@ type Entity = {
   triples: Triple[];
 };
 
-// Use existing space ID
-const SPACE_ID = '7gzF671tq5JTZ13naG4tnr';
+// Use the deployed space ID
+const SPACE_ID = "000000000000000000000000000000000000dEaD";
 
 async function waitForConfirmation(txHash: `0x${string}`) {
   console.log(`Waiting for confirmation of transaction: ${txHash}`);
@@ -54,7 +55,7 @@ async function main() {
     // Publish permits
     console.log('Publishing permits...');
     const permitTxHash = await publish({
-      spaceId: SPACE_ID,
+      spaceId: SPACE_ID as string,
       author: wallet.account.address,
       editName: "Add Building Permits",
       ops: permitOps,

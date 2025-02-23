@@ -20,6 +20,7 @@
     "ethers": "^6.6.2",
     "express": "^4.21.2",
     "ipfs-http-client": "^60.0.1",
+    "node-fetch": "^3.3.2",
     "ts-node": "^10.9.2",
     "uuid": "^11.1.0",
     "viem": "^2.23.2"
