@@ -1,10 +1,10 @@
+import { readFileSync } from 'fs';
 import { Triple, type Op } from "@graphprotocol/grc-20";
-import { publish } from "./publish.js";
-import { readFileSync } from "fs";
+import { publish, type PublishResult } from "./publish.js";
 import { wallet } from "./wallet.js";
 import 'dotenv/config';
 
-type Triple = {
+type LocalTriple = {
   attributeId: string;
   entityId: string;
   value: {
@@ -15,13 +15,13 @@ type Triple = {
 
 type Entity = {
   entityId: string;
-  triples: Triple[];
+  triples: LocalTriple[];
 };
 
-// Use the deployed space ID
-const SPACE_ID = "7gzF671tq5JTZ13naG4tnr";
+// Use the deployed space ID from testnet
+const SPACE_ID = "0x4E0dB2b307B284d3380842dB7889212f4C5C95B7" as `0x${string}`;
 
-async function waitForConfirmation(txHash: `0x${string}`) {
+async function waitForConfirmation(txHash: PublishResult['txHash']) {
   console.log(`Waiting for confirmation of transaction: ${txHash}`);
   while (true) {
     const receipt = await wallet.publicClient.getTransactionReceipt({ hash: txHash });
@@ -40,30 +40,47 @@ async function main() {
     console.log('Reading transformed data...');
     const permitTriples = JSON.parse(readFileSync('data/permits-triples.json', 'utf-8')) as Entity[];
 
+    // Log raw triples before conversion
+    console.log('First raw triple:', permitTriples[0].triples[0]);
+
     // Convert to SET_TRIPLE operations using Triple.make
     const permitOps = permitTriples.flatMap(permit => 
-      permit.triples.map(triple => Triple.make({
-        entityId: permit.entityId,
-        attributeId: triple.attributeId,
-        value: {
-          type: 'TEXT',
-          value: triple.value.value
-        }
-      }))
+      permit.triples.map(triple => {
+        const op = Triple.make({
+          entityId: permit.entityId,
+          attributeId: triple.attributeId,
+          value: {
+            type: 'TEXT',
+            value: triple.value.value
+          }
+        });
+        console.log('Triple.make input:', {
+          entityId: permit.entityId,
+          attributeId: triple.attributeId,
+          value: {
+            type: 'TEXT',
+            value: triple.value.value
+          }
+        });
+        console.log('Triple.make output:', op);
+        return op;
+      })
     );
 
     // Publish permits
     console.log('Publishing permits...');
-    const permitTxHash = await publish({
+    const publishResult = await publish({
       spaceId: SPACE_ID as string,
       author: wallet.account.address,
       editName: "Add Building Permits",
       ops: permitOps,
+      network: "TESTNET" // Since we're using api-testnet endpoint
     });
-    console.log("Permits transaction hash:", permitTxHash);
+    console.log("IPFS CID:", publishResult.ipfsCid);
+    console.log("Transaction hash:", publishResult.txHash);
 
     // Wait for confirmation
-    await waitForConfirmation(permitTxHash);
+    await waitForConfirmation(publishResult.txHash);
 
   } catch (error) {
     console.error('Failed to publish data:', error);
