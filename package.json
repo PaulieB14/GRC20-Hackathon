@@ -2,22 +2,30 @@
   "name": "pinellas-county-grc20-publisher",
   "version": "1.0.0",
   "description": "GRC-20 data publisher for Pinellas County permits and deed transfers",
-  "main": "dist/index.js",
+  "type": "module",
+  "module": "src/deploy-space.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/main.js",
     "transform:permits": "node dist/transformPermits.js",
     "transform:deeds": "node dist/transformDeeds.js",
     "publish": "node dist/publish.js"
   },
   "dependencies": {
-    "@graphprotocol/grc-20": "^0.1.0",
+    "@biomejs/biome": "^1.9.4",
+    "@graphprotocol/grc-20": "^0.6.4",
+    "@types/uuid": "^10.0.0",
     "csv-parse": "^5.5.2",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.7",
     "ethers": "^6.6.2",
-    "uuid": "^11.0.5"
+    "express": "^4.21.2",
+    "ipfs-http-client": "^60.0.1",
+    "ts-node": "^10.9.2",
+    "uuid": "^11.1.0",
+    "viem": "^2.23.2"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^20.8.7",
     "typescript": "^5.2.2"
   }

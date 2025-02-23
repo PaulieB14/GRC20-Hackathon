@@ -1,68 +1,68 @@
-import dotenv from 'dotenv';
-import { v4 as uuidv4 } from 'uuid';
-import transformPermits from './transformPermits';
-import transformDeeds from './transformDeeds';
+import { type Op } from "@graphprotocol/grc-20";
+import { wallet } from "./wallet.js";
 
-dotenv.config();
+type PublishOptions = {
+  spaceId: string;
+  editName: string;
+  author: string;
+  ops: Op[];
+};
 
-interface PublishResult {
-  hash: string;
-  status: string;
-  spaceId?: string;
-}
-
-async function publishToSpace(): Promise<PublishResult[]> {
-  // Validate environment configuration
-  if (!process.env.SPACE_ID) {
-    throw new Error('SPACE_ID must be set in .env file');
-  }
-
-  const spaceId = process.env.SPACE_ID;
+export async function publish(options: PublishOptions) {
+  const { spaceId, editName, author, ops } = options;
 
   try {
-    // Transform and publish permits
-    const permitHashes = await transformPermits('./data/permits.csv');
-    console.log('Permits processed:', permitHashes);
+    // Publish directly to the space contract
+    console.log('Publishing edit...');
+    const request = {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "geo_edit",
+      params: [{
+        spaceId,
+        name: editName,
+        ops,
+        timestamp: Date.now(),
+        editor: author
+      }]
+    };
+    console.log('Request:', JSON.stringify(request, null, 2));
 
-    // Transform and publish deed transfers
-    const deedHashes = await transformDeeds('./data/deeds.csv');
-    console.log('Deed transfers processed:', deedHashes);
-
-    // Combine all hashes for potential batch publishing
-    const allHashes = [...permitHashes, ...deedHashes];
-
-    // Simulate space publishing
-    const publishResults: PublishResult[] = allHashes.map(hash => {
-      console.log(`Publishing hash ${hash} to space ${spaceId}`);
-      
-      return {
-        hash,
-        status: 'published',
-        spaceId
-      };
-    });
-    
-    console.log('Publication Summary:');
-    publishResults.forEach(result => {
-      console.log(`- Hash: ${result.hash}, Status: ${result.status}`);
+    const result = await fetch(`https://rpc-geo-test-zc16z3tcvf.t.conduit.xyz`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(request),
     });
 
-    return publishResults;
+    const responseText = await result.text();
+    console.log('Response:', responseText);
 
+    const response = JSON.parse(responseText);
+    if (response.error) {
+      throw new Error(`Failed to publish edit: ${JSON.stringify(response.error)}`);
+    }
+
+    if (!response.result || !response.result.to || !response.result.data) {
+      throw new Error(`Invalid response format: ${responseText}`);
+    }
+
+    const { result: { to, data } } = response;
+    console.log('Got transaction data:', { to, data });
+
+    // Send the transaction to publish the edit
+    console.log('Sending transaction...');
+    const txHash = await wallet.sendTransaction({
+      to: to as `0x${string}`,
+      value: 0n,
+      data: data as `0x${string}`
+    });
+    console.log('Transaction sent:', txHash);
+
+    return txHash;
   } catch (error) {
-    console.error('Error during publication process:', error);
+    console.error('Failed to publish edit:', error);
     throw error;
   }
 }
-
-// Execute publication if script is run directly
-if (require.main === module) {
-  publishToSpace()
-    .then(() => console.log('Publication completed successfully'))
-    .catch(error => {
-      console.error('Publication failed:', error);
-      process.exit(1);
-    });
-}
-
-export default publishToSpace;

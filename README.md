@@ -1,63 +1,110 @@
 # Pinellas County GRC-20 Data Publisher
 
-## Project Overview
-This project transforms Pinellas County permit and deed transfer data into GRC-20 compatible triples and relations for decentralized data publishing.
+This project publishes Pinellas County permits and deed transfers data to GRC-20 spaces.
 
 ## Prerequisites
-- Node.js (v16+ recommended)
-- npm or yarn
-- A GRC-20 compatible wallet
 
-## Setup
-
-1. Clone the repository
-```bash
-git clone <repository-url>
-cd grc20-pinellas-county
-```
-
-2. Install Dependencies
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Configure Environment
-- Copy `.env.example` to `.env`
-- Fill in your wallet private key and space ID
+2. Configure environment variables in `.env`:
+```
+PRIVATE_KEY=your_private_key
+NETWORK=testnet
+RPC_URL=https://eth-sepolia.g.alchemy.com/v2/demo
+```
 
-## Data Transformation
+## Data Structure
 
-### Permits
-Transform permits CSV:
+### Permits Data
+Located in `data/permits.csv`, contains building permits with fields:
+- Date
+- Record Type
+- Record Number
+- Status
+- Address
+- Project Name
+- Expiration Date
+- Description
+
+### Deeds Data
+Located in `data/deeds.csv`, contains property transfers with fields:
+- DirectName (Seller)
+- IndirectName (Buyer)
+- RecordDate
+- DocTypeDescription
+- BookType
+- BookPage
+- Comments
+- InstrumentNumber
+
+## Deployed Spaces
+
+The data is organized into two separate spaces:
+
+1. Permits Space
+   - Space ID: GRqhKJ3mYiM95MDGs7NH9V
+   - Contains building permits and related data
+   - Primary space for Pinellas County data
+
+2. Deeds Space
+   - Space ID: NubYWjA29aN3uXjEMMHXuB
+   - Contains property transfer records
+   - Complementary space for real estate transactions
+
+## Publishing Data
+
+After deploying the spaces, you can publish data using:
+
+1. For permits:
 ```bash
 npm run transform:permits
-```
-
-### Deed Transfers
-Transform deed transfers CSV:
-```bash
-npm run transform:deeds
-```
-
-## Publishing to GRC-20
-
-Publish transformed data:
-```bash
 npm run publish
 ```
 
-## Configuration
+2. For deeds:
+```bash
+npm run transform:deeds
+npm run publish
+```
 
-- `src/wallet.ts`: Wallet configuration
-- `.env`: Environment variables
-- `data/`: Place your CSV files here
+## Data Organization
 
-## Security Notes
-- NEVER commit your `.env` file
-- Keep your private key confidential
-- Use testnet for initial testing
+### Permits Space Structure
+```
+Permits (GRqhKJ3mYiM95MDGs7NH9V)
+├── Record Number (unique identifier)
+├── Status
+├── Address
+└── Project Details
+    ├── Name
+    ├── Description
+    └── Dates
+```
 
-## Troubleshooting
-- Ensure correct CSV file formats
-- Check network connectivity
-- Verify wallet configuration
+### Deeds Space Structure
+```
+Deeds (NubYWjA29aN3uXjEMMHXuB)
+├── Instrument Number (unique identifier)
+├── Property Details
+│   ├── Book/Page
+│   └── Description
+└── Transaction Details
+    ├── Seller (DirectName)
+    ├── Buyer (IndirectName)
+    └── Date
+```
+
+## Development
+
+- Source code is in TypeScript
+- Build with `npm run build`
+- Run scripts with `bun run src/script-name.ts`
+
+## Notes
+
+- Make sure you have sufficient testnet ETH in your wallet
+- The editor address is set to: 0x6596a3C7C2eA69D04F01F064AA4e914196BbA0a7
+- All operations are performed on the Sepolia testnet

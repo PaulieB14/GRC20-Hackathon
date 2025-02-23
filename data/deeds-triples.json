@@ -1,0 +1,407 @@
+[
+  {
+    "entityId": "CE2tPRSFpZJwUAdpAZkd1k",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "CE2tPRSFpZJwUAdpAZkd1k",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035356"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "CE2tPRSFpZJwUAdpAZkd1k",
+        "value": {
+          "type": "TEXT",
+          "value": "WATERMAN WANETA DECEASED"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "CE2tPRSFpZJwUAdpAZkd1k",
+        "value": {
+          "type": "TEXT",
+          "value": "SWANK STAYS INC"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "CE2tPRSFpZJwUAdpAZkd1k",
+        "value": {
+          "type": "TEXT",
+          "value": "WEST 1/2 OF LOT 20 AND ALL OF LOT 21 BLOCK 6 FLORAL VILLA PARK"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "CE2tPRSFpZJwUAdpAZkd1k",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "PqxHdvtzw8C1feFpNcN3Dg",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "PqxHdvtzw8C1feFpNcN3Dg",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035363"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "PqxHdvtzw8C1feFpNcN3Dg",
+        "value": {
+          "type": "TEXT",
+          "value": "KIGER SUSAN DIANE"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "PqxHdvtzw8C1feFpNcN3Dg",
+        "value": {
+          "type": "TEXT",
+          "value": "TRUE HAVEN LLC"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "PqxHdvtzw8C1feFpNcN3Dg",
+        "value": {
+          "type": "TEXT",
+          "value": "UNIT 123 BUILDING 300 WINSTON PARK NORTHEAST 300 CONDOMINIUM"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "PqxHdvtzw8C1feFpNcN3Dg",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "RibuKtmDfeNku4fwS7sjgm",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "RibuKtmDfeNku4fwS7sjgm",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035367"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "RibuKtmDfeNku4fwS7sjgm",
+        "value": {
+          "type": "TEXT",
+          "value": "CHRIST MARY J"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "RibuKtmDfeNku4fwS7sjgm",
+        "value": {
+          "type": "TEXT",
+          "value": "REHG TIM"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "RibuKtmDfeNku4fwS7sjgm",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 9 BLOCK U CAPRI ISLE BLOCKS U V AND P"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "RibuKtmDfeNku4fwS7sjgm",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "Wr2W2npfDgjWXd9BRkVV18",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "Wr2W2npfDgjWXd9BRkVV18",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035368"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "Wr2W2npfDgjWXd9BRkVV18",
+        "value": {
+          "type": "TEXT",
+          "value": "RICCARDO JAMES C"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "Wr2W2npfDgjWXd9BRkVV18",
+        "value": {
+          "type": "TEXT",
+          "value": "CARRINGTON MORTGAGE SERVICES LLC"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "Wr2W2npfDgjWXd9BRkVV18",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 125 GULL AIRE VILLAGE"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "Wr2W2npfDgjWXd9BRkVV18",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "Vim2LNdNizbRW3moViwHeb",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "Vim2LNdNizbRW3moViwHeb",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035369"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "Vim2LNdNizbRW3moViwHeb",
+        "value": {
+          "type": "TEXT",
+          "value": "GARCIA DEBORAH NEELEY"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "Vim2LNdNizbRW3moViwHeb",
+        "value": {
+          "type": "TEXT",
+          "value": "JAIME AND DEBORAH GARCIA REVOCABLE HOMESTEAD TRUST"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "Vim2LNdNizbRW3moViwHeb",
+        "value": {
+          "type": "TEXT",
+          "value": "UNIT 108 OF SAND DOLLAR OF INDIAN SHORES CONDOMINIIUM"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "Vim2LNdNizbRW3moViwHeb",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "8bwTCJzgmiMjSYE6NwfAKZ",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "8bwTCJzgmiMjSYE6NwfAKZ",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035383"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "8bwTCJzgmiMjSYE6NwfAKZ",
+        "value": {
+          "type": "TEXT",
+          "value": "DENNARD BREHT K SR"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "8bwTCJzgmiMjSYE6NwfAKZ",
+        "value": {
+          "type": "TEXT",
+          "value": "FEDERAL NATIONAL MORTGAGE ASSOCIATION"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "8bwTCJzgmiMjSYE6NwfAKZ",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 23 LESS THE SOUTH 8 FEET DELMONTE SUBDIVISION"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "8bwTCJzgmiMjSYE6NwfAKZ",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "FyDqMZk5dANGaaJ5sgxPeF",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "FyDqMZk5dANGaaJ5sgxPeF",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035390"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "FyDqMZk5dANGaaJ5sgxPeF",
+        "value": {
+          "type": "TEXT",
+          "value": "CHIRIBOGA FANNY MARTHA"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "FyDqMZk5dANGaaJ5sgxPeF",
+        "value": {
+          "type": "TEXT",
+          "value": "CHIRIBOGA FANNY MARTHA TRUSTEE"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "FyDqMZk5dANGaaJ5sgxPeF",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 5 BLOCK 6 WESTGATE HEIGHTS NORTH"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "FyDqMZk5dANGaaJ5sgxPeF",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "7g4dipszdiRDt4bsYeVEJA",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "7g4dipszdiRDt4bsYeVEJA",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035391"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "7g4dipszdiRDt4bsYeVEJA",
+        "value": {
+          "type": "TEXT",
+          "value": "BRITO JANET"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "7g4dipszdiRDt4bsYeVEJA",
+        "value": {
+          "type": "TEXT",
+          "value": "CHIRIBOGA FANNY MARTHA TRUSTEE"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "7g4dipszdiRDt4bsYeVEJA",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 35 BRENTWOOD HEIGHTS SECOND ADDITION"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "7g4dipszdiRDt4bsYeVEJA",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "2y3k2Z3xY2VosUpGVJfxU1",
+    "triples": [
+      {
+        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
+        "entityId": "2y3k2Z3xY2VosUpGVJfxU1",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035398"
+        }
+      },
+      {
+        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
+        "entityId": "2y3k2Z3xY2VosUpGVJfxU1",
+        "value": {
+          "type": "TEXT",
+          "value": "LEONELLO MICHELE"
+        }
+      },
+      {
+        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
+        "entityId": "2y3k2Z3xY2VosUpGVJfxU1",
+        "value": {
+          "type": "TEXT",
+          "value": "CAYNE ALFRED"
+        }
+      },
+      {
+        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
+        "entityId": "2y3k2Z3xY2VosUpGVJfxU1",
+        "value": {
+          "type": "TEXT",
+          "value": "UNIT NO 216 TOWN APARTMENTS NO 17 CONDOMINIUM"
+        }
+      },
+      {
+        "attributeId": "3UP1qvruj8SipH9scUz1EY",
+        "entityId": "2y3k2Z3xY2VosUpGVJfxU1",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  }
+]
