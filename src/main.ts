@@ -19,7 +19,7 @@ type Entity = {
 };
 
 // Use the deployed space ID
-const SPACE_ID = "000000000000000000000000000000000000dEaD";
+const SPACE_ID = "7gzF671tq5JTZ13naG4tnr";
 
 async function waitForConfirmation(txHash: `0x${string}`) {
   console.log(`Waiting for confirmation of transaction: ${txHash}`);

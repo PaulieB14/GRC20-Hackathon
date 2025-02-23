@@ -29,7 +29,7 @@ export async function publish(options: PublishOptions) {
 
     // Send transaction using wallet client
     const txHash = await wallet.sendTransaction({
-      to: `0x${spaceId}` as `0x${string}`,
+      to: (spaceId.startsWith('0x') ? spaceId : `0x${spaceId}`) as `0x${string}`,
       value: 0n,
       data: data as `0x${string}`
     });
