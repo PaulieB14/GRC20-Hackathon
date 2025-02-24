@@ -49,7 +49,6 @@ export async function publish(options: PublishOptions): Promise<string> {
       console.log('Sample op:', JSON.stringify(options.ops[0], null, 2));
     }
 
-    // Upload to IPFS
     const editProposal = {
       name: options.editName,
       author: options.author,
@@ -59,136 +58,56 @@ export async function publish(options: PublishOptions): Promise<string> {
     // Log edit proposal for debugging
     console.log('Edit proposal:', JSON.stringify(editProposal, null, 2));
 
-    // Format ops for IPFS
-    const formattedOps = editProposal.ops.map(op => {
-      if (op.type === 'SET_TRIPLE') {
-        const setTripleOp = op as SetTripleOp;
-        const triple = Triple.make({
-          entityId: setTripleOp.triple.entity,
-          attributeId: setTripleOp.triple.attribute,
-          value: {
-            type: 'TEXT' as const,
-            value: setTripleOp.triple.value.value,
-          },
-        });
-        console.log('Created triple:', JSON.stringify(triple, null, 2));
-        return {
-          type: 'SET_TRIPLE' as const,
-          triple: triple.triple,
-        } as SetTripleOp;
-      }
-      return op;
+    // Upload to IPFS as JSON
+    const editJson = JSON.stringify(editProposal);
+    const blob = new Blob([editJson], { type: 'application/json' });
+    const formData = new FormData();
+    formData.append('file', blob);
+
+    console.log('Sending to IPFS endpoint...');
+    const apiBaseUrl = options.apiBaseUrl || 'https://api-testnet.grc-20.thegraph.com';
+    const ipfsResponse = await fetch(`${apiBaseUrl}/ipfs/upload-edit`, {
+      method: 'POST',
+      body: formData,
     });
 
-    // Create edit proposal
-    const edit = {
-      name: editProposal.name,
-      author: editProposal.author,
-      ops: formattedOps,
-    };
-
-    console.log('Attempting IPFS upload with edit:', JSON.stringify(edit, null, 2));
-
-    // Upload to IPFS directly
-    let ipfsResponse;
-    try {
-      // Ensure proper JSON formatting with commas
-      const editJson = JSON.stringify({
-        name: edit.name,
-        author: edit.author,
-        ops: edit.ops.map(op => {
-          if (op.type === 'SET_TRIPLE') {
-            const setTripleOp = op as SetTripleOp;
-            return {
-              type: op.type,
-              triple: {
-                attribute: setTripleOp.triple.attribute,
-                entity: setTripleOp.triple.entity,
-                value: setTripleOp.triple.value
-              }
-            };
-          }
-          return op;
-        })
-      });
-      console.log('Sending JSON:', JSON.stringify(JSON.parse(editJson), null, 2));
-
-      ipfsResponse = await fetch('https://api-testnet.grc-20.thegraph.com/ipfs/upload-edit', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: editJson,
-      });
-
-      if (!ipfsResponse.ok) {
-        const errorText = await ipfsResponse.text();
-        console.error('IPFS upload failed with status:', ipfsResponse.status);
-        console.error('Error response:', errorText);
-        throw new Error(`IPFS upload failed: ${errorText}`);
-      }
-    } catch (error) {
-      console.error('IPFS upload error:', error);
-      throw error;
+    if (!ipfsResponse.ok) {
+      throw new Error(`IPFS upload failed: ${await ipfsResponse.text()}`);
     }
 
-    let ipfsResult;
-    try {
-      ipfsResult = await ipfsResponse.json() as unknown;
-    } catch (error) {
-      console.error('Failed to parse IPFS response:', error);
-      throw new Error('Failed to parse IPFS response as JSON');
+    interface IpfsResponse {
+      cid: string;
     }
-    if (!ipfsResult || typeof ipfsResult !== 'object') {
-      throw new Error('Invalid IPFS response: Expected object');
+    const ipfsResult = await ipfsResponse.json() as IpfsResponse;
+    console.log('IPFS raw response:', ipfsResult);
+    const cid = ipfsResult.cid;
+    if (!cid || typeof cid !== 'string') {
+      throw new Error(`Invalid IPFS response: Missing or invalid CID - ${JSON.stringify(ipfsResult)}`);
     }
+    const fullCid = `ipfs://${cid}`;
+    console.log('IPFS CID:', fullCid);
 
-    const ipfsData = ipfsResult as Record<string, unknown>;
-    if (!ipfsData.cid || typeof ipfsData.cid !== 'string') {
-      throw new Error('Invalid IPFS response: Missing or invalid CID');
-    }
-
-    const cid = ipfsData.cid;
-
-    console.log('Successfully uploaded to IPFS with CID:', cid);
-
-    // Step 2: Get calldata
-    const apiBaseUrl = options.apiBaseUrl || 'https://api-testnet.grc-20.thegraph.com';
-    const calldataUrl = `${apiBaseUrl}/space/${options.spaceId}/edit/calldata`;
-    console.log('Fetching calldata from:', calldataUrl);
-    
-    const result = await fetch(calldataUrl, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    // Step 2: Fetch calldata
+    console.log('Fetching calldata...');
+    const calldataResult = await fetch(`${apiBaseUrl}/space/${options.spaceId}/edit/calldata`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        cid,
-        network: "TESTNET",
+        cid, // Send raw CID without ipfs:// prefix
+        network: 'TESTNET',
       }),
     });
 
-    if (!result.ok) {
-      throw new Error(`Failed to fetch calldata: ${await result.text()}`);
+    if (!calldataResult.ok) {
+      throw new Error(`Failed to fetch calldata: ${await calldataResult.text()}`);
     }
 
-    // Validate API response
-    const response = await result.json() as unknown;
-    if (!response || typeof response !== 'object') {
-      throw new Error('Invalid API response: Expected object');
+    const calldataResponse = await calldataResult.json() as ApiResponse;
+    if (!calldataResponse.to || !calldataResponse.data) {
+      throw new Error(`Invalid calldata response: ${JSON.stringify(calldataResponse)}`);
     }
-
-    const apiResponse = response as Record<string, unknown>;
-    if (!apiResponse.to || typeof apiResponse.to !== 'string') {
-      throw new Error('Invalid API response: Missing or invalid "to" field');
-    }
-    if (!apiResponse.data || typeof apiResponse.data !== 'string') {
-      throw new Error('Invalid API response: Missing or invalid "data" field');
-    }
-
-    const { to, data } = apiResponse as ApiResponse;
-    console.log('Successfully retrieved calldata');
+    const { to, data } = calldataResponse;
+    console.log('Successfully retrieved calldata:', { to, data });
 
     // Step 3: Send transaction
     console.log('Submitting transaction...');

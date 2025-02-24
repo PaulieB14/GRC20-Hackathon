@@ -10,18 +10,16 @@ const DATA_FILE = process.env.DATA_FILE || 'data/permits-triples.json';
 const EDIT_NAME = 'Add Building Permits';
 const EXPLORER_BASE_URL = 'https://sepolia.etherscan.io/tx/';
 
-interface LocalTriple {
-  entity: string;
-  attribute: string;
-  value: {
-    type: ValueType;
-    value: string;
-  };
-}
-
 interface Entity {
   entityId: string;
-  triples: LocalTriple[];
+  triples: {
+    entity: string;
+    attribute: string;
+    value: {
+      type: ValueType;
+      value: string;
+    };
+  }[];
 }
 
 async function main() {
@@ -34,29 +32,18 @@ async function main() {
       throw new Error('SPACE_ID is not defined');
     }
 
-    // Read and validate data
-    console.log('Reading transformed data from:', DATA_FILE);
-    const permitTriples = JSON.parse(readFileSync(DATA_FILE, 'utf-8')) as Entity[];
-    if (!Array.isArray(permitTriples) || permitTriples.length === 0) {
-      throw new Error('Invalid or empty data in permits-triples.json');
-    }
-
-    // Convert to SET_TRIPLE operations
-    const permitOps: Op[] = permitTriples.flatMap(permit =>
+    const entities = JSON.parse(readFileSync(DATA_FILE, 'utf-8')) as Entity[];
+    const permitOps: Op[] = entities.flatMap(permit =>
       permit.triples.map(triple => ({
         type: 'SET_TRIPLE' as const,
         triple: {
           entity: triple.entity,
           attribute: triple.attribute,
-          value: {
-            type: 'TEXT',
-            value: triple.value.value,
-          },
+          value: triple.value,
         },
       }))
     );
 
-    // Publish permits
     console.log('Publishing permits...', { opsCount: permitOps.length });
     const txHash = await publish({
       spaceId: SPACE_ID,
@@ -65,15 +52,10 @@ async function main() {
       ops: permitOps,
     });
 
-    console.log('Transaction successful!');
     console.log('Transaction hash:', txHash);
-    console.log('Check it out at:', `${EXPLORER_BASE_URL}${txHash}`);
-
+    console.log('Explorer URL:', `${EXPLORER_BASE_URL}${txHash}`);
   } catch (error) {
-    console.error('Failed to publish data:', {
-      message: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-    });
+    console.error('Main failed:', error);
     process.exit(1);
   }
 }
