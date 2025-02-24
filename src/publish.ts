@@ -1,4 +1,4 @@
-import { Graph, Ipfs, Triple, type Op, type ValueType, type SetTripleOp } from "@graphprotocol/grc-20";
+import { Triple, type Op, type ValueType, type SetTripleOp } from "@graphprotocol/grc-20";
 import { wallet } from "./wallet.js";
 import fetch from 'node-fetch';
 
@@ -59,55 +59,99 @@ export async function publish(options: PublishOptions): Promise<string> {
     // Log edit proposal for debugging
     console.log('Edit proposal:', JSON.stringify(editProposal, null, 2));
 
-    // Upload to IPFS using SDK
-    let cid;
-    try {
-      // Format ops for IPFS
-      const formattedOps = editProposal.ops.map(op => {
-        if (op.type === 'SET_TRIPLE') {
-          const setTripleOp = op as SetTripleOp;
-          const triple = Triple.make({
-            entityId: setTripleOp.triple.entity,
-            attributeId: setTripleOp.triple.attribute,
-            value: {
-              type: 'TEXT' as const,
-              value: setTripleOp.triple.value.value,
-            },
-          });
-          console.log('Created triple:', JSON.stringify(triple, null, 2));
-          return {
-            type: 'SET_TRIPLE' as const,
-            triple: triple.triple,
-          } as SetTripleOp;
-        }
-        return op;
-      });
-
-      // Create edit proposal
-      const edit = {
-        name: editProposal.name,
-        author: editProposal.author,
-        ops: formattedOps,
-      };
-
-      console.log('Attempting IPFS upload with edit:', JSON.stringify(edit, null, 2));
-
-      // Upload to IPFS
-      cid = await Ipfs.publishEdit(edit);
-      console.log('IPFS response:', cid);
-
-      if (!cid || typeof cid !== 'string') {
-        throw new Error(`IPFS upload failed: Invalid CID returned (${cid})`);
+    // Format ops for IPFS
+    const formattedOps = editProposal.ops.map(op => {
+      if (op.type === 'SET_TRIPLE') {
+        const setTripleOp = op as SetTripleOp;
+        const triple = Triple.make({
+          entityId: setTripleOp.triple.entity,
+          attributeId: setTripleOp.triple.attribute,
+          value: {
+            type: 'TEXT' as const,
+            value: setTripleOp.triple.value.value,
+          },
+        });
+        console.log('Created triple:', JSON.stringify(triple, null, 2));
+        return {
+          type: 'SET_TRIPLE' as const,
+          triple: triple.triple,
+        } as SetTripleOp;
       }
-      console.log('Successfully uploaded to IPFS with CID:', cid);
-    } catch (error) {
-      console.error('IPFS error:', {
-        message: error instanceof Error ? error.message : String(error),
-        stack: error instanceof Error ? error.stack : undefined,
-        error,
+      return op;
+    });
+
+    // Create edit proposal
+    const edit = {
+      name: editProposal.name,
+      author: editProposal.author,
+      ops: formattedOps,
+    };
+
+    console.log('Attempting IPFS upload with edit:', JSON.stringify(edit, null, 2));
+
+    // Upload to IPFS directly
+    let ipfsResponse;
+    try {
+      // Ensure proper JSON formatting with commas
+      const editJson = JSON.stringify({
+        name: edit.name,
+        author: edit.author,
+        ops: edit.ops.map(op => {
+          if (op.type === 'SET_TRIPLE') {
+            const setTripleOp = op as SetTripleOp;
+            return {
+              type: op.type,
+              triple: {
+                attribute: setTripleOp.triple.attribute,
+                entity: setTripleOp.triple.entity,
+                value: setTripleOp.triple.value
+              }
+            };
+          }
+          return op;
+        })
       });
+      console.log('Sending JSON:', JSON.stringify(JSON.parse(editJson), null, 2));
+
+      ipfsResponse = await fetch('https://api-testnet.grc-20.thegraph.com/ipfs/upload-edit', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: editJson,
+      });
+
+      if (!ipfsResponse.ok) {
+        const errorText = await ipfsResponse.text();
+        console.error('IPFS upload failed with status:', ipfsResponse.status);
+        console.error('Error response:', errorText);
+        throw new Error(`IPFS upload failed: ${errorText}`);
+      }
+    } catch (error) {
+      console.error('IPFS upload error:', error);
       throw error;
     }
+
+    let ipfsResult;
+    try {
+      ipfsResult = await ipfsResponse.json() as unknown;
+    } catch (error) {
+      console.error('Failed to parse IPFS response:', error);
+      throw new Error('Failed to parse IPFS response as JSON');
+    }
+    if (!ipfsResult || typeof ipfsResult !== 'object') {
+      throw new Error('Invalid IPFS response: Expected object');
+    }
+
+    const ipfsData = ipfsResult as Record<string, unknown>;
+    if (!ipfsData.cid || typeof ipfsData.cid !== 'string') {
+      throw new Error('Invalid IPFS response: Missing or invalid CID');
+    }
+
+    const cid = ipfsData.cid;
+
+    console.log('Successfully uploaded to IPFS with CID:', cid);
 
     // Step 2: Get calldata
     const apiBaseUrl = options.apiBaseUrl || 'https://api-testnet.grc-20.thegraph.com';
