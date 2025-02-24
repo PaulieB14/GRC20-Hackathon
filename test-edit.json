@@ -1,0 +1,14 @@
+{
+  "name": "Add Building Permits",
+  "author": "0x6596a3C7C2eA69D04F01F064AA4e914196BbA0a7",
+  "ops": [
+    {
+      "type": "SET_TRIPLE",
+      "triple": {
+        "entity": "Npopmgjem8p6FrPrGytmVq",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+        "value": { "type": "TEXT", "value": "BR-SOL-24-00780.001" }
+      }
+    }
+  ]
+}

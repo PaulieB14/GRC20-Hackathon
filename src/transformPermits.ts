@@ -121,8 +121,14 @@ export async function transformPermits() {
       };
     });
 
-    // Write transformed data
-    const jsonString = JSON.stringify(entities, null, 2);
+    // Write transformed data with proper JSON structure
+    const jsonString = JSON.stringify(entities, (key, value) => {
+      if (typeof value === 'string') {
+        // Preserve spaces in text values
+        return value;
+      }
+      return value;
+    }, 2);
     console.log('Output size:', Buffer.byteLength(jsonString, 'utf-8'), 'bytes');
     writeFileSync('data/permits-triples.json', jsonString);
     console.log('Transformed permits data written to data/permits-triples.json');

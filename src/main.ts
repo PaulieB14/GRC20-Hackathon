@@ -39,8 +39,8 @@ async function main() {
       throw new Error('No entities found in permits-triples.json');
     }
 
-    // Transform entities into operations
-    const permitOps: Op[] = entities.flatMap(permit =>
+    // Transform entities into operations with proper structure
+    const permitOps: Op[] = entities.flatMap(permit => 
       permit.triples.map(triple => ({
         type: 'SET_TRIPLE' as const,
         triple: {
