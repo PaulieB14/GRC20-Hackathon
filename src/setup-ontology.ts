@@ -1,281 +1,120 @@
-import { Id, SystemIds, Triple, Relation, type Op, type ValueType } from "@graphprotocol/grc-20";
+import { Graph, type Op } from "@graphprotocol/grc-20";
+import { publish } from "./publish.js";
 import { wallet } from "./wallet.js";
 
 const PERMITS_SPACE_ID = '7gzF671tq5JTZ13naG4tnr';
 const DEEDS_SPACE_ID = '7gzF671tq5JTZ13naG4tnr';
 
-type PublishOptions = {
-  spaceId: string;
-  editName: string;
-  ops: Op[];
-};
-
-async function publish(options: PublishOptions) {
-  console.log('Publishing edit:', options.editName);
-  console.log('Operations:', JSON.stringify(options.ops, null, 2));
-
-  // Get the transaction data
-  console.log('Getting transaction data...');
-  const result = await fetch(`https://rpc-geo-test-zc16z3tcvf.t.conduit.xyz/`, {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: 1,
-      method: "geo_edit",
-      params: [{
-        spaceId: options.spaceId,
-        name: options.editName,
-        ops: options.ops,
-        timestamp: Date.now(),
-        editor: wallet.account.address
-      }]
-    }),
-  });
-
-  if (!result.ok) {
-    const errorText = await result.text();
-    throw new Error(`Failed to get transaction data: ${errorText}`);
-  }
-
-  const { result: { to, data } } = await result.json();
-  console.log('Got transaction data:', { to, data });
-
-  console.log('Sending transaction...');
-  const tx = await wallet.sendTransaction({
-    to: to as `0x${string}`,
-    value: 0n,
-    data: data as `0x${string}`,
-  });
-  console.log('Transaction sent:', tx);
-
-  return tx;
-}
-
-// Helper functions for creating types and properties
-function createType(name: string, description: string | null = null, typeOfId: string | null = null): [Op[], string] {
-  const typeId = Id.generate();
-  const ops: Op[] = [];
-
-  // Add name
-  ops.push({
-    type: 'SET_TRIPLE',
-    triple: {
-      entity: typeId,
-      attribute: SystemIds.NAME_ATTRIBUTE,
-      value: {
-        type: 'TEXT' as ValueType,
-        value: name
-      }
-    }
-  });
-
-  // Add description if provided
-  if (description) {
-    ops.push({
-      type: 'SET_TRIPLE',
-      triple: {
-        entity: typeId,
-        attribute: SystemIds.DESCRIPTION_ATTRIBUTE,
-        value: {
-          type: 'TEXT' as ValueType,
-          value: description
-        }
-      }
-    });
-  }
-
-  // Set type relation
-  ops.push({
-    type: 'SET_TRIPLE',
-    triple: {
-      entity: typeId,
-      attribute: SystemIds.TYPES_ATTRIBUTE,
-      value: {
-        type: 'TEXT' as ValueType,
-        value: typeOfId || SystemIds.TYPES_ATTRIBUTE // Use as base type
-      }
-    }
-  });
-
-  return [ops, typeId];
-}
-
-function createProperty(name: string, valueType: string, description: string | null = null, propertyOfId: string | null = null): [Op[], string] {
-  const propertyId = Id.generate();
-  const ops: Op[] = [];
-
-  // Add name
-  ops.push({
-    type: 'SET_TRIPLE',
-    triple: {
-      entity: propertyId,
-      attribute: SystemIds.NAME_ATTRIBUTE,
-      value: {
-        type: 'TEXT' as ValueType,
-        value: name
-      }
-    }
-  });
-
-  // Add description if provided
-  if (description) {
-    ops.push({
-      type: 'SET_TRIPLE',
-      triple: {
-        entity: propertyId,
-        attribute: SystemIds.DESCRIPTION_ATTRIBUTE,
-        value: {
-          type: 'TEXT' as ValueType,
-          value: description
-        }
-      }
-    });
-  }
-
-  // Set value type
-  ops.push({
-    type: 'SET_TRIPLE',
-    triple: {
-      entity: propertyId,
-      attribute: SystemIds.VALUE_TYPE_ATTRIBUTE,
-      value: {
-        type: 'TEXT' as ValueType,
-        value: valueType.toUpperCase()
-      }
-    }
-  });
-
-  // Set property relation
-  if (propertyOfId) {
-    ops.push({
-      type: 'SET_TRIPLE',
-      triple: {
-        entity: propertyId,
-        attribute: SystemIds.TYPES_ATTRIBUTE,
-        value: {
-          type: 'TEXT' as ValueType,
-          value: propertyOfId
-        }
-      }
-    });
-  }
-
-  return [ops, propertyId];
-}
-
 async function setupOntology() {
   try {
-    const allOps: Op[] = [];
+    const ops: Op[] = [];
 
-    // Create Building Permit Type
-    console.log('Creating Building Permit Type...');
-    const [permitTypeOps, permitTypeId] = createType(
-      'Building Permit',
-      'A permit issued for construction or modification of a building'
-    );
-    allOps.push(...permitTypeOps);
-
-    // Create Property Deed Type
-    console.log('Creating Property Deed Type...');
-    const [deedTypeOps, deedTypeId] = createType(
-      'Property Deed',
-      'A legal document proving ownership of a property'
-    );
-    allOps.push(...deedTypeOps);
-
-    // Create common properties
-    console.log('Creating common properties...');
+    // Create Building Permit Type and its properties
+    console.log('Creating Building Permit properties...');
     
-    // ID Property
-    const [idPropOps, idPropId] = createProperty(
-      'ID',
-      'TEXT',
-      'Unique identifier',
-      permitTypeId
-    );
-    allOps.push(...idPropOps);
+    const { id: idPropertyId, ops: idOps } = Graph.createProperty({
+      name: 'ID',
+      type: 'TEXT',
+      description: 'Unique identifier',
+    });
+    ops.push(...idOps);
 
-    // Date Property
-    const [datePropOps, datePropId] = createProperty(
-      'Date',
-      'DATE',
-      'Date of issuance',
-      permitTypeId
-    );
-    allOps.push(...datePropOps);
+    const { id: datePropertyId, ops: dateOps } = Graph.createProperty({
+      name: 'Date',
+      type: 'TIME',
+      description: 'Date of issuance',
+    });
+    ops.push(...dateOps);
 
-    // Address Property
-    const [addressPropOps, addressPropId] = createProperty(
-      'Address',
-      'TEXT',
-      'Physical address',
-      permitTypeId
-    );
-    allOps.push(...addressPropOps);
+    const { id: addressPropertyId, ops: addressOps } = Graph.createProperty({
+      name: 'Address',
+      type: 'TEXT',
+      description: 'Physical address',
+    });
+    ops.push(...addressOps);
 
-    // Create permit-specific properties
-    console.log('Creating permit-specific properties...');
+    const { id: permitTypePropertyId, ops: permitTypeOps } = Graph.createProperty({
+      name: 'Permit Type',
+      type: 'TEXT',
+      description: 'Type of building permit',
+    });
+    ops.push(...permitTypeOps);
+
+    const { id: statusPropertyId, ops: statusOps } = Graph.createProperty({
+      name: 'Status',
+      type: 'TEXT',
+      description: 'Current status of the permit',
+    });
+    ops.push(...statusOps);
+
+    console.log('Creating Building Permit type...');
+    const { id: permitTypeId, ops: permitTypeEntityOps } = Graph.createType({
+      name: 'Building Permit',
+      description: 'A permit issued for construction or modification of a building',
+      properties: [
+        idPropertyId,
+        datePropertyId,
+        addressPropertyId,
+        permitTypePropertyId,
+        statusPropertyId,
+      ],
+    });
+    ops.push(...permitTypeEntityOps);
+
+    // Create Property Deed Type and its properties
+    console.log('Creating Property Deed properties...');
     
-    // Permit Type Property
-    const [permitTypePropOps, permitTypePropId] = createProperty(
-      'Permit Type',
-      'TEXT',
-      'Type of building permit',
-      permitTypeId
-    );
-    allOps.push(...permitTypePropOps);
+    const { id: grantorPropertyId, ops: grantorOps } = Graph.createProperty({
+      name: 'Grantor',
+      type: 'TEXT',
+      description: 'Person transferring the property',
+    });
+    ops.push(...grantorOps);
 
-    // Status Property
-    const [statusPropOps, statusPropId] = createProperty(
-      'Status',
-      'TEXT',
-      'Current status of the permit',
-      permitTypeId
-    );
-    allOps.push(...statusPropOps);
+    const { id: granteePropertyId, ops: granteeOps } = Graph.createProperty({
+      name: 'Grantee',
+      type: 'TEXT',
+      description: 'Person receiving the property',
+    });
+    ops.push(...granteeOps);
 
-    // Create deed-specific properties
-    console.log('Creating deed-specific properties...');
-    
-    // Grantor Property
-    const [grantorPropOps, grantorPropId] = createProperty(
-      'Grantor',
-      'TEXT',
-      'Person transferring the property',
-      deedTypeId
-    );
-    allOps.push(...grantorPropOps);
+    const { id: saleAmountPropertyId, ops: saleAmountOps } = Graph.createProperty({
+      name: 'Sale Amount',
+      type: 'NUMBER',
+      description: 'Amount of the property sale',
+    });
+    ops.push(...saleAmountOps);
 
-    // Grantee Property
-    const [granteePropOps, granteePropId] = createProperty(
-      'Grantee',
-      'TEXT',
-      'Person receiving the property',
-      deedTypeId
-    );
-    allOps.push(...granteePropOps);
+    console.log('Creating Property Deed type...');
+    const { id: deedTypeId, ops: deedTypeEntityOps } = Graph.createType({
+      name: 'Property Deed',
+      description: 'A legal document proving ownership of a property',
+      properties: [
+        idPropertyId,
+        datePropertyId,
+        addressPropertyId,
+        grantorPropertyId,
+        granteePropertyId,
+        saleAmountPropertyId,
+      ],
+    });
+    ops.push(...deedTypeEntityOps);
 
-    // Sale Amount Property
-    const [salePropOps, salePropId] = createProperty(
-      'Sale Amount',
-      'NUMBER',
-      'Amount of the property sale',
-      deedTypeId
-    );
-    allOps.push(...salePropOps);
-
+    // Publish to both spaces
     console.log('Publishing ontology to GRC-20...');
     const editName = 'Setup Pinellas County Ontology';
     
+    if (!wallet?.account?.address) {
+      throw new Error('Wallet not initialized or address missing');
+    }
+
     // First publish to permits space
     console.log('Publishing to permits space...');
     await publish({
       spaceId: PERMITS_SPACE_ID,
       editName,
-      ops: allOps
+      author: wallet.account.address,
+      ops,
     });
 
     // Then publish to deeds space
@@ -283,7 +122,8 @@ async function setupOntology() {
     await publish({
       spaceId: DEEDS_SPACE_ID,
       editName,
-      ops: allOps
+      author: wallet.account.address,
+      ops,
     });
     
     console.log('Ontology setup completed');
@@ -291,18 +131,18 @@ async function setupOntology() {
     return {
       types: {
         permitType: permitTypeId,
-        deedType: deedTypeId
+        deedType: deedTypeId,
       },
       properties: {
-        id: idPropId,
-        date: datePropId,
-        address: addressPropId,
-        permitType: permitTypePropId,
-        status: statusPropId,
-        grantor: grantorPropId,
-        grantee: granteePropId,
-        saleAmount: salePropId
-      }
+        id: idPropertyId,
+        date: datePropertyId,
+        address: addressPropertyId,
+        permitType: permitTypePropertyId,
+        status: statusPropertyId,
+        grantor: grantorPropertyId,
+        grantee: granteePropertyId,
+        saleAmount: saleAmountPropertyId,
+      },
     };
   } catch (error) {
     console.error('Failed to setup ontology:', error);

@@ -1,14 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import { parse } from '@fast-csv/parse';
-import { Id, Triple, ValueType } from '@graphprotocol/grc-20';
-
-// System attribute IDs
-const NAME_ATTRIBUTE = 'LuBWqZAu6pz54eiJS5mLv8';
-const DESCRIPTION_ATTRIBUTE = 'LA1DqP5v6QAdsgLPXGF3YA';
-const RECORD_TYPE_ATTRIBUTE = 'SyaPQfHTf3uxTAqwhuMHHa';
-const ADDRESS_ATTRIBUTE = 'DfjyQFDy6k4dW9XaSgYttn';
-const PROJECT_NAME_ATTRIBUTE = '5yDjGNQEErVNpVZ3c61Uib';
-const STATUS_ATTRIBUTE = '3UP1qvruj8SipH9scUz1EY';
+import { Graph, type Op } from '@graphprotocol/grc-20';
 
 interface PermitRecord {
   'Record Number': string;
@@ -19,21 +11,11 @@ interface PermitRecord {
   'Status'?: string;
 }
 
-export interface LocalTriple {
-  attributeId: string;
-  value: { type: ValueType; value: string };
-}
-
-export interface Entity {
-  entityId: string;
-  triples: LocalTriple[];
-}
-
 /**
- * Transforms permits.csv into a JSON structure of entities with triples for IPFS and GRC-20.
- * Outputs to data/permits-triples.json.
+ * Transforms permits.csv into a set of Graph operations using the GRC-20 SDK.
+ * Creates properties, types, and entities for permit records.
  */
-export async function transformPermits() {
+export async function transformPermits(): Promise<Op[]> {
   try {
     // Read and parse CSV
     const csvData = readFileSync('data/permits.csv', 'utf-8');
@@ -59,81 +41,99 @@ export async function transformPermits() {
       }
     });
 
-    // Transform records to triples
-    const entities = records.map(record => {
-      const entityId = Id.generate();
+    const ops: Op[] = [];
 
-      // Create triples
-      const triples = [
-        {
-          entity: entityId,
-          attribute: NAME_ATTRIBUTE,
-          value: {
-            type: 'TEXT',
-            value: record['Record Number']
-          }
-        },
-        {
-          entity: entityId,
-          attribute: DESCRIPTION_ATTRIBUTE,
-          value: {
-            type: 'TEXT',
-            value: record['Description'] || ''
-          }
-        },
-        {
-          entity: entityId,
-          attribute: RECORD_TYPE_ATTRIBUTE,
-          value: {
-            type: 'TEXT',
-            value: record['Record Type'] || ''
-          }
-        },
-        {
-          entity: entityId,
-          attribute: ADDRESS_ATTRIBUTE,
-          value: {
-            type: 'TEXT',
-            value: record['Address'] || ''
-          }
-        },
-        {
-          entity: entityId,
-          attribute: PROJECT_NAME_ATTRIBUTE,
-          value: {
-            type: 'TEXT',
-            value: record['Project Name'] || ''
-          }
-        },
-        {
-          entity: entityId,
-          attribute: STATUS_ATTRIBUTE,
-          value: {
-            type: 'TEXT',
-            value: record['Status'] || ''
-          }
-        }
-      ];
-
-      return {
-        entityId,
-        triples
-      };
+    // Create properties for permit fields
+    console.log('Creating properties...');
+    const { id: recordNumberId, ops: recordNumberOps } = Graph.createProperty({
+      name: 'Record Number',
+      type: 'TEXT',
     });
+    ops.push(...recordNumberOps);
 
-    // Write transformed data with proper JSON structure
-    const jsonString = JSON.stringify(entities, (key, value) => {
-      if (typeof value === 'string') {
-        // Preserve spaces in text values
-        return value;
-      }
-      return value;
-    }, 2);
-    console.log('Output size:', Buffer.byteLength(jsonString, 'utf-8'), 'bytes');
-    writeFileSync('data/permits-triples.json', jsonString);
-    console.log('Transformed permits data written to data/permits-triples.json');
+    const { id: descriptionId, ops: descriptionOps } = Graph.createProperty({
+      name: 'Description',
+      type: 'TEXT',
+    });
+    ops.push(...descriptionOps);
 
-    return entities;
+    const { id: recordTypeId, ops: recordTypeOps } = Graph.createProperty({
+      name: 'Record Type',
+      type: 'TEXT',
+    });
+    ops.push(...recordTypeOps);
+
+    const { id: addressId, ops: addressOps } = Graph.createProperty({
+      name: 'Address',
+      type: 'TEXT',
+    });
+    ops.push(...addressOps);
+
+    const { id: projectNameId, ops: projectNameOps } = Graph.createProperty({
+      name: 'Project Name',
+      type: 'TEXT',
+    });
+    ops.push(...projectNameOps);
+
+    const { id: statusId, ops: statusOps } = Graph.createProperty({
+      name: 'Status',
+      type: 'TEXT',
+    });
+    ops.push(...statusOps);
+
+    // Create permit type
+    console.log('Creating permit type...');
+    const { id: permitTypeId, ops: permitTypeOps } = Graph.createType({
+      name: 'Permit',
+      properties: [
+        recordNumberId,
+        descriptionId,
+        recordTypeId,
+        addressId,
+        projectNameId,
+        statusId,
+      ],
+    });
+    ops.push(...permitTypeOps);
+
+    // Create entities for each permit record
+    console.log('Creating permit entities...');
+    for (const record of records) {
+      const { ops: entityOps } = Graph.createEntity({
+        name: record['Record Number'],
+        types: [permitTypeId],
+        properties: {
+          [recordNumberId]: {
+            type: 'TEXT',
+            value: record['Record Number'],
+          },
+          [descriptionId]: {
+            type: 'TEXT',
+            value: record['Description'] || '',
+          },
+          [recordTypeId]: {
+            type: 'TEXT',
+            value: record['Record Type'] || '',
+          },
+          [addressId]: {
+            type: 'TEXT',
+            value: record['Address'] || '',
+          },
+          [projectNameId]: {
+            type: 'TEXT',
+            value: record['Project Name'] || '',
+          },
+          [statusId]: {
+            type: 'TEXT',
+            value: record['Status'] || '',
+          },
+        },
+      });
+      ops.push(...entityOps);
+    }
+
+    console.log(`Transformed ${records.length} permits into ${ops.length} operations`);
+    return ops;
   } catch (error) {
     console.error('Transformation failed:', error instanceof Error ? error.message : String(error));
     throw error;
