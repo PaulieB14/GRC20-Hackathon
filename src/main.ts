@@ -1,99 +1,81 @@
 import { readFileSync } from 'fs';
-import { Triple, type Op } from "@graphprotocol/grc-20";
-import { publish, type PublishResult } from "./publish.js";
+import { Triple, type Op, type ValueType } from "@graphprotocol/grc-20";
+import { publish } from "./publish.js";
 import { wallet } from "./wallet.js";
 import 'dotenv/config';
 
-type LocalTriple = {
-  attributeId: string;
-  entityId: string;
+// Configuration
+const SPACE_ID = process.env.SPACE_ID || "0x4E0dB2b307B284d3380842dB7889212f4C5C95B7";
+const DATA_FILE = process.env.DATA_FILE || 'data/permits-triples.json';
+const EDIT_NAME = 'Add Building Permits';
+const EXPLORER_BASE_URL = 'https://sepolia.etherscan.io/tx/';
+
+interface LocalTriple {
+  entity: string;
+  attribute: string;
   value: {
-    type: string;
+    type: ValueType;
     value: string;
   };
-};
+}
 
-type Entity = {
+interface Entity {
   entityId: string;
   triples: LocalTriple[];
-};
-
-// Use the deployed space ID from testnet
-const SPACE_ID = "0x4E0dB2b307B284d3380842dB7889212f4C5C95B7" as `0x${string}`;
-
-async function waitForConfirmation(txHash: PublishResult['txHash']) {
-  console.log(`Waiting for confirmation of transaction: ${txHash}`);
-  while (true) {
-    const receipt = await wallet.publicClient.getTransactionReceipt({ hash: txHash });
-    if (receipt && receipt.blockNumber) {
-      console.log(`Transaction ${txHash} confirmed in block ${receipt.blockNumber}`);
-      break;
-    }
-    console.log(`Transaction ${txHash} not yet confirmed, waiting...`);
-    await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 5 seconds before checking again
-  }
 }
 
 async function main() {
   try {
-    // Read the transformed data
-    console.log('Reading transformed data...');
-    const permitTriples = JSON.parse(readFileSync('data/permits-triples.json', 'utf-8')) as Entity[];
+    // Validate setup
+    if (!wallet?.account?.address) {
+      throw new Error('Wallet not initialized or address missing');
+    }
+    if (!SPACE_ID) {
+      throw new Error('SPACE_ID is not defined');
+    }
 
-    // Log raw triples before conversion
-    console.log('First raw triple:', permitTriples[0].triples[0]);
+    // Read and validate data
+    console.log('Reading transformed data from:', DATA_FILE);
+    const permitTriples = JSON.parse(readFileSync(DATA_FILE, 'utf-8')) as Entity[];
+    if (!Array.isArray(permitTriples) || permitTriples.length === 0) {
+      throw new Error('Invalid or empty data in permits-triples.json');
+    }
 
-    // Convert to SET_TRIPLE operations using Triple.make
-    const permitOps = permitTriples.flatMap(permit => 
-      permit.triples.map(triple => {
-        const op = Triple.make({
-          entityId: permit.entityId,
-          attributeId: triple.attributeId,
+    // Convert to SET_TRIPLE operations
+    const permitOps: Op[] = permitTriples.flatMap(permit =>
+      permit.triples.map(triple => ({
+        type: 'SET_TRIPLE' as const,
+        triple: {
+          entity: triple.entity,
+          attribute: triple.attribute,
           value: {
             type: 'TEXT',
-            value: triple.value.value
-          }
-        });
-        console.log('Triple.make input:', {
-          entityId: permit.entityId,
-          attributeId: triple.attributeId,
-          value: {
-            type: 'TEXT',
-            value: triple.value.value
-          }
-        });
-        console.log('Triple.make output:', op);
-        return op;
-      })
+            value: triple.value.value,
+          },
+        },
+      }))
     );
 
     // Publish permits
-    console.log('Publishing permits...');
-    const publishResult = await publish({
-      spaceId: SPACE_ID as string,
+    console.log('Publishing permits...', { opsCount: permitOps.length });
+    const txHash = await publish({
+      spaceId: SPACE_ID,
       author: wallet.account.address,
-      editName: "Add Building Permits",
+      editName: EDIT_NAME,
       ops: permitOps,
-      network: "TESTNET" // Since we're using api-testnet endpoint
     });
-    console.log("IPFS CID:", publishResult.ipfsCid);
-    console.log("Transaction hash:", publishResult.txHash);
 
-    // Wait for confirmation
-    await waitForConfirmation(publishResult.txHash);
+    console.log('Transaction successful!');
+    console.log('Transaction hash:', txHash);
+    console.log('Check it out at:', `${EXPLORER_BASE_URL}${txHash}`);
 
   } catch (error) {
-    console.error('Failed to publish data:', error);
+    console.error('Failed to publish data:', {
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
     process.exit(1);
   }
 }
 
-// Execute if running directly
-if (import.meta.url === new URL(import.meta.url).href) {
-  main()
-    .then(() => process.exit(0))
-    .catch(error => {
-      console.error(error);
-      process.exit(1);
-    });
-}
+main();

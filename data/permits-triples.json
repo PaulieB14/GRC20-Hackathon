@@ -1,50 +1,50 @@
 [
   {
-    "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+    "entityId": "KfcvZuez98UJ3ARP71Xg3V",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+        "entity": "KfcvZuez98UJ3ARP71Xg3V",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BR-DMO-25-00104"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+        "entity": "KfcvZuez98UJ3ARP71Xg3V",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Demolition of destroyed trailer home due to the storm"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+        "entity": "KfcvZuez98UJ3ARP71Xg3V",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Residential Demolition"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+        "entity": "KfcvZuez98UJ3ARP71Xg3V",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "10636 GANDY BLVD, 43, ST PETERSBURG 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+        "entity": "KfcvZuez98UJ3ARP71Xg3V",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Mobile Home Demolition"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "AmbPXm5GHTGzpyTQeS3Nsk",
+        "entity": "KfcvZuez98UJ3ARP71Xg3V",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Awaiting Plans"
@@ -53,51 +53,51 @@
     ]
   },
   {
-    "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+    "entityId": "Lt4XUC2y2yVG6YX1XxTVym",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+        "entity": "Lt4XUC2y2yVG6YX1XxTVym",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BC-ELE-25-00045"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+        "entity": "Lt4XUC2y2yVG6YX1XxTVym",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Fire Alarm Panel Relocate"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+        "entity": "Lt4XUC2y2yVG6YX1XxTVym",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Commercial Electrical"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+        "entity": "Lt4XUC2y2yVG6YX1XxTVym",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "10596 GANDY BLVD, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+        "entity": "Lt4XUC2y2yVG6YX1XxTVym",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "(FLAG) CS - FIRE ALARM - Goodwill Suncoast"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "LKPqU3mi6T9ytK4Y88Rmau",
+        "entity": "Lt4XUC2y2yVG6YX1XxTVym",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Incomplete Submittal"
@@ -106,51 +106,51 @@
     ]
   },
   {
-    "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+    "entityId": "SCXVXW9jewSiwWiiscAjVz",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+        "entity": "SCXVXW9jewSiwWiiscAjVz",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "EBP-25-02988"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+        "entity": "SCXVXW9jewSiwWiiscAjVz",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Reroof 21sq. with Owens Corning shingles FL10674.1 R20 and Owens Corning Underlayment FL15216.1 R13. Reroof 4sq. flat roof with CertainTeed Modified FL2533.1 R32"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+        "entity": "SCXVXW9jewSiwWiiscAjVz",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Express Building Permit"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+        "entity": "SCXVXW9jewSiwWiiscAjVz",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "6443 26TH WAY N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+        "entity": "SCXVXW9jewSiwWiiscAjVz",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Toebaas"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "HdpwgfgqXmvAFLyvrmrbTB",
+        "entity": "SCXVXW9jewSiwWiiscAjVz",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Issued"
@@ -159,51 +159,51 @@
     ]
   },
   {
-    "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+    "entityId": "Q5BnsezQhMF5wcD4DSvC5W",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+        "entity": "Q5BnsezQhMF5wcD4DSvC5W",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "25TMP-011454"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+        "entity": "Q5BnsezQhMF5wcD4DSvC5W",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Disconnect old service meter, provide a new 150 amp meter main service box, and add 1 GFCI receptacle for temp power. New meter and service will be permanent after temp power."
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+        "entity": "Q5BnsezQhMF5wcD4DSvC5W",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Express Building Permit"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+        "entity": "Q5BnsezQhMF5wcD4DSvC5W",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "6599 31ST ST N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+        "entity": "Q5BnsezQhMF5wcD4DSvC5W",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "New Meter Main"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "4XKaYXSTiqxpMFSes3PKsx",
+        "entity": "Q5BnsezQhMF5wcD4DSvC5W",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "N/A"
@@ -212,51 +212,51 @@
     ]
   },
   {
-    "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+    "entityId": "UzLrvN6rWsa71M2UdEXepy",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+        "entity": "UzLrvN6rWsa71M2UdEXepy",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "EBP-25-02793"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+        "entity": "UzLrvN6rWsa71M2UdEXepy",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Remove old roofing system and install Atlas Shingle roofing system (30sq with 4/12 pitch). PPI - Nobility Inspections"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+        "entity": "UzLrvN6rWsa71M2UdEXepy",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Express Building Permit"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+        "entity": "UzLrvN6rWsa71M2UdEXepy",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "6563 28TH ST N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+        "entity": "UzLrvN6rWsa71M2UdEXepy",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Brad Graham - Florida Real Estate Mgt. Invest."
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "Mwbb4k2zkmjqBzC9F6RGvf",
+        "entity": "UzLrvN6rWsa71M2UdEXepy",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Issued"
@@ -265,51 +265,51 @@
     ]
   },
   {
-    "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+    "entityId": "E1ggLjfD15Wqyu3A4o3cZ9",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+        "entity": "E1ggLjfD15Wqyu3A4o3cZ9",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BR-PLB-25-00053"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+        "entity": "E1ggLjfD15Wqyu3A4o3cZ9",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Replace 40-gallon water heater"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+        "entity": "E1ggLjfD15Wqyu3A4o3cZ9",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Residential Plumbing"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+        "entity": "E1ggLjfD15Wqyu3A4o3cZ9",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "3231 66TH AVE N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+        "entity": "E1ggLjfD15Wqyu3A4o3cZ9",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Ashley Fischer"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "BkD4b7GAcQP9mKsFQCrfnW",
+        "entity": "E1ggLjfD15Wqyu3A4o3cZ9",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Awaiting Plans"
@@ -318,51 +318,51 @@
     ]
   },
   {
-    "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+    "entityId": "9PMwmFwRYjYtA4dDFzr5VE",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+        "entity": "9PMwmFwRYjYtA4dDFzr5VE",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BR-ELE-25-00132"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+        "entity": "9PMwmFwRYjYtA4dDFzr5VE",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Add a 150 amp meter main/tug box disconnect on side of house for temp service. Will be a permanent system after temp use."
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+        "entity": "9PMwmFwRYjYtA4dDFzr5VE",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Residential Electrical"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+        "entity": "9PMwmFwRYjYtA4dDFzr5VE",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "6599 31ST ST N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+        "entity": "9PMwmFwRYjYtA4dDFzr5VE",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Meter Main"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "EcvsAsoR1fbvHhJixGPfC8",
+        "entity": "9PMwmFwRYjYtA4dDFzr5VE",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Closed - Withdrawn"
@@ -371,51 +371,51 @@
     ]
   },
   {
-    "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+    "entityId": "BC1K2hRXn2VYe7ayMMB7Rv",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+        "entity": "BC1K2hRXn2VYe7ayMMB7Rv",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BR-SFR-24-00209.001"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+        "entity": "BC1K2hRXn2VYe7ayMMB7Rv",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Shifting the house 4' to the North to allow for more room between the new build and the adjacent home."
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+        "entity": "BC1K2hRXn2VYe7ayMMB7Rv",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Residential Revision-Supplement"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+        "entity": "BC1K2hRXn2VYe7ayMMB7Rv",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "6485 31ST ST N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+        "entity": "BC1K2hRXn2VYe7ayMMB7Rv",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Revision Request (BR-SFR-24-00209)"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "4eFdAVYs3xaS1oJwfEYGwe",
+        "entity": "BC1K2hRXn2VYe7ayMMB7Rv",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Closed - Supp-Rev Approved"
@@ -424,51 +424,51 @@
     ]
   },
   {
-    "entityId": "HAunSDemrtU5Gde2NGgdYb",
+    "entityId": "FZBa9iGdAcdhih715vNzwm",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "HAunSDemrtU5Gde2NGgdYb",
+        "entity": "FZBa9iGdAcdhih715vNzwm",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BC-DMO-25-00005"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "HAunSDemrtU5Gde2NGgdYb",
+        "entity": "FZBa9iGdAcdhih715vNzwm",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Full commercial building demolition"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "HAunSDemrtU5Gde2NGgdYb",
+        "entity": "FZBa9iGdAcdhih715vNzwm",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Commercial Demolition"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "HAunSDemrtU5Gde2NGgdYb",
+        "entity": "FZBa9iGdAcdhih715vNzwm",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "10490 GANDY BLVD, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "HAunSDemrtU5Gde2NGgdYb",
+        "entity": "FZBa9iGdAcdhih715vNzwm",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Kennel Club"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "HAunSDemrtU5Gde2NGgdYb",
+        "entity": "FZBa9iGdAcdhih715vNzwm",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Awaiting Plans"
@@ -477,51 +477,51 @@
     ]
   },
   {
-    "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+    "entityId": "64JZNNRYwZxtAxhjNoKffY",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+        "entity": "64JZNNRYwZxtAxhjNoKffY",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "EBP-25-02511"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+        "entity": "64JZNNRYwZxtAxhjNoKffY",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "Remove and replace 18sq of shingles"
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+        "entity": "64JZNNRYwZxtAxhjNoKffY",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Express Building Permit"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+        "entity": "64JZNNRYwZxtAxhjNoKffY",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "10947 1ST WAY N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+        "entity": "64JZNNRYwZxtAxhjNoKffY",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Mitchell residence"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "Nn8h2e6o2jEH7p8DNoUsju",
+        "entity": "64JZNNRYwZxtAxhjNoKffY",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "Submitted"
@@ -530,51 +530,51 @@
     ]
   },
   {
-    "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+    "entityId": "MhZGJ4LT43GQc1qrM433Yd",
     "triples": [
       {
-        "attributeId": "LuBWqZAu6pz54eiJS5mLv8",
-        "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+        "entity": "MhZGJ4LT43GQc1qrM433Yd",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
         "value": {
           "type": "TEXT",
           "value": "BR-SOL-24-00780.001"
         }
       },
       {
-        "attributeId": "LA1DqP5v6QAdsgLPXGF3YA",
-        "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+        "entity": "MhZGJ4LT43GQc1qrM433Yd",
+        "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
         "value": {
           "type": "TEXT",
           "value": "The main meter is under 200A. Need to change the meter to a main meter combo, relocate breaker injection, and remove the feed-through panel."
         }
       },
       {
-        "attributeId": "SyaPQfHTf3uxTAqwhuMHHa",
-        "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+        "entity": "MhZGJ4LT43GQc1qrM433Yd",
+        "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
           "value": "Residential Revision-Supplement"
         }
       },
       {
-        "attributeId": "DfjyQFDy6k4dW9XaSgYttn",
-        "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+        "entity": "MhZGJ4LT43GQc1qrM433Yd",
+        "attribute": "DfjyQFDy6k4dW9XaSgYttn",
         "value": {
           "type": "TEXT",
           "value": "2628 65TH AVE N, ST PETERSBURG FL 33702"
         }
       },
       {
-        "attributeId": "5yDjGNQEErVNpVZ3c61Uib",
-        "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+        "entity": "MhZGJ4LT43GQc1qrM433Yd",
+        "attribute": "5yDjGNQEErVNpVZ3c61Uib",
         "value": {
           "type": "TEXT",
           "value": "Revision Request (BR-SOL-24-00780)"
         }
       },
       {
-        "attributeId": "3UP1qvruj8SipH9scUz1EY",
-        "entityId": "8BGLR3mPjbK7AmP2Zg8v4T",
+        "entity": "MhZGJ4LT43GQc1qrM433Yd",
+        "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
           "value": "In Review"
