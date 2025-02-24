@@ -1,11 +1,8 @@
-import { Ipfs, type Op } from "@graphprotocol/grc-20";
+import { type Op } from "@graphprotocol/grc-20";
 import { wallet } from "./wallet.js";
+import { Ipfs } from "@graphprotocol/grc-20";
 import fetch from 'node-fetch';
-
-type CalldataResponse = {
-  to: string;
-  data: string;
-};
+import 'dotenv/config';
 
 type PublishOptions = {
   /** The ID of the space to publish to */
@@ -16,18 +13,34 @@ type PublishOptions = {
   author: string;
   /** Array of operations to include in the proposal */
   ops: Op[];
-  /** Optional override for API endpoint */
-  apiBaseUrl?: string;
+};
+
+type IpfsResponse = {
+  Hash: string;
+  Size: string;
+  Name: string;
+};
+
+type CallDataResponse = {
+  to: string;
+  data: string;
 };
 
 /**
- * Publishes an edit proposal to IPFS and submits it to the GRC-20 network using the SDK.
+ * Publishes an edit proposal to IPFS and submits it to the GRC-20 network.
  * 
  * @param options - Configuration for the publish operation
  * @returns Promise<string> - Transaction hash of the submitted edit
  */
 export async function publish(options: PublishOptions): Promise<string> {
   try {
+    console.log('Starting publish operation...');
+    console.log('Environment:', {
+      RPC_URL: process.env.RPC_URL,
+      WALLET_ADDRESS: process.env.WALLET_ADDRESS,
+      SPACE_ID: process.env.SPACE_ID,
+    });
+
     // Validate required fields
     if (!options.spaceId || !options.editName || !options.author || !options.ops.length) {
       throw new Error('Missing required fields in publish options: spaceId, editName, author, and ops are required');
@@ -37,46 +50,88 @@ export async function publish(options: PublishOptions): Promise<string> {
       name: options.editName,
       author: options.author,
       opsCount: options.ops.length,
+      spaceId: options.spaceId,
     });
 
-    // Use SDK to publish edit to IPFS
-    const cid = await Ipfs.publishEdit({
+    // Log edit data details
+    console.log('Edit data:', {
+      name: options.editName,
+      author: options.author,
+      opsCount: options.ops.length,
+      firstOp: options.ops[0],
+      lastOp: options.ops[options.ops.length - 1],
+    });
+
+    // Step 1: Publish edit to IPFS
+    console.log('Publishing edit to IPFS...');
+    const editData = {
       name: options.editName,
       ops: options.ops,
       author: options.author,
+      timestamp: Date.now(),
+    };
+
+    const ipfsResult = await fetch('https://api.thegraph.com/ipfs/api/v0/add?pin=true', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: JSON.stringify(editData),
     });
 
-    console.log('Successfully published to IPFS:', cid);
+    if (!ipfsResult.ok) {
+      throw new Error(`Failed to upload to IPFS: ${await ipfsResult.text()}`);
+    }
 
-    // Fetch calldata using the new API
-    const apiBaseUrl = options.apiBaseUrl || 'https://api-testnet.grc-20.thegraph.com';
-    const calldataResult = await fetch(`${apiBaseUrl}/space/${options.spaceId}/edit/calldata`, {
+    const ipfsResponse = (await ipfsResult.json()) as IpfsResponse;
+    const ipfsCid = `ipfs://${ipfsResponse.Hash}`;
+    console.log('Successfully published to IPFS:', ipfsCid);
+
+    // Step 2: Get calldata from API
+    console.log('Getting calldata from API...');
+    const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${options.spaceId}/edit/calldata`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        cid,
+        cid: ipfsCid,
         network: 'TESTNET',
       }),
     });
 
-    if (!calldataResult.ok) {
-      throw new Error(`Failed to fetch calldata: ${await calldataResult.text()}`);
+    if (!result.ok) {
+      throw new Error(`Failed to get calldata: ${await result.text()}`);
     }
 
-    const { to, data } = await calldataResult.json() as CalldataResponse;
-    console.log('Successfully retrieved calldata');
+    const callDataResponse = (await result.json()) as CallDataResponse;
+    console.log('Got calldata:', callDataResponse);
 
-    // Submit transaction
-    const txResult = await wallet.sendTransaction({
-      to: to as `0x${string}`,
+    // Step 3: Submit transaction using wallet
+    console.log('Submitting transaction...');
+    const txHash = await wallet.sendTransaction({
+      to: callDataResponse.to as `0x${string}`,
       value: 0n,
-      data: data as `0x${string}`,
+      data: callDataResponse.data as `0x${string}`,
     });
-    console.log('Transaction submitted successfully:', txResult);
 
-    return txResult;
+    console.log('Transaction submitted:', {
+      hash: txHash,
+      to: callDataResponse.to,
+      from: process.env.WALLET_ADDRESS,
+    });
+
+    return txHash;
   } catch (error) {
     console.error('Publish operation failed:', error);
+    if (error instanceof Error) {
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+      if ('cause' in error) {
+        console.error('Error cause:', error.cause);
+      }
+    }
     throw error;
   }
 }
