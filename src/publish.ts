@@ -1,6 +1,5 @@
 import { type Op } from "@graphprotocol/grc-20";
 import { wallet } from "./wallet.js";
-import { Ipfs } from "@graphprotocol/grc-20";
 import fetch from 'node-fetch';
 import 'dotenv/config';
 
@@ -15,19 +14,9 @@ type PublishOptions = {
   ops: Op[];
 };
 
-type IpfsResponse = {
-  Hash: string;
-  Size: string;
-  Name: string;
-};
-
-type CallDataResponse = {
-  to: string;
-  data: string;
-};
-
 /**
  * Publishes an edit proposal to IPFS and submits it to the GRC-20 network.
+ * Following example from: https://github.com/geobrowser/grc-20-recipes/blob/main/examples/publish.ts#L15
  * 
  * @param options - Configuration for the publish operation
  * @returns Promise<string> - Transaction hash of the submitted edit
@@ -58,66 +47,83 @@ export async function publish(options: PublishOptions): Promise<string> {
       name: options.editName,
       author: options.author,
       opsCount: options.ops.length,
-      firstOp: options.ops[0],
-      lastOp: options.ops[options.ops.length - 1],
+      firstOp: JSON.stringify(options.ops[0], null, 2),
+      lastOp: JSON.stringify(options.ops[options.ops.length - 1], null, 2),
     });
 
-    // Step 1: Publish edit to IPFS
-    console.log('Publishing edit to IPFS...');
-    const editData = {
-      name: options.editName,
-      ops: options.ops,
-      author: options.author,
-      timestamp: Date.now(),
+    // Step 1: Get calldata from RPC
+    console.log('Getting calldata from RPC...');
+    console.log('RPC URL:', process.env.RPC_URL);
+
+    const rpcRequest = {
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'geo_edit',
+      params: [{
+        spaceId: options.spaceId,
+        name: options.editName,
+        ops: options.ops,
+        timestamp: Date.now(),
+        editor: options.author,
+      }],
     };
 
-    const ipfsResult = await fetch('https://api.thegraph.com/ipfs/api/v0/add?pin=true', {
+    console.log('RPC request:', JSON.stringify(rpcRequest, null, 2));
+    console.log('Request details:', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      body: JSON.stringify(editData),
+      headers: { 'Content-Type': 'application/json' },
+      bodyLength: JSON.stringify(rpcRequest).length,
     });
 
-    if (!ipfsResult.ok) {
-      throw new Error(`Failed to upload to IPFS: ${await ipfsResult.text()}`);
-    }
-
-    const ipfsResponse = (await ipfsResult.json()) as IpfsResponse;
-    const ipfsCid = `ipfs://${ipfsResponse.Hash}`;
-    console.log('Successfully published to IPFS:', ipfsCid);
-
-    // Step 2: Get calldata from API
-    console.log('Getting calldata from API...');
-    const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${options.spaceId}/edit/calldata`, {
+    const rpcResult = await fetch(process.env.RPC_URL || '', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        cid: ipfsCid,
-        network: 'TESTNET',
-      }),
+      body: JSON.stringify(rpcRequest),
     });
 
-    if (!result.ok) {
-      throw new Error(`Failed to get calldata: ${await result.text()}`);
+    console.log('RPC response status:', rpcResult.status);
+    console.log('RPC response headers:', rpcResult.headers.raw());
+    const rpcResponseText = await rpcResult.text();
+    console.log('RPC raw response:', rpcResponseText);
+
+    if (!rpcResult.ok) {
+      throw new Error(`Failed to get calldata: ${rpcResponseText}`);
     }
 
-    const callDataResponse = (await result.json()) as CallDataResponse;
-    console.log('Got calldata:', callDataResponse);
+    const { result: { to, data } } = JSON.parse(rpcResponseText);
+    console.log('Got calldata:', {
+      to,
+      dataLength: data.length,
+      dataPrefix: data.substring(0, 10),
+      dataSuffix: data.substring(data.length - 10),
+    });
 
-    // Step 3: Submit transaction using wallet
+    // Step 2: Submit transaction using wallet
     console.log('Submitting transaction...');
+    console.log('Transaction details:', {
+      to,
+      value: '0',
+      dataLength: data.length,
+    });
+
+    console.log('Getting wallet balance...');
+    const balance = await wallet.publicClient.getBalance({
+      address: wallet.account.address,
+    });
+    console.log('Current balance:', balance.toString());
+
+    console.log('Sending transaction...');
     const txHash = await wallet.sendTransaction({
-      to: callDataResponse.to as `0x${string}`,
+      to: to as `0x${string}`,
       value: 0n,
-      data: callDataResponse.data as `0x${string}`,
+      data: data as `0x${string}`,
     });
 
     console.log('Transaction submitted:', {
       hash: txHash,
-      to: callDataResponse.to,
+      to,
       from: process.env.WALLET_ADDRESS,
     });
 
@@ -125,12 +131,12 @@ export async function publish(options: PublishOptions): Promise<string> {
   } catch (error) {
     console.error('Publish operation failed:', error);
     if (error instanceof Error) {
-      console.error('Error name:', error.name);
-      console.error('Error message:', error.message);
-      console.error('Error stack:', error.stack);
-      if ('cause' in error) {
-        console.error('Error cause:', error.cause);
-      }
+      console.error('Error details:', {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+        cause: 'cause' in error ? error.cause : undefined,
+      });
     }
     throw error;
   }
