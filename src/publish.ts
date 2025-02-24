@@ -1,6 +1,6 @@
 import { Triple, type Op, type ValueType, type SetTripleOp } from "@graphprotocol/grc-20";
 import { wallet } from "./wallet.js";
-import fetch from 'node-fetch';
+import fetch, { Response } from 'node-fetch';
 
 type ApiResponse = {
   to: string;
@@ -37,88 +37,122 @@ export async function publish(options: PublishOptions): Promise<string> {
       throw new Error('Missing required fields in publish options: spaceId, editName, author, and ops are required');
     }
 
-    // Step 1: Upload to IPFS
+    // Log what we're publishing
     console.log('Publishing edit proposal...', {
       name: options.editName,
       author: options.author,
       opsCount: options.ops.length,
     });
 
-    // Log first op for debugging
-    if (process.env.DEBUG) {
-      console.log('Sample op:', JSON.stringify(options.ops[0], null, 2));
-    }
-
-    const editProposal = {
-      name: options.editName,
-      author: options.author,
-      ops: options.ops,
-    };
-
-    // Log edit proposal for debugging
-    console.log('Edit proposal:', JSON.stringify(editProposal, null, 2));
-
-    // Upload to IPFS as JSON
-    const editJson = JSON.stringify(editProposal);
-    const blob = new Blob([editJson], { type: 'application/json' });
-    const formData = new FormData();
-    formData.append('file', blob);
-
-    console.log('Sending to IPFS endpoint...');
-    const apiBaseUrl = options.apiBaseUrl || 'https://api-testnet.grc-20.thegraph.com';
-    const ipfsResponse = await fetch(`${apiBaseUrl}/ipfs/upload-edit`, {
-      method: 'POST',
-      body: formData,
+    // Step 1: Upload edit proposal to IPFS
+    console.log('Uploading edit proposal to IPFS...');
+    // Ensure proper formatting of ops
+    const formattedOps = options.ops.map(op => {
+      if (op.type === 'SET_TRIPLE') {
+        return {
+          type: 'SET_TRIPLE' as const,
+          triple: {
+            entity: op.triple.entity,
+            attribute: op.triple.attribute,
+            value: op.triple.value
+          }
+        };
+      }
+      return op;
     });
 
-    if (!ipfsResponse.ok) {
-      throw new Error(`IPFS upload failed: ${await ipfsResponse.text()}`);
+    const edit = {
+      name: options.editName,
+      author: options.author,
+      ops: formattedOps
+    };
+
+    const editJson = JSON.stringify(edit);
+    console.log('Edit JSON:', editJson);
+    console.log('Edit JSON length:', editJson.length);
+
+    let cid: string | undefined;
+    try {
+      // Try Graph's IPFS endpoint
+      console.log('Trying Graph IPFS endpoint...');
+      const FormData = await import('form-data');
+      const formData = new FormData.default();
+      formData.append('file', Buffer.from(editJson), {
+        filename: 'edit.json',
+        contentType: 'application/json',
+      });
+
+      const response = await Promise.race<Response>([
+        fetch('https://api.thegraph.com/ipfs/api/v0/add?pin=true', {
+          method: 'POST',
+          headers: {
+            ...formData.getHeaders(),
+            'Accept': 'application/json',
+          },
+          body: formData as any,
+        }) as Promise<Response>,
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Graph IPFS upload timed out (30s)')), 30000)),
+      ]);
+
+      const responseText = await response.text();
+      console.log('Graph IPFS response:', responseText);
+
+      if (!response.ok) {
+        throw new Error(`Graph IPFS upload failed: ${responseText}`);
+      }
+
+      const result = JSON.parse(responseText) as { Hash: string };
+      cid = result.Hash;
+      console.log('Successfully uploaded to Graph IPFS with CID:', `ipfs://${cid}`);
+
+      if (!cid) {
+        throw new Error('Failed to get valid CID from any IPFS endpoint');
+      }
+    } catch (error: any) {
+      throw new Error(`IPFS upload failed: ${error?.message || 'Unknown error'}`);
     }
 
-    interface IpfsResponse {
-      cid: string;
-    }
-    const ipfsResult = await ipfsResponse.json() as IpfsResponse;
-    console.log('IPFS raw response:', ipfsResult);
-    const cid = ipfsResult.cid;
-    if (!cid || typeof cid !== 'string') {
-      throw new Error(`Invalid IPFS response: Missing or invalid CID - ${JSON.stringify(ipfsResult)}`);
-    }
-    const fullCid = `ipfs://${cid}`;
-    console.log('IPFS CID:', fullCid);
-
-    // Step 2: Fetch calldata
-    console.log('Fetching calldata...');
+    // Fetch calldata
+    const apiBaseUrl = options.apiBaseUrl || 'https://api-testnet.grc-20.thegraph.com';
+    console.log('Fetching calldata for space:', options.spaceId);
+    const calldataController = new AbortController();
+    const calldataTimeout = setTimeout(() => calldataController.abort(), 30000); // 30-second timeout
     const calldataResult = await fetch(`${apiBaseUrl}/space/${options.spaceId}/edit/calldata`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        cid, // Send raw CID without ipfs:// prefix
+        cid: cid, // Raw CID
         network: 'TESTNET',
       }),
-    });
+      signal: calldataController.signal,
+    }).finally(() => clearTimeout(calldataTimeout));
+
+    console.log('Calldata fetch completed');
+    console.log('Calldata response status:', calldataResult.status);
+    const calldataText = await calldataResult.text();
+    console.log('Calldata raw response:', calldataText);
 
     if (!calldataResult.ok) {
-      throw new Error(`Failed to fetch calldata: ${await calldataResult.text()}`);
+      throw new Error(`Failed to fetch calldata: ${calldataText}`);
     }
 
-    const calldataResponse = await calldataResult.json() as ApiResponse;
+    const calldataResponse = JSON.parse(calldataText) as ApiResponse;
     if (!calldataResponse.to || !calldataResponse.data) {
-      throw new Error(`Invalid calldata response: ${JSON.stringify(calldataResponse)}`);
+      throw new Error(`Invalid calldata response: ${calldataText}`);
     }
     const { to, data } = calldataResponse;
     console.log('Successfully retrieved calldata:', { to, data });
 
-    // Step 3: Send transaction
+    // Submit transaction using example repo pattern
     console.log('Submitting transaction...');
-    const txHash = await wallet.sendTransaction({
+    const txResult = await wallet.sendTransaction({
       to: to as `0x${string}`,
       value: 0n,
       data: data as `0x${string}`,
     });
-    console.log('Transaction submitted successfully:', txHash);
+    console.log('Transaction submitted successfully:', txResult);
 
-    return txHash;
+    return txResult;
   } catch (error) {
     console.error('Publish operation failed:', error);
     throw error;
