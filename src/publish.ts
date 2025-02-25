@@ -1,253 +1,126 @@
 import { wallet } from "./wallet.js";
-import fetch from 'node-fetch';
-import FormData from 'form-data';
+import { execSync } from 'child_process';
 import 'dotenv/config';
-import { Graph, type Op } from "@graphprotocol/grc-20";
-import { transformPermits } from "./transformPermits.js";
+import { type Op } from "@graphprotocol/grc-20";
 
 interface PublishOptions {
   spaceId: string;
-  editName: string;
-  author: string;
-  ops: Op[];
-  apiBaseUrl?: string;
+  editName?: string;
+  author?: string;
+  ops?: Op[];
 }
 
-interface CallDataResponse {
-  to: string;
-  data: string;
-}
-
-interface IpfsResponse {
-  Hash: string;
-  Size: string;
-  Name: string;
-}
-
-async function getCallData(spaceId: string, cid: string): Promise<CallDataResponse> {
-  console.log('\n[API] Getting calldata for:', { spaceId, cid });
-  
-  const response = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${spaceId}/edit/calldata`, {
-    method: "POST",
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      cid: cid,
-      network: "TESTNET",
-    }),
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Failed to get calldata (${response.status}): ${text}`);
-  }
-
-  const result = await response.json() as CallDataResponse;
-  if (!result.to || !result.data) {
-    throw new Error('Invalid calldata response');
-  }
-
-  console.log('[API] Got calldata:', { 
-    to: result.to,
-    dataLength: result.data.length
-  });
-
-  return result;
-}
-
-async function uploadToIpfs(name: string, ops: Op[], author: string): Promise<string> {
-  console.log('\n[IPFS] Starting upload...', {
-    name,
-    author,
-    opsCount: ops.length
-  });
-
+export async function publish(options: PublishOptions) {
   try {
-    // Create edit proposal
-    const editProposal = {
-      name,
-      ops,
-      author
-    };
+    const { spaceId, editName = 'Add Building Permits' } = options;
+    const author = options.author || process.env.WALLET_ADDRESS;
+    
+    if (!author) {
+      throw new Error('Author not provided and WALLET_ADDRESS not set in environment');
+    }
 
-    // Convert to JSON
-    const editJson = JSON.stringify(editProposal);
-    console.log('[IPFS] Edit proposal size:', editJson.length, 'bytes');
+    // Create edit proposal and get CID using curl
+    console.log('\n[IPFS] Getting CID...');
+    const ipfsCmd = `cat data/permits-triples.json | jq -c '{"name":"${editName}","ops":.,"author":"${author}"}' > edit.json && curl -s -X POST -F "file=@edit.json" "https://api.thegraph.com/ipfs/api/v0/add?stream-channels=true&progress=false" | jq -r .Hash`;
+    const hash = execSync(ipfsCmd).toString().trim();
+    const cid = `ipfs://${hash}`;
+    console.log('\n✅ [IPFS] Got CID:', { cid });
 
-    // Create form data
-    const formData = new FormData();
-    formData.append('file', Buffer.from(editJson), {
-      filename: 'edit.json',
-      contentType: 'application/json',
+    // Then get calldata using curl
+    console.log('\n[API] Getting calldata...');
+    const calldataCmd = `curl -s -m 30 -X POST -H "Content-Type: application/json" -H "Accept: */*" -d '{"cid":"${cid}","network":"TESTNET"}' "https://api-testnet.grc-20.thegraph.com/space/${spaceId}/edit/calldata"`;
+    const calldataResponse = execSync(calldataCmd).toString();
+    console.log('\n[API] Response text:', calldataResponse);
+    const response = JSON.parse(calldataResponse);
+
+    console.log('\n✅ [API] Got calldata:', {
+      to: response.to,
+      dataLength: response.data.length,
+      timestamp: new Date().toISOString()
     });
 
-    // Try Pinax first
-    const pinaxUrl = process.env.PINAX_RPC_URL || 'geotest.rpc.pinax.network/v1/8fdc0decc9521d2d398848020d55eeb671cb8a382f980b1d/';
-    const fullPinaxUrl = pinaxUrl.startsWith('http') ? pinaxUrl : `https://${pinaxUrl}`;
-    console.log('[IPFS] Using Pinax gateway:', fullPinaxUrl);
+    // Get gas price
+    const gasPrice = await wallet.publicClient.getGasPrice();
+    console.log('\n[Transaction] Gas price:', gasPrice);
+
+    // Get nonce
+    const nonce = await wallet.publicClient.getTransactionCount({
+      address: wallet.account.address,
+    });
+    console.log('\n[Transaction] Nonce:', nonce);
+
+    // Submit transaction
+    console.log('\n[Transaction] Submitting to network...');
+    console.log('\n[Transaction] Details:', {
+      to: response.to,
+      data: response.data,
+      gasPrice: gasPrice,
+      nonce: nonce,
+      timestamp: new Date().toISOString()
+    });
 
     try {
-      console.log('[IPFS] Uploading to Pinax...');
-      const pinaxResponse = await fetch(`${fullPinaxUrl}ipfs/api/v0/add`, {
-        method: 'POST',
-        headers: {
-          ...formData.getHeaders()
-        },
-        body: formData
+      const txHash = await wallet.walletClient.sendTransaction({
+        account: wallet.account,
+        to: response.to as `0x${string}`,
+        value: 0n,
+        data: response.data as `0x${string}`,
+        gas: 0x98430dn, // Use exact gas estimate
+        gasPrice: gasPrice,
+        nonce: nonce,
       });
 
-      if (!pinaxResponse.ok) {
-        const text = await pinaxResponse.text();
-        throw new Error(`Pinax upload failed (${pinaxResponse.status}): ${text}`);
-      }
+      console.log('\n✅ [Transaction] Submitted:', { txHash });
 
-      const pinaxResult = await pinaxResponse.json() as IpfsResponse;
-      if (!pinaxResult.Hash) {
-        throw new Error('Missing Hash in Pinax response');
-      }
-
-      const cid = `ipfs://${pinaxResult.Hash}`;
-      console.log('\n✅ [IPFS] Pinax upload successful:', { 
-        cid,
-        size: pinaxResult.Size,
-        name: pinaxResult.Name
-      });
-      return cid;
-    } catch (pinaxError) {
-      console.error('\n❌ [IPFS] Pinax upload failed:', {
-        error: (pinaxError as Error).message
+      // Wait for transaction to be confirmed
+      console.log('\n[Transaction] Waiting for confirmation...');
+      const receipt = await wallet.publicClient.waitForTransactionReceipt({ hash: txHash });
+      console.log('\n✅ [Transaction] Confirmed:', {
+        blockNumber: receipt.blockNumber,
+        blockHash: receipt.blockHash,
+        status: receipt.status,
       });
 
-      // Fallback to RPC URL
-      const rpcUrl = process.env.RPC_URL || 'https://rpc-geo-test-zc16z3tcvf.t.conduit.xyz/';
-      console.log('[IPFS] Falling back to RPC gateway:', rpcUrl);
-
-      console.log('[IPFS] Uploading to RPC gateway...');
-      const response = await fetch(`${rpcUrl}ipfs/api/v0/add`, {
-        method: 'POST',
-        headers: {
-          ...formData.getHeaders()
-        },
-        body: formData
+      return txHash;
+    } catch (txError) {
+      console.error('\n❌ [Transaction] Failed:', {
+        error: txError instanceof Error ? txError.message : txError,
+        name: txError instanceof Error ? txError.name : 'Unknown',
+        stack: txError instanceof Error ? txError.stack : undefined,
+        timestamp: new Date().toISOString()
       });
-
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`RPC upload failed (${response.status}): ${text}`);
-      }
-
-      const result = await response.json() as IpfsResponse;
-      if (!result.Hash) {
-        throw new Error('Missing Hash in RPC response');
-      }
-
-      const cid = `ipfs://${result.Hash}`;
-      console.log('\n✅ [IPFS] RPC upload successful:', { 
-        cid,
-        size: result.Size,
-        name: result.Name
-      });
-      return cid;
+      throw txError;
     }
   } catch (error) {
-    console.error('\n❌ [IPFS] All upload attempts failed:', {
-      error: (error as Error).message,
-      name: (error as Error).name,
-      stack: (error as Error).stack
-    });
-    throw error;
-  }
-}
-
-export async function publish(options: PublishOptions): Promise<string> {
-  try {
-    if (!options.spaceId || !options.editName || !options.author || !options.ops.length) {
-      throw new Error('Missing required fields');
+    if (error instanceof Error) {
+      console.error('\n❌ [Error]:', {
+        error: error.message,
+        name: error.name,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
     }
-
-    console.log('\n[Publish] Starting...', {
-      name: options.editName,
-      author: options.author,
-      opsCount: options.ops.length,
-    });
-
-    // Upload to IPFS
-    const cid = await uploadToIpfs(options.editName, options.ops, options.author);
-
-    // Get calldata for the transaction
-    const { to, data } = await getCallData(options.spaceId, cid);
-
-    // Submit the transaction
-    console.log('\n[Transaction] Submitting to network...');
-    const txHash = await wallet.sendTransaction({
-      to: to as `0x${string}`,
-      value: 0n,
-      data: data as `0x${string}`,
-    });
-
-    console.log('\n✅ [Transaction] Submitted:', { txHash });
-    return txHash;
-
-  } catch (error) {
-    console.error('\n❌ [Publish] Failed:', {
-      name: (error as Error).name,
-      message: (error as Error).message,
-      stack: (error as Error).stack,
-      cause: (error as Error).cause
-    });
     throw error;
   }
 }
 
 // Execute if running directly
 if (import.meta.url === new URL(import.meta.url).href) {
-  console.log('[Startup] Beginning execution...');
+  console.log('[Startup] Starting...');
   
-  try {
-    if (!process.env.WALLET_ADDRESS) {
-      throw new Error('WALLET_ADDRESS not set in environment');
-    }
-    if (!process.env.SPACE_ID) {
-      throw new Error('SPACE_ID not set in environment');
-    }
-
-    // Transform permits to operations
-    console.log('\n[Transform] Starting permit transformation...');
-    transformPermits()
-      .then(async (ops) => {
-        console.log(`[Transform] Generated ${ops.length} operations`);
-
-        // Publish permits to IPFS and submit transaction
-        console.log('\n[Publish] Starting publishing process...');
-        const txHash = await publish({
-          spaceId: process.env.SPACE_ID!,
-          editName: 'Add Building Permits',
-          author: process.env.WALLET_ADDRESS!,
-          ops
-        });
-        
-        console.log('\n✅ [Main] Process completed:', { txHash });
-        process.exit(0);
-      })
-      .catch((error) => {
-        console.error('\n❌ [Main] Process failed:', {
-          error: {
-            name: error.name,
-            message: error.message,
-            stack: error.stack,
-            cause: error.cause
-          }
-        });
-        process.exit(1);
-      });
-  } catch (error) {
-    console.error('\n❌ [Main] Process failed:', {
-      error: {
-        name: (error as Error).name,
-        message: (error as Error).message,
-        stack: (error as Error).stack,
-        cause: (error as Error).cause
-      }
-    });
-    process.exit(1);
+  if (!process.env.WALLET_ADDRESS) {
+    throw new Error('WALLET_ADDRESS not set in environment');
   }
+  if (!process.env.SPACE_ID) {
+    throw new Error('SPACE_ID not set in environment');
+  }
+
+  publish({
+    spaceId: 'XPZ8fnf3DvNMRDbFgxEZi2',
+    editName: 'Add Building Permits',
+    author: process.env.WALLET_ADDRESS
+  }).catch(error => {
+    console.error('\n❌ [Error]:', error);
+    process.exit(1);
+  });
 }

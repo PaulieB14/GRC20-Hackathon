@@ -13,12 +13,12 @@ if (!process.env.RPC_URL) {
 // Define GRC-20 testnet chain
 const grcTestnet = {
   ...sepolia,
-  id: 0x1a99, // GRC-20 testnet chain ID (6809)
+  id: 19411, // GRC-20 testnet chain ID
   name: 'GRC-20 Testnet',
   network: 'grc20-testnet',
   rpcUrls: {
-    default: { http: [process.env.RPC_URL || 'https://rpc-testnet.grc-20.thegraph.com'] },
-    public: { http: [process.env.RPC_URL || 'https://rpc-testnet.grc-20.thegraph.com'] },
+    default: { http: [process.env.RPC_URL] },
+    public: { http: [process.env.RPC_URL] },
   },
 };
 
@@ -28,7 +28,7 @@ if (!process.env.PRIVATE_KEY) {
 }
 
 const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
-const transport = http(process.env.RPC_URL || 'https://rpc-testnet.grc-20.thegraph.com');
+const transport = http(process.env.RPC_URL);
 
 const publicClient = createPublicClient({
   chain: grcTestnet,
@@ -45,7 +45,7 @@ export const wallet = {
   account,
   publicClient,
   walletClient,
-  async sendTransaction(tx: { to: `0x${string}`; value: bigint; data: `0x${string}` }) {
+  async sendTransaction(tx: { to: `0x${string}`; value: bigint; data: `0x${string}`; maxFeePerGas?: bigint; maxPriorityFeePerGas?: bigint; gasLimit?: bigint }) {
     console.log('Sending transaction:', tx);
     const hash = await walletClient.sendTransaction(tx);
     console.log('Transaction hash:', hash);
