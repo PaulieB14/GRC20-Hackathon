@@ -10,15 +10,15 @@ if (!process.env.RPC_URL) {
   process.exit(1);
 }
 
-// Define GEO testnet chain
-const geoTestnet = {
+// Define GRC-20 testnet chain
+const grcTestnet = {
   ...sepolia,
-  id: 0x1a99, // GEO testnet chain ID (6809)
-  name: 'GEO Testnet',
-  network: 'geo-testnet',
+  id: 0x1a99, // GRC-20 testnet chain ID (6809)
+  name: 'GRC-20 Testnet',
+  network: 'grc20-testnet',
   rpcUrls: {
-    default: { http: ['https://rpc-geo-test-zc16z3tcvf.t.conduit.xyz'] },
-    public: { http: ['https://rpc-geo-test-zc16z3tcvf.t.conduit.xyz'] },
+    default: { http: [process.env.RPC_URL || 'https://rpc-testnet.grc-20.thegraph.com'] },
+    public: { http: [process.env.RPC_URL || 'https://rpc-testnet.grc-20.thegraph.com'] },
   },
 };
 
@@ -28,16 +28,16 @@ if (!process.env.PRIVATE_KEY) {
 }
 
 const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
-const transport = http('https://rpc-geo-test-zc16z3tcvf.t.conduit.xyz');
+const transport = http(process.env.RPC_URL || 'https://rpc-testnet.grc-20.thegraph.com');
 
 const publicClient = createPublicClient({
-  chain: geoTestnet,
+  chain: grcTestnet,
   transport
 });
 
 const walletClient = createWalletClient({
   account,
-  chain: geoTestnet,
+  chain: grcTestnet,
   transport
 });
 
