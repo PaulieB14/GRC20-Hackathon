@@ -1,68 +1,58 @@
-import { wallet } from "./wallet.js";
-import { type Op } from "@graphprotocol/grc-20";
+import { account } from "./wallet.js";
+import { execSync } from 'child_process';
+import 'dotenv/config';
 
-type DeploySpaceOptions = {
-  spaceName: string;
-  initialEditorAddress: string;
-};
-
-async function main() {
-  const spaceName = "Pinellas County Building Permits";
-  const initialEditorAddress = wallet.account.address;
-
+async function deploySpace() {
   try {
     console.log('Deploying space...');
-    const spaceId = await deploySpace({
-      spaceName,
-      initialEditorAddress,
+    console.log('Using account:', account.address);
+
+    // Get calldata using curl
+    console.log('\n[API] Getting calldata...');
+    const calldataCmd = `curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d '{"network":"TESTNET"}' "https://api-testnet.grc-20.thegraph.com/space/create/calldata"`;
+    console.log('\n[API] Executing command:', calldataCmd);
+    const calldataResponse = execSync(calldataCmd).toString();
+    console.log('\n[API] Response:', calldataResponse);
+    const response = JSON.parse(calldataResponse);
+
+    console.log('\n✅ [API] Got calldata:', {
+      to: response.to,
+      dataLength: response.data.length,
+      timestamp: new Date().toISOString()
     });
-    console.log('Space deployed:', spaceId);
-    return spaceId;
+
+    // Submit transaction
+    console.log('\n[Transaction] Submitting to network...');
+    try {
+      const hash = await account.sendTransaction({
+        to: response.to,
+        value: 0n,
+        data: response.data
+      });
+
+      console.log('\n✅ [Transaction] Submitted:', { hash });
+      return hash;
+    } catch (txError) {
+      console.error('\n❌ [Transaction] Failed:', txError);
+      throw txError;
+    }
   } catch (error) {
-    console.error('Failed to deploy space:', error);
+    if (error instanceof Error) {
+      console.error('\n❌ [Error]:', {
+        error: error.message,
+        name: error.name,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
+    }
     throw error;
   }
 }
 
 // Execute if running directly
 if (import.meta.url === new URL(import.meta.url).href) {
-  main()
-    .then(() => process.exit(0))
-    .catch(error => {
-      console.error(error);
-      process.exit(1);
-    });
-}
-
-export async function deploySpace(options: DeploySpaceOptions): Promise<string> {
-  const { spaceName, initialEditorAddress } = options;
-
-  try {
-    // Deploy space using RPC
-    console.log('Deploying space with name:', spaceName);
-    const txHash = await wallet.walletClient.sendTransaction({
-      to: "0x4E0dB2b307B284d3380842dB7889212f4C5C95B7", // GRC-20 Factory Address
-      data: ("0x" + Buffer.from(JSON.stringify({
-        name: spaceName,
-        initialEditorAddress: initialEditorAddress,
-      })).toString('hex')) as `0x${string}`,
-      value: 0n,
-    });
-    console.log('Transaction hash:', txHash);
-
-    // Get space ID from event logs
-    const receipt = await wallet.publicClient.waitForTransactionReceipt({ hash: txHash });
-    console.log('Transaction receipt:', receipt);
-
-    const spaceId = receipt.logs[0].topics[1];
-    if (!spaceId) {
-      throw new Error('Failed to get space ID from transaction receipt');
-    }
-
-    console.log('Space deployed:', spaceId);
-    return spaceId;
-  } catch (error) {
-    console.error('Failed to deploy space:', error);
-    throw error;
-  }
+  deploySpace().catch(error => {
+    console.error('\n❌ [Error]:', error);
+    process.exit(1);
+  });
 }

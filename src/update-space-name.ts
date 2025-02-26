@@ -1,8 +1,7 @@
-import { Ipfs } from "@graphprotocol/grc-20";
+import { Ipfs, type Op } from "@graphprotocol/grc-20";
 import { createPublicClient, createWalletClient, http, Chain, parseGwei } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 import 'dotenv/config';
-import { type Op } from "@graphprotocol/grc-20";
 
 const grc20Testnet = {
   id: 19411,
@@ -19,66 +18,42 @@ const grc20Testnet = {
   }
 } as const satisfies Chain;
 
-interface PublishOptions {
-  spaceId: string;
-  editName?: string;
-  author?: string;
-  ops?: Op[];
-  dataType?: 'permits' | 'deeds';
-}
-
-let transformPermitsModule: any = null;
-let transformDeedsModule: any = null;
-let transformedOps: Op[] | null = null;
-
-export async function publish(options: PublishOptions) {
-  // If using permits space ID, default to permits data type
-  const permitsSpaceId = 'XPZ8fnf3DvNMRDbFgxEZi2';
-  const dataType = options.spaceId === permitsSpaceId ? 'permits' : (options.dataType || 'deeds');
-  const { spaceId, editName = `Add Property ${dataType === 'permits' ? 'Permits' : 'Deeds'}` } = options;
-  const author = options.author || process.env.WALLET_ADDRESS;
-  
-  if (!author) {
-    throw new Error('Author not provided and WALLET_ADDRESS not set in environment');
-  }
-
-  if (!process.env.PRIVATE_KEY) {
-    throw new Error('PRIVATE_KEY not set in environment');
-  }
-
-  // Transform data to ops
-  console.log('\n[Transform] Getting ops...');
+async function updateSpaceName() {
   try {
-    if (!transformedOps) {
-      if (dataType === 'permits') {
-        if (!transformPermitsModule) {
-          transformPermitsModule = await import('./transformPermits.js');
-        }
-        transformedOps = await transformPermitsModule.transformPermits();
-      } else {
-        if (!transformDeedsModule) {
-          transformDeedsModule = await import('./transformDeeds.js');
-        }
-        transformedOps = await transformDeedsModule.transformDeeds();
-      }
-      if (!transformedOps) {
-        throw new Error(`Failed to transform ${dataType} to ops`);
-      }
+    if (!process.env.PRIVATE_KEY) {
+      throw new Error('PRIVATE_KEY not set in environment');
     }
-    console.log('\n✅ [Transform] Got ops:', { count: transformedOps.length });
 
-    // Publish edit to IPFS using Graph SDK
+    const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
+    console.log('Using account:', account.address);
+
+    // Create op to update the space name
+    const ops: Op[] = [
+      {
+        type: "SET_TRIPLE",
+        triple: {
+          entity: process.env.SPACE_ID!,
+          attribute: "6DTMg1CPEnP1THATPe7xDi", // Name attribute ID
+          value: {
+            type: "TEXT",
+            value: "Building Permits"
+          }
+        }
+      }
+    ];
+
+    // Publish edit to IPFS
     console.log('\n[IPFS] Publishing edit...');
     const cid = await Ipfs.publishEdit({
-      name: editName,
-      ops: transformedOps,
-      author: author
+      name: 'Update Space Name',
+      ops: ops,
+      author: account.address
     });
     console.log('\n✅ [IPFS] Published edit:', { cid });
 
-    // Get calldata using API
+    // Get calldata for the edit
     console.log('\n[API] Getting calldata...');
-    const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${spaceId}/edit/calldata`, {
+    const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${process.env.SPACE_ID}/edit/calldata`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -118,8 +93,6 @@ export async function publish(options: PublishOptions) {
     // Submit transaction
     console.log('\n[Transaction] Submitting to network...');
     try {
-      const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
-      
       const publicClient = createPublicClient({
         chain: grc20Testnet,
         transport: http()
@@ -139,8 +112,8 @@ export async function publish(options: PublishOptions) {
       console.log('Nonce:', nonce);
 
       // Use gas settings from successful transaction
-      const gasLimit = 13_000_000n; // Same as previous successful tx
-      const baseGasPrice = parseGwei('0.01'); // Same as previous successful tx
+      const gasLimit = 13_000_000n; // Same as publish.ts
+      const baseGasPrice = parseGwei('0.01'); // Same as publish.ts
 
       // Send transaction
       console.log('\n[Transaction] Sending transaction...');
@@ -166,27 +139,26 @@ export async function publish(options: PublishOptions) {
       console.error('\n❌ [Transaction] Failed:', txError);
       throw txError;
     }
-  } catch (transformError) {
-    console.error('\n❌ [Transform] Failed:', transformError);
-    throw transformError;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('\n❌ [Error]:', {
+        error: error.message,
+        name: error.name,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
+    }
+    throw error;
   }
 }
 
 // Execute if running directly
 if (import.meta.url === new URL(import.meta.url).href) {
-  console.log('[Startup] Starting...');
-  
-  if (!process.env.WALLET_ADDRESS) {
-    throw new Error('WALLET_ADDRESS not set in environment');
-  }
   if (!process.env.SPACE_ID) {
     throw new Error('SPACE_ID not set in environment');
   }
-
-  publish({
-    spaceId: process.env.SPACE_ID,
-    author: process.env.WALLET_ADDRESS
-  }).catch(error => {
+  
+  updateSpaceName().catch(error => {
     console.error('\n❌ [Error]:', error);
     process.exit(1);
   });

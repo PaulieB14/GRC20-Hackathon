@@ -1,0 +1,44 @@
+{
+  "name": "Update Space Name",
+  "ops": [
+    {
+      "type": "SET_TRIPLE",
+      "triple": {
+        "entity": "XPZ8fnf3DvNMRDbFgxEZi2",
+        "attribute": "6DTMg1CPEnP1THATPe7xDi",
+        "value": {
+          "type": "TEXT",
+          "value": "Building Permits",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "type": "SET_TRIPLE",
+      "triple": {
+        "entity": "XPZ8fnf3DvNMRDbFgxEZi2",
+        "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+        "value": {
+          "type": "TEXT",
+          "value": "Building Permits",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "type": "SET_TRIPLE",
+      "triple": {
+        "entity": "XPZ8fnf3DvNMRDbFgxEZi2",
+        "attribute": "C6y8jQye.B",
+        "value": {
+          "type": "TEXT",
+          "value": "Building Permits",
+          "language": "en"
+        }
+      }
+    }
+  ],
+  "author": "0x6596a3C7C2eA69D04F01F064AA4e914196BbA0a7",
+  "network": "TESTNET",
+  "description": "Update the space name"
+}

@@ -11,8 +11,8 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
-const PERMITS_SPACE_ID = 'GRqhKJ3mYiM95MDGs7NH9V';
-const DEEDS_SPACE_ID = 'NubYWjA29aN3uXjEMMHXuB';
+const PERMITS_SPACE_ID = 'XPZ8fnf3DvNMRDbFgxEZi2';
+const DEEDS_SPACE_ID = 'P77ioa8U9EipVASzVHBA9B';
 
 // Serve static files
 app.use(express.static('public'));

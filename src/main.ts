@@ -1,46 +1,46 @@
-import { type Op } from "@graphprotocol/grc-20";
 import { publish } from "./publish.js";
-import { wallet } from "./wallet.js";
-import { transformPermits } from "./transformPermits.js";
 import 'dotenv/config';
 
-// Configuration
-const SPACE_ID = process.env.SPACE_ID || "0x4E0dB2b307B284d3380842dB7889212f4C5C95B7"; // Use a valid GRC-20 space ID
-const EDIT_NAME = 'Add Building Permits';
-const EXPLORER_BASE_URL = 'https://sepolia.etherscan.io/tx/';
+// Execute if running directly
+if (import.meta.url === new URL(import.meta.url).href) {
+  (async () => {
+    try {
+      console.log('Starting main script...');
+      console.log('Environment:', {
+        WALLET_ADDRESS: process.env.WALLET_ADDRESS ? 'Set' : 'Not set',
+        SPACE_ID: process.env.SPACE_ID ? 'Set' : 'Not set',
+        RPC_URL: process.env.RPC_URL ? 'Set' : 'Not set'
+      });
 
-async function main() {
-  try {
-    // Validate setup
-    if (!wallet?.account?.address) {
-      throw new Error('Wallet not initialized or address missing');
+      if (!process.env.WALLET_ADDRESS) {
+        throw new Error('WALLET_ADDRESS not set in environment');
+      }
+      if (!process.env.SPACE_ID) {
+        throw new Error('SPACE_ID not set in environment');
+      }
+
+      console.log('\nStarting publish...');
+      const txHash = await publish({
+        spaceId: process.env.SPACE_ID,
+        editName: 'Add Building Permits',
+        author: process.env.WALLET_ADDRESS
+      });
+
+      console.log('\n✅ Transaction complete:', { txHash });
+      process.exit(0);
+    } catch (error) {
+      console.error('\n❌ Main script failed:', error);
+      if (error instanceof Error) {
+        console.error('Error details:', {
+          name: error.name,
+          message: error.message,
+          stack: error.stack
+        });
+      }
+      process.exit(1);
     }
-    if (!SPACE_ID) {
-      throw new Error('SPACE_ID is not defined');
-    }
-
-    // Transform permits into operations
-    console.log('Transforming permits...');
-    const permitOps = await transformPermits();
-    
-    console.log('Publishing permits...', { opsCount: permitOps.length });
-    const txHash = await publish({
-      spaceId: SPACE_ID,
-      author: wallet.account.address,
-      editName: EDIT_NAME,
-      ops: permitOps,
-      // No additional options needed
-    });
-
-    console.log('Transaction hash:', txHash);
-    console.log('Explorer URL:', `${EXPLORER_BASE_URL}${txHash}`);
-  } catch (error) {
-    console.error('Main failed:', {
-      message: (error as Error).message, // Assert error as Error type
-      stack: (error as Error).stack || 'No stack trace available',
-    });
-    process.exit(1); // Exit with error, but log stack for debugging
-  }
+  })().catch(error => {
+    console.error('\n❌ Unhandled error:', error);
+    process.exit(1);
+  });
 }
-
-main();

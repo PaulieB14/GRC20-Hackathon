@@ -1,164 +1,113 @@
-import { Graph, type Op } from "@graphprotocol/grc-20";
-import { publish } from "./publish.js";
-import { wallet } from "./wallet.js";
-
-const PERMITS_SPACE_ID = '7gzF671tq5JTZ13naG4tnr';
-const DEEDS_SPACE_ID = '7gzF671tq5JTZ13naG4tnr';
+import { Graph, Id } from "@graphprotocol/grc-20";
+import { execSync } from 'child_process';
+import { account } from "./wallet.js";
+import 'dotenv/config';
 
 async function setupOntology() {
   try {
-    const ops: Op[] = [];
+    console.log('Setting up ontology...');
+    console.log('Using account:', account.address);
 
-    // Create Building Permit Type and its properties
-    console.log('Creating Building Permit properties...');
-    
-    const { id: idPropertyId, ops: idOps } = Graph.createProperty({
-      name: 'ID',
-      type: 'TEXT',
-      description: 'Unique identifier',
-    });
-    ops.push(...idOps);
+    // Create basic properties
+    const labelAttribute = Id.generate();
+    const nameAttribute = Id.generate();
+    const typeAttribute = Id.generate();
 
-    const { id: datePropertyId, ops: dateOps } = Graph.createProperty({
-      name: 'Date',
-      type: 'TIME',
-      description: 'Date of issuance',
-    });
-    ops.push(...dateOps);
-
-    const { id: addressPropertyId, ops: addressOps } = Graph.createProperty({
-      name: 'Address',
-      type: 'TEXT',
-      description: 'Physical address',
-    });
-    ops.push(...addressOps);
-
-    const { id: permitTypePropertyId, ops: permitTypeOps } = Graph.createProperty({
-      name: 'Permit Type',
-      type: 'TEXT',
-      description: 'Type of building permit',
-    });
-    ops.push(...permitTypeOps);
-
-    const { id: statusPropertyId, ops: statusOps } = Graph.createProperty({
-      name: 'Status',
-      type: 'TEXT',
-      description: 'Current status of the permit',
-    });
-    ops.push(...statusOps);
-
-    console.log('Creating Building Permit type...');
-    const { id: permitTypeId, ops: permitTypeEntityOps } = Graph.createType({
-      name: 'Building Permit',
-      description: 'A permit issued for construction or modification of a building',
-      properties: [
-        idPropertyId,
-        datePropertyId,
-        addressPropertyId,
-        permitTypePropertyId,
-        statusPropertyId,
-      ],
-    });
-    ops.push(...permitTypeEntityOps);
-
-    // Create Property Deed Type and its properties
-    console.log('Creating Property Deed properties...');
-    
-    const { id: grantorPropertyId, ops: grantorOps } = Graph.createProperty({
-      name: 'Grantor',
-      type: 'TEXT',
-      description: 'Person transferring the property',
-    });
-    ops.push(...grantorOps);
-
-    const { id: granteePropertyId, ops: granteeOps } = Graph.createProperty({
-      name: 'Grantee',
-      type: 'TEXT',
-      description: 'Person receiving the property',
-    });
-    ops.push(...granteeOps);
-
-    const { id: saleAmountPropertyId, ops: saleAmountOps } = Graph.createProperty({
-      name: 'Sale Amount',
-      type: 'NUMBER',
-      description: 'Amount of the property sale',
-    });
-    ops.push(...saleAmountOps);
-
-    console.log('Creating Property Deed type...');
-    const { id: deedTypeId, ops: deedTypeEntityOps } = Graph.createType({
-      name: 'Property Deed',
-      description: 'A legal document proving ownership of a property',
-      properties: [
-        idPropertyId,
-        datePropertyId,
-        addressPropertyId,
-        grantorPropertyId,
-        granteePropertyId,
-        saleAmountPropertyId,
-      ],
-    });
-    ops.push(...deedTypeEntityOps);
-
-    // Publish to both spaces
-    console.log('Publishing ontology to GRC-20...');
-    const editName = 'Setup Pinellas County Ontology';
-    
-    if (!wallet?.account?.address) {
-      throw new Error('Wallet not initialized or address missing');
-    }
-
-    // First publish to permits space
-    console.log('Publishing to permits space...');
-    await publish({
-      spaceId: PERMITS_SPACE_ID,
-      editName,
-      author: wallet.account.address,
-      ops,
-    });
-
-    // Then publish to deeds space
-    console.log('Publishing to deeds space...');
-    await publish({
-      spaceId: DEEDS_SPACE_ID,
-      editName,
-      author: wallet.account.address,
-      ops,
-    });
-    
-    console.log('Ontology setup completed');
-    
-    return {
-      types: {
-        permitType: permitTypeId,
-        deedType: deedTypeId,
+    const ops = [
+      {
+        type: 'SET_TRIPLE',
+        triple: {
+          attribute: labelAttribute,
+          entity: nameAttribute,
+          value: {
+            type: 'TEXT',
+            value: 'Name'
+          }
+        }
       },
-      properties: {
-        id: idPropertyId,
-        date: datePropertyId,
-        address: addressPropertyId,
-        permitType: permitTypePropertyId,
-        status: statusPropertyId,
-        grantor: grantorPropertyId,
-        grantee: granteePropertyId,
-        saleAmount: saleAmountPropertyId,
-      },
+      {
+        type: 'CREATE_RELATION',
+        relation: {
+          id: Id.generate(),
+          type: typeAttribute,
+          fromEntity: nameAttribute,
+          toEntity: labelAttribute,
+          index: 'C6y8jQye.B'
+        }
+      }
+    ];
+
+    // Create edit JSON and write to file
+    console.log('\n[IPFS] Creating edit file...');
+    const edit = {
+      name: 'Setup Ontology',
+      ops: ops,
+      author: account.address
     };
+    const editJson = JSON.stringify(edit);
+    execSync(`echo '${editJson}' > edit.json`);
+
+    // Publish edit to IPFS
+    console.log('\n[IPFS] Publishing edit...');
+    const ipfsCmd = `curl -s -X POST -F "file=@edit.json" "https://api.thegraph.com/ipfs/api/v0/add?stream-channels=true&progress=false"`;
+    const ipfsResponse = execSync(ipfsCmd).toString();
+    console.log('\n[IPFS] Response:', ipfsResponse);
+    const { Hash } = JSON.parse(ipfsResponse);
+    execSync('rm edit.json');
+
+    const cid = `ipfs://${Hash}`;
+    console.log('\n✅ [IPFS] Published edit:', { cid });
+
+    // Get calldata using curl
+    console.log('\n[API] Getting calldata...');
+    const calldataCmd = `curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d '{"cid":"${cid}","network":"TESTNET"}' "https://api-testnet.grc-20.thegraph.com/space/${process.env.SPACE_ID}/edit/calldata"`;
+    console.log('\n[API] Executing command:', calldataCmd);
+    const calldataResponse = execSync(calldataCmd).toString();
+    console.log('\n[API] Response:', calldataResponse);
+    const response = JSON.parse(calldataResponse);
+
+    console.log('\n✅ [API] Got calldata:', {
+      to: response.to,
+      dataLength: response.data.length,
+      timestamp: new Date().toISOString()
+    });
+
+    // Submit transaction
+    console.log('\n[Transaction] Submitting to network...');
+    try {
+      const hash = await account.sendTransaction({
+        to: response.to,
+        value: 0n,
+        data: response.data
+      });
+
+      console.log('\n✅ [Transaction] Submitted:', { hash });
+      return hash;
+    } catch (txError) {
+      console.error('\n❌ [Transaction] Failed:', txError);
+      throw txError;
+    }
   } catch (error) {
-    console.error('Failed to setup ontology:', error);
+    if (error instanceof Error) {
+      console.error('\n❌ [Error]:', {
+        error: error.message,
+        name: error.name,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
+    }
     throw error;
   }
 }
 
 // Execute if running directly
 if (import.meta.url === new URL(import.meta.url).href) {
-  setupOntology()
-    .then((result) => {
-      console.log('Setup completed. Generated IDs:', result);
-      process.exit(0);
-    })
-    .catch(error => {
-      console.error('Setup failed:', error);
-      process.exit(1);
-    });
+  if (!process.env.SPACE_ID) {
+    throw new Error('SPACE_ID not set in environment');
+  }
+
+  setupOntology().catch(error => {
+    console.error('\n❌ [Error]:', error);
+    process.exit(1);
+  });
 }

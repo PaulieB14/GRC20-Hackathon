@@ -1,88 +1,83 @@
-import { wallet } from "./wallet.js";
-import fetch from 'node-fetch';
+import { account } from "./wallet.js";
+import { execSync } from 'child_process';
 import 'dotenv/config';
 
-interface CallDataResponse {
-  to: string;
-  data: string;
-}
-
-async function publishData(spaceId: string, cid: string) {
-  console.log('\n[Test] Publishing data...', { spaceId, cid });
-
+async function testPublish() {
   try {
-    console.log('[Test] Fetching calldata...');
-    const result = await fetch(`https://testnet.grc-20.thegraph.com/space/${spaceId}/edit/calldata`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        cid,
-        network: "TESTNET",
-      }),
-      // Add timeout
-      signal: AbortSignal.timeout(10000)
-    }).catch(error => {
-      if (error.name === 'AbortError') {
-        throw new Error('Request timed out after 10 seconds');
-      }
-      throw error;
-    });
+    console.log('Testing publish...');
+    console.log('Using account:', account.address);
 
-    if (!result.ok) {
-      const text = await result.text();
-      console.error('[Test] Response details:', {
-        status: result.status,
-        statusText: result.statusText,
-        headers: Object.fromEntries(result.headers.entries()),
-        body: text,
-        url: result.url,
-        timestamp: new Date().toISOString()
-      });
-      throw new Error(`Failed to get calldata (${result.status}): ${text}`);
-    }
+    // Create test edit JSON
+    console.log('\n[IPFS] Creating edit file...');
+    const edit = {
+      name: 'Test Edit',
+      ops: [],
+      author: account.address
+    };
+    const editJson = JSON.stringify(edit);
+    execSync(`echo '${editJson}' > edit.json`);
 
-    const response = await result.json() as CallDataResponse;
-    console.log('[Test] Got calldata:', { 
-      to: response.to, 
+    // Publish edit to IPFS
+    console.log('\n[IPFS] Publishing edit...');
+    const ipfsCmd = `curl -s -X POST -F "file=@edit.json" "https://api.thegraph.com/ipfs/api/v0/add?stream-channels=true&progress=false"`;
+    const ipfsResponse = execSync(ipfsCmd).toString();
+    console.log('\n[IPFS] Response:', ipfsResponse);
+    const { Hash } = JSON.parse(ipfsResponse);
+    execSync('rm edit.json');
+
+    const cid = `ipfs://${Hash}`;
+    console.log('\n✅ [IPFS] Published edit:', { cid });
+
+    // Get calldata using curl
+    console.log('\n[API] Getting calldata...');
+    const calldataCmd = `curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d '{"cid":"${cid}","network":"TESTNET"}' "https://api-testnet.grc-20.thegraph.com/space/${process.env.SPACE_ID}/edit/calldata"`;
+    console.log('\n[API] Executing command:', calldataCmd);
+    const calldataResponse = execSync(calldataCmd).toString();
+    console.log('\n[API] Response:', calldataResponse);
+    const response = JSON.parse(calldataResponse);
+
+    console.log('\n✅ [API] Got calldata:', {
+      to: response.to,
       dataLength: response.data.length,
       timestamp: new Date().toISOString()
     });
 
-    console.log('[Test] Submitting transaction...');
-    const txResult = await wallet.sendTransaction({
-      to: response.to as `0x${string}`,
-      value: 0n,
-      data: response.data as `0x${string}`,
-    });
+    // Submit transaction
+    console.log('\n[Transaction] Submitting to network...');
+    try {
+      const hash = await account.sendTransaction({
+        to: response.to,
+        value: 0n,
+        data: response.data
+      });
 
-    console.log('\n✅ [Test] Transaction submitted:', txResult);
+      console.log('\n✅ [Transaction] Submitted:', { hash });
+      return hash;
+    } catch (txError) {
+      console.error('\n❌ [Transaction] Failed:', txError);
+      throw txError;
+    }
   } catch (error) {
     if (error instanceof Error) {
-      if (error.name === 'AbortError') {
-        console.error('\n❌ [Test] Request timed out after 10 seconds');
-      } else {
-        console.error('\n❌ [Test] Failed:', {
-          error: error.message,
-          name: error.name,
-          stack: error.stack,
-          timestamp: new Date().toISOString()
-        });
-      }
+      console.error('\n❌ [Error]:', {
+        error: error.message,
+        name: error.name,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
     }
-    process.exit(1);
+    throw error;
   }
 }
 
-// Test with our space ID
-if (!process.env.SPACE_ID) {
-  throw new Error('SPACE_ID not set in environment');
-}
+// Execute if running directly
+if (import.meta.url === new URL(import.meta.url).href) {
+  if (!process.env.SPACE_ID) {
+    throw new Error('SPACE_ID not set in environment');
+  }
 
-console.log('[Test] Starting test...');
-publishData(
-  process.env.SPACE_ID,
-  "ipfs://bafkreiabnc3kdcomwn2ismqqkkglj4sxme6a6mdzb2z6xf7ecaldjc7klm"
-);
+  testPublish().catch(error => {
+    console.error('\n❌ [Error]:', error);
+    process.exit(1);
+  });
+}
