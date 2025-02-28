@@ -11,6 +11,8 @@
     "transform:permits": "node dist/transformPermits.js",
     "transform:deeds": "node dist/transformDeeds.js",
     "publish": "node dist/publish.js",
+    "publish:accepted": "node dist/publish-accepted.js",
+    "governance:accept": "node dist/create-governance-edit.js",
     "lint": "biome check --write --unsafe",
     "format": "biome check --write --unsafe"
   },
@@ -31,6 +33,7 @@
     "express": "^4.21.2",
     "form-data": "^4.0.2",
     "ipfs-http-client": "^60.0.1",
+    "js-sha3": "^0.9.3",
     "node-fetch": "^3.3.2",
     "position-strings": "^2.0.1",
     "ts-node": "^10.9.2",

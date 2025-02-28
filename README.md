@@ -70,6 +70,38 @@ npm run transform:deeds
 npm run publish
 ```
 
+## Governance and Accepted Edits
+
+This project includes functionality for governance acceptance of edits and republishing accepted edits.
+
+### Accepting Edits via Governance
+
+To mark an edit as accepted by governance:
+
+```bash
+# Using the shell script
+./accept-edit.sh <CID>
+
+# Or using npm script
+npm run governance:accept <CID>
+```
+
+This creates a governance edit that marks the specified CID as accepted.
+
+### Republishing Accepted Edits
+
+To republish the latest accepted edit:
+
+```bash
+# Using the shell script
+./republish-accepted.sh
+
+# Or using npm script
+npm run publish:accepted
+```
+
+This fetches the latest governance-accepted edit and publishes it to the blockchain.
+
 ## Data Organization
 
 ### Permits Space Structure

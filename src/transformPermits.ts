@@ -96,9 +96,10 @@ export async function transformPermits() {
         });
         ops.push(...permitTypeOps);
 
-        // Create permit entities
+        // Create permit entities and store their IDs
+        const permitEntities = [];
         for (const permit of permits) {
-          const { ops: permitOps } = Graph.createEntity({
+          const { id: permitId, ops: permitOps } = Graph.createEntity({
             name: permit.recordNumber,
             types: [permitTypeId],
             properties: {
@@ -129,7 +130,23 @@ export async function transformPermits() {
             },
           });
           ops.push(...permitOps);
+          permitEntities.push({
+            id: permitId,
+            recordNumber: permit.recordNumber,
+            description: permit.description,
+            recordType: permit.recordType,
+            address: permit.address,
+            projectName: permit.projectName,
+            status: permit.status
+          });
         }
+        
+        // Log the created entities with their IDs
+        console.log('\nCreated permit entities:', {
+          count: permitEntities.length,
+          firstEntity: JSON.stringify(permitEntities[0], null, 2),
+          lastEntity: JSON.stringify(permitEntities[permitEntities.length - 1], null, 2),
+        });
 
         console.log('\nTransformation complete:', {
           totalPermits: permits.length,

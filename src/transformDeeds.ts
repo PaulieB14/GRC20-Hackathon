@@ -75,10 +75,11 @@ export async function transformDeeds(): Promise<Op[]> {
     });
     ops.push(...deedTypeOps);
 
-    // Create entities for each deed record
+    // Create entities for each deed record and store their IDs
     console.log('Creating deed entities...');
+    const deedEntities = [];
     for (const record of records) {
-      const { ops: entityOps } = Graph.createEntity({
+      const { id: deedId, ops: entityOps } = Graph.createEntity({
         name: record.InstrumentNumber,
         types: [deedTypeId],
         properties: {
@@ -105,7 +106,22 @@ export async function transformDeeds(): Promise<Op[]> {
         },
       });
       ops.push(...entityOps);
+      deedEntities.push({
+        id: deedId,
+        instrumentNumber: record.InstrumentNumber,
+        seller: record.DirectName || '',
+        buyer: record.IndirectName || '',
+        propertyDetails: record.Comments || '',
+        docType: record.DocTypeDescription || ''
+      });
     }
+
+    // Log the created entities with their IDs
+    console.log('\nCreated deed entities:', {
+      count: deedEntities.length,
+      firstEntity: deedEntities.length > 0 ? JSON.stringify(deedEntities[0], null, 2) : 'none',
+      lastEntity: deedEntities.length > 0 ? JSON.stringify(deedEntities[deedEntities.length - 1], null, 2) : 'none',
+    });
 
     console.log(`Transformed ${records.length} deeds into ${ops.length} operations`);
     return ops;

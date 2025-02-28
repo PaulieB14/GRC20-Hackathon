@@ -1,0 +1,16 @@
+{
+  "name": "Governance Accept Edit",
+  "author": "0x6596a3C7C2eA69D04F01F064AA4e914196BbA0a7",
+  "description": "Governance acceptance of edit with CID: ipfs://QmcuVQ49fbFKdM3WiWvCw5V6Dnqpg6ywoo1AfA68d8jmLZ",
+  "ops": [
+    {
+      "type": "SET_TRIPLE",
+      "triple": {
+        "entity": "P77ioa8U9EipVASzVHBA9B",
+        "attribute": "acceptedEdit",
+        "value": { "type": "TEXT", "value": "ipfs://QmcuVQ49fbFKdM3WiWvCw5V6Dnqpg6ywoo1AfA68d8jmLZ" }
+      }
+    }
+  ],
+  "network": "TESTNET"
+}
