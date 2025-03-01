@@ -36,6 +36,7 @@
     "js-sha3": "^0.9.3",
     "node-fetch": "^3.3.2",
     "position-strings": "^2.0.1",
+    "puppeteer": "^24.3.0",
     "ts-node": "^10.9.2",
     "uuid": "^9.0.0",
     "viem": "^1.16.0",

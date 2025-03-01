@@ -1,0 +1,26 @@
+Updating property values...
+Read 9 entities from deeds-triples.json
+Created update operation for entity HsviSN53psykkDCir7kvtJ (2025035356): Property Address = 3461 10TH AVE N, ST PETERSBURG, FL 33713
+Created update operation for entity 8bwTCJzgmiMjSYE6NwfAKZ (2025035383): Property Address = 2326 MELROSE AVE S, ST. PETERSBURG, FL
+Created update operation for entity ERy6XnDt3nZuFFiGkfUdit (2025035398): Property Address = 1900 59TH AVE N # 216, ST PETERSBURG, FL 33714
+Entity with instrument number 2025035397 not found
+Entity with instrument number 2025035396 not found
+Entity with instrument number 2025035395 not found
+Entity with instrument number 2025035394 not found
+Entity with instrument number 2025035393 not found
+Entity with instrument number 2025035392 not found
+
+Created 3 update operations for 3 entities
+
+Publishing updates to IPFS...
+Published to IPFS with CID: ipfs://bafkreig6czhltohhwfw7ablsadizt6yel6d3vdw45r3fo3oh3fyciejaja
+
+Getting calldata for blockchain transaction...
+
+Calldata ready for transaction:
+To: 0xCB5E6a0A73993cd45E7d78d3eD9c2Bdc967ccFCB
+Data: 0x76b18add0000000000000000000000000000000000000000...
+
+To complete the update:
+1. Use the submit-transaction.js script with the above calldata
+2. After the transaction is confirmed, run the capture-entity-ids.js script to verify entity IDs

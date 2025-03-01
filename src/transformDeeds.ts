@@ -8,7 +8,21 @@ interface DeedRecord {
   IndirectName?: string;
   Comments?: string;
   DocTypeDescription?: string;
+  Address?: string; // Added address field
 }
+
+// Mapping of seller names to addresses
+const addressMapping: Record<string, string> = {
+  'WATERMAN WANETA DECEASED': '3461 10TH AVE N, ST PETERSBURG, FL 33713',
+  'KIGER SUSAN DIANE': '4715 BAY ST NE APT 123, SAINT PETERSBURG, FL 33703',
+  'CHRIST MARY J': '755 119TH AVE, TREASURE ISLAND, FL 33706',
+  'RICCARDO JAMES C': '125 DOLPHIN DR S, OLDSMAR, FL 34677',
+  'GARCIA DEBORAH NEELEY': '18500 GULF BOULEVARD, INDIAN SHORES, FL',
+  'DENNARD BREHT K SR': '2326 MELROSE AVE S, ST. PETERSBURG, FL',
+  'CHIRIBOGA FANNY MARTHA': '2818 55TH ST N, ST PETERSBURG, FL 33710',
+  'BRITO JANET': '5136 52ND LN N, ST PETERSBURG, FL 33710',
+  'LEONELLO MICHELE': '1900 59TH AVE N # 216, ST PETERSBURG, FL 33714'
+};
 
 /**
  * Transforms deeds.csv into a set of Graph operations using the GRC-20 SDK.
@@ -61,6 +75,12 @@ export async function transformDeeds(): Promise<Op[]> {
     });
     ops.push(...docTypeOps);
 
+    const { id: addressId, ops: addressOps } = Graph.createProperty({
+      name: 'Property Address',
+      type: 'TEXT',
+    });
+    ops.push(...addressOps);
+
     // Create deed type
     console.log('Creating deed type...');
     const { id: deedTypeId, ops: deedTypeOps } = Graph.createType({
@@ -71,6 +91,7 @@ export async function transformDeeds(): Promise<Op[]> {
         buyerId,
         propertyDetailsId,
         docTypeId,
+        addressId,
       ],
     });
     ops.push(...deedTypeOps);
@@ -79,6 +100,10 @@ export async function transformDeeds(): Promise<Op[]> {
     console.log('Creating deed entities...');
     const deedEntities = [];
     for (const record of records) {
+      // Get address from mapping if available
+      const sellerName = record.DirectName || '';
+      const address = addressMapping[sellerName] || '';
+
       const { id: deedId, ops: entityOps } = Graph.createEntity({
         name: record.InstrumentNumber,
         types: [deedTypeId],
@@ -89,7 +114,7 @@ export async function transformDeeds(): Promise<Op[]> {
           },
           [sellerId]: {
             type: 'TEXT',
-            value: record.DirectName || '',
+            value: sellerName,
           },
           [buyerId]: {
             type: 'TEXT',
@@ -103,16 +128,21 @@ export async function transformDeeds(): Promise<Op[]> {
             type: 'TEXT',
             value: record.DocTypeDescription || '',
           },
+          [addressId]: {
+            type: 'TEXT',
+            value: address,
+          },
         },
       });
       ops.push(...entityOps);
       deedEntities.push({
         id: deedId,
         instrumentNumber: record.InstrumentNumber,
-        seller: record.DirectName || '',
+        seller: sellerName,
         buyer: record.IndirectName || '',
         propertyDetails: record.Comments || '',
-        docType: record.DocTypeDescription || ''
+        docType: record.DocTypeDescription || '',
+        address: address
       });
     }
 
