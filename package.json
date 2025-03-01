@@ -13,6 +13,9 @@
     "publish": "node dist/publish.js",
     "publish:accepted": "node dist/publish-accepted.js",
     "governance:accept": "node dist/create-governance-edit.js",
+    "update:knowledge-graph": "node dist/update-knowledge-graph.js",
+    "overwrite:with-relations": "node dist/overwrite-with-relations.js",
+    "verify:relations": "node dist/verify-relations.js",
     "lint": "biome check --write --unsafe",
     "format": "biome check --write --unsafe"
   },
