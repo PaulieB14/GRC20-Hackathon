@@ -1,0 +1,1472 @@
+[
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "2BsswP5PE2kxw1y6MNW7PK",
+      "value": {
+        "type": "TEXT",
+        "value": "Person"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "PhLgAX1izYdUMswzc3Z3hf",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "XdwRSJf8Ut65TUZ5VFCbbk",
+      "value": {
+        "type": "TEXT",
+        "value": "Document Type"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "DbfsPiSuAJ6vCoZmofMXyn",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "XdwRSJf8Ut65TUZ5VFCbbk",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "3wTf8EECqacLLWEKVrv7QZ",
+      "value": {
+        "type": "TEXT",
+        "value": "Name"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Ebt4UhMS1CBJk4LLQ9hqsb",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "3wTf8EECqacLLWEKVrv7QZ",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "TyuqYVKTfNqC5zHne2bfyz",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "3wTf8EECqacLLWEKVrv7QZ",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "S4uPikazpdUgrF6MkGynfM",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "3wTf8EECqacLLWEKVrv7QZ",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "DjQ8E2ny8vNZe732xx8gZx",
+      "value": {
+        "type": "TEXT",
+        "value": "Address"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "UdFPyKnG8ojfnHRvuqB9b5",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "DjQ8E2ny8vNZe732xx8gZx",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "VyBYg1yDQ89caFHKtSUeZf",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "DjQ8E2ny8vNZe732xx8gZx",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "KwvyT9aod5bxuE7b7Xm3dJ",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "DjQ8E2ny8vNZe732xx8gZx",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "L62icDjKsDnNPY8NECtcpq",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed Number"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "NTGFCWxPdmdm5TbPq2yXAz",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "L62icDjKsDnNPY8NECtcpq",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "KMs28oAZ9QudQUvNKvwBEx",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "L62icDjKsDnNPY8NECtcpq",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "JKmgPey58xK5NPvgbVkaRm",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "L62icDjKsDnNPY8NECtcpq",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "DLYc2qXL2P5461bNZUFTBz",
+      "value": {
+        "type": "TEXT",
+        "value": "Buyer"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "HREb8LNyXN653BW6cEq3L2",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "DLYc2qXL2P5461bNZUFTBz",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "VqwCZvHb5H2vNCemHctHNp",
+      "value": {
+        "type": "TEXT",
+        "value": "Seller"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "9YWQu6HujB4aUAQdTvznaA",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "VqwCZvHb5H2vNCemHctHNp",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "56TGg7svJVHH1ehtitzrJ9",
+      "value": {
+        "type": "TEXT",
+        "value": "Document Type Relation"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "QPA6KxdeRvqGK2sXcrhXKm",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "56TGg7svJVHH1ehtitzrJ9",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "Gh5yKHkPsMfoR99jchENwG",
+      "value": {
+        "type": "TEXT",
+        "value": "DEED"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "5opBEDZPNEMvTAKzvNiQ5H",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "toEntity": "XdwRSJf8Ut65TUZ5VFCbbk",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "Gh5yKHkPsMfoR99jchENwG",
+      "value": {
+        "type": "TEXT",
+        "value": "DEED"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "WSaeAi3CKHLwxDfS4yhagk",
+      "value": {
+        "type": "TEXT",
+        "value": "SWANK STAYS INC"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Qpe4TSCK1FYww5aGyAbcaV",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "WSaeAi3CKHLwxDfS4yhagk",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "WSaeAi3CKHLwxDfS4yhagk",
+      "value": {
+        "type": "TEXT",
+        "value": "SWANK STAYS INC"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "9vdSLPcNwzBGi3dytsP7Jh",
+      "value": {
+        "type": "TEXT",
+        "value": "WATERMAN WANETA DECEASED"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "HeRjAsA8aGxR7JpvEQXyyg",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "9vdSLPcNwzBGi3dytsP7Jh",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "9vdSLPcNwzBGi3dytsP7Jh",
+      "value": {
+        "type": "TEXT",
+        "value": "WATERMAN WANETA DECEASED"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "NTUFUDdrgyeS9wkWqnX9tP",
+      "value": {
+        "type": "TEXT",
+        "value": "TRUE HAVEN LLC"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "RUx8mxCmSqmRSnue6RtBKu",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "NTUFUDdrgyeS9wkWqnX9tP",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "NTUFUDdrgyeS9wkWqnX9tP",
+      "value": {
+        "type": "TEXT",
+        "value": "TRUE HAVEN LLC"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "KTWm81pkPjfdzZU26y1Tvn",
+      "value": {
+        "type": "TEXT",
+        "value": "KIGER SUSAN DIANE"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "DcF9upR9iz5sip3jCVrzgF",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "KTWm81pkPjfdzZU26y1Tvn",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "KTWm81pkPjfdzZU26y1Tvn",
+      "value": {
+        "type": "TEXT",
+        "value": "KIGER SUSAN DIANE"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "9TCUiyEQ2xZL9S57ZQLfBV",
+      "value": {
+        "type": "TEXT",
+        "value": "REHG TIM"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "6hdfW8TuZ5BPFSPvEEceF1",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "9TCUiyEQ2xZL9S57ZQLfBV",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "9TCUiyEQ2xZL9S57ZQLfBV",
+      "value": {
+        "type": "TEXT",
+        "value": "REHG TIM"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "RfxcutWTtBcxAD6kJReiuQ",
+      "value": {
+        "type": "TEXT",
+        "value": "CHRIST MARY J"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "QgLaXt2FW2pEA6yztCMdLn",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "RfxcutWTtBcxAD6kJReiuQ",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "RfxcutWTtBcxAD6kJReiuQ",
+      "value": {
+        "type": "TEXT",
+        "value": "CHRIST MARY J"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "4tuYxeKfBu3rZKEoyqEi95",
+      "value": {
+        "type": "TEXT",
+        "value": "CARRINGTON MORTGAGE SERVICES LLC"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "AdQDsoNnJsZcCENYrHRvD5",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "4tuYxeKfBu3rZKEoyqEi95",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "4tuYxeKfBu3rZKEoyqEi95",
+      "value": {
+        "type": "TEXT",
+        "value": "CARRINGTON MORTGAGE SERVICES LLC"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "PsfLubFcXVVHDtbtp9nkj8",
+      "value": {
+        "type": "TEXT",
+        "value": "RICCARDO JAMES C"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "KuLCbTSxbN4FTwJg5AoDDh",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "PsfLubFcXVVHDtbtp9nkj8",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "PsfLubFcXVVHDtbtp9nkj8",
+      "value": {
+        "type": "TEXT",
+        "value": "RICCARDO JAMES C"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "NoSr6pmXwB3rJpnd4eYeeK",
+      "value": {
+        "type": "TEXT",
+        "value": "JAIME AND DEBORAH GARCIA REVOCABLE HOMESTEAD TRUST"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "DTMuVDnwFe5sFsKVLnL5bX",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "NoSr6pmXwB3rJpnd4eYeeK",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "NoSr6pmXwB3rJpnd4eYeeK",
+      "value": {
+        "type": "TEXT",
+        "value": "JAIME AND DEBORAH GARCIA REVOCABLE HOMESTEAD TRUST"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "LNPRY8cDeLXtdc1yEYGRYy",
+      "value": {
+        "type": "TEXT",
+        "value": "GARCIA DEBORAH NEELEY"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "5rSkjmw3Cg7k4EFG1aSwx4",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "LNPRY8cDeLXtdc1yEYGRYy",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "LNPRY8cDeLXtdc1yEYGRYy",
+      "value": {
+        "type": "TEXT",
+        "value": "GARCIA DEBORAH NEELEY"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "LebgLX3u7HfZo3AF9cHVDz",
+      "value": {
+        "type": "TEXT",
+        "value": "FEDERAL NATIONAL MORTGAGE ASSOCIATION"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "HnBBQ6Q7DwX3JW1KhC7Xsr",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "LebgLX3u7HfZo3AF9cHVDz",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "LebgLX3u7HfZo3AF9cHVDz",
+      "value": {
+        "type": "TEXT",
+        "value": "FEDERAL NATIONAL MORTGAGE ASSOCIATION"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "BPrUQAfRbjLoDwstZJGuVv",
+      "value": {
+        "type": "TEXT",
+        "value": "DENNARD BREHT K SR"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "AdxRLFkjVR4PNCgmB3M1zG",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "BPrUQAfRbjLoDwstZJGuVv",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "BPrUQAfRbjLoDwstZJGuVv",
+      "value": {
+        "type": "TEXT",
+        "value": "DENNARD BREHT K SR"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "NsCsygKfcyCsbG1kfV8cXa",
+      "value": {
+        "type": "TEXT",
+        "value": "CHIRIBOGA FANNY MARTHA TRUSTEE"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "J5pNiYiFMhzrkXiYwSr72o",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "NsCsygKfcyCsbG1kfV8cXa",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "NsCsygKfcyCsbG1kfV8cXa",
+      "value": {
+        "type": "TEXT",
+        "value": "CHIRIBOGA FANNY MARTHA TRUSTEE"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "WtD3HKTc2LF4J9yoMxQc6k",
+      "value": {
+        "type": "TEXT",
+        "value": "CHIRIBOGA FANNY MARTHA"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "SgZkwu2XsQps9SQsmqhs3X",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "WtD3HKTc2LF4J9yoMxQc6k",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "WtD3HKTc2LF4J9yoMxQc6k",
+      "value": {
+        "type": "TEXT",
+        "value": "CHIRIBOGA FANNY MARTHA"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "9mHqmT51eoXDEtiPFbASzS",
+      "value": {
+        "type": "TEXT",
+        "value": "BRITO JANET"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "SQFNQ8DkSK9fhoWBeL2mUL",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "9mHqmT51eoXDEtiPFbASzS",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "9mHqmT51eoXDEtiPFbASzS",
+      "value": {
+        "type": "TEXT",
+        "value": "BRITO JANET"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "7hELw6Cb3KoFdym1kASoro",
+      "value": {
+        "type": "TEXT",
+        "value": "CAYNE ALFRED"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "4PSWk8MhuXSahM6JW1LpAK",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "7hELw6Cb3KoFdym1kASoro",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "7hELw6Cb3KoFdym1kASoro",
+      "value": {
+        "type": "TEXT",
+        "value": "CAYNE ALFRED"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "JfuY8UZivSUxrNj5FuPRGi",
+      "value": {
+        "type": "TEXT",
+        "value": "LEONELLO MICHELE"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "LEgSCUjb2M1LjQfeKiL4FX",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "JfuY8UZivSUxrNj5FuPRGi",
+      "toEntity": "2BsswP5PE2kxw1y6MNW7PK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3wTf8EECqacLLWEKVrv7QZ",
+      "entity": "JfuY8UZivSUxrNj5FuPRGi",
+      "value": {
+        "type": "TEXT",
+        "value": "LEONELLO MICHELE"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "7xxUPqq9v5CKGrxhJgD532",
+      "value": {
+        "type": "TEXT",
+        "value": "3461 10TH AVE N, ST PETERSBURG, FL 33713"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "7xxUPqq9v5CKGrxhJgD532",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 3461 10TH AVE N, ST PETERSBURG, FL 33713"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "7xxUPqq9v5CKGrxhJgD532",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035356"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "7xxUPqq9v5CKGrxhJgD532",
+      "value": {
+        "type": "TEXT",
+        "value": "WEST 1/2 OF LOT 20 AND ALL OF LOT 21 BLOCK 6 FLORAL VILLA PARK"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "38pY5yGP8dDrnnAe1jmY6K",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "7xxUPqq9v5CKGrxhJgD532",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "JWtxQ1gV4yammWUeGAqeoJ",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "7xxUPqq9v5CKGrxhJgD532",
+      "toEntity": "WSaeAi3CKHLwxDfS4yhagk",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "CPgHziuChNnx9Ag8PZsEoS",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "7xxUPqq9v5CKGrxhJgD532",
+      "toEntity": "9vdSLPcNwzBGi3dytsP7Jh",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "WiPAq5i3Mw165ZozFBQn8i",
+      "value": {
+        "type": "TEXT",
+        "value": "4715 BAY ST NE APT 123, SAINT PETERSBURG, FL 33703"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "WiPAq5i3Mw165ZozFBQn8i",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 4715 BAY ST NE APT 123, SAINT PETERSBURG, FL 33703"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "WiPAq5i3Mw165ZozFBQn8i",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035363"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "WiPAq5i3Mw165ZozFBQn8i",
+      "value": {
+        "type": "TEXT",
+        "value": "UNIT 123 BUILDING 300 WINSTON PARK NORTHEAST 300 CONDOMINIUM"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "E6CPZJx1SqCXygbVDy7WJ7",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "WiPAq5i3Mw165ZozFBQn8i",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "EsTZNsBhG2jon7FBt2YWRi",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "WiPAq5i3Mw165ZozFBQn8i",
+      "toEntity": "NTUFUDdrgyeS9wkWqnX9tP",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "WcX5Gytc8qEhVrfsykk2VA",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "WiPAq5i3Mw165ZozFBQn8i",
+      "toEntity": "KTWm81pkPjfdzZU26y1Tvn",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "value": {
+        "type": "TEXT",
+        "value": "755 119TH AVE, TREASURE ISLAND, FL 33706"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 755 119TH AVE, TREASURE ISLAND, FL 33706"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035367"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "value": {
+        "type": "TEXT",
+        "value": "LOT 9 BLOCK U CAPRI ISLE BLOCKS U V AND P"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "7qEYUzzH7iWjQ2cAs4gLNS",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "8V5UZATvUjav4DngRHGEGS",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "toEntity": "9TCUiyEQ2xZL9S57ZQLfBV",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MCtVsKMLzHb9im22T95uYX",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "Mq8bbRkZdPAMVbRLhhe29p",
+      "toEntity": "RfxcutWTtBcxAD6kJReiuQ",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "Td14eknjV47UXaenxKNvDe",
+      "value": {
+        "type": "TEXT",
+        "value": "125 DOLPHIN DR S, OLDSMAR, FL 34677"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "Td14eknjV47UXaenxKNvDe",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 125 DOLPHIN DR S, OLDSMAR, FL 34677"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "Td14eknjV47UXaenxKNvDe",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035368"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "Td14eknjV47UXaenxKNvDe",
+      "value": {
+        "type": "TEXT",
+        "value": "LOT 125 GULL AIRE VILLAGE"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "9Gjvf6ZxmkYSE4FMpahH6N",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "Td14eknjV47UXaenxKNvDe",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "V2SAkzcUmGnjWZWa6Ju213",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "Td14eknjV47UXaenxKNvDe",
+      "toEntity": "4tuYxeKfBu3rZKEoyqEi95",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "CcW34ueiVYTXs3wySSJBC2",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "Td14eknjV47UXaenxKNvDe",
+      "toEntity": "PsfLubFcXVVHDtbtp9nkj8",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "JLjmPUvbdWBrFNb89t7ac7",
+      "value": {
+        "type": "TEXT",
+        "value": "18500 GULF BOULEVARD, UNIT 108, INDIAN SHORES, FL 33785"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "JLjmPUvbdWBrFNb89t7ac7",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 18500 GULF BOULEVARD, UNIT 108, INDIAN SHORES, FL 33785"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "JLjmPUvbdWBrFNb89t7ac7",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035369"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "JLjmPUvbdWBrFNb89t7ac7",
+      "value": {
+        "type": "TEXT",
+        "value": "UNIT 108 OF SAND DOLLAR OF INDIAN SHORES CONDOMINIIUM"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "TCBaG1Fz2hkz6tbX39yxtf",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "JLjmPUvbdWBrFNb89t7ac7",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "9tkf7rSqHTGModp7DaD7yE",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "JLjmPUvbdWBrFNb89t7ac7",
+      "toEntity": "NoSr6pmXwB3rJpnd4eYeeK",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "HefD53KCKLTvqCGr19NXyK",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "JLjmPUvbdWBrFNb89t7ac7",
+      "toEntity": "LNPRY8cDeLXtdc1yEYGRYy",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "CKWTWC88EaeHb9S8LDn66A",
+      "value": {
+        "type": "TEXT",
+        "value": "2326 MELROSE AVE S, ST. PETERSBURG, FL 33712"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "CKWTWC88EaeHb9S8LDn66A",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 2326 MELROSE AVE S, ST. PETERSBURG, FL 33712"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "CKWTWC88EaeHb9S8LDn66A",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035383"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "CKWTWC88EaeHb9S8LDn66A",
+      "value": {
+        "type": "TEXT",
+        "value": "LOT 23 LESS THE SOUTH 8 FEET DELMONTE SUBDIVISION"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "KpaUVv1tMPyZJ2CEduuZye",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "CKWTWC88EaeHb9S8LDn66A",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Uejc7cAkpo8A6XsQNtBYks",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "CKWTWC88EaeHb9S8LDn66A",
+      "toEntity": "LebgLX3u7HfZo3AF9cHVDz",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "FgF3oe1ta3ZnqSezcHQHfs",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "CKWTWC88EaeHb9S8LDn66A",
+      "toEntity": "BPrUQAfRbjLoDwstZJGuVv",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "6cDKLidRufcGdRW3mhQHKf",
+      "value": {
+        "type": "TEXT",
+        "value": "2818 55TH ST N, ST PETERSBURG, FL 33710"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "6cDKLidRufcGdRW3mhQHKf",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 2818 55TH ST N, ST PETERSBURG, FL 33710"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "6cDKLidRufcGdRW3mhQHKf",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035390"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "6cDKLidRufcGdRW3mhQHKf",
+      "value": {
+        "type": "TEXT",
+        "value": "LOT 5 BLOCK 6 WESTGATE HEIGHTS NORTH"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "GrChcwtk3rWqqMR4qjoF4z",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "6cDKLidRufcGdRW3mhQHKf",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "2QXeS4oeXBbSd4e8ESuDwa",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "6cDKLidRufcGdRW3mhQHKf",
+      "toEntity": "NsCsygKfcyCsbG1kfV8cXa",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "3hFhLMJNu9djf81pehvZwy",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "6cDKLidRufcGdRW3mhQHKf",
+      "toEntity": "WtD3HKTc2LF4J9yoMxQc6k",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "value": {
+        "type": "TEXT",
+        "value": "5136 52ND LN N, ST PETERSBURG, FL 33710"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 5136 52ND LN N, ST PETERSBURG, FL 33710"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035391"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "value": {
+        "type": "TEXT",
+        "value": "LOT 35 BRENTWOOD HEIGHTS SECOND ADDITION"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "BGQB8wMuRLLV6EAwP1gr2e",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "7NfCLJ5cpugcd4e8EDiWJM",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "toEntity": "NsCsygKfcyCsbG1kfV8cXa",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MDGunb27tJAEA64M8aC8nD",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "YS7h8EfhNZ2S6Qybsw3p5V",
+      "toEntity": "9mHqmT51eoXDEtiPFbASzS",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "DjQ8E2ny8vNZe732xx8gZx",
+      "entity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "value": {
+        "type": "TEXT",
+        "value": "1900 59TH AVE N # 216, ST PETERSBURG, FL 33714"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "value": {
+        "type": "TEXT",
+        "value": "Deed for 1900 59TH AVE N # 216, ST PETERSBURG, FL 33714"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "L62icDjKsDnNPY8NECtcpq",
+      "entity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "value": {
+        "type": "TEXT",
+        "value": "2025035398"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "entity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "value": {
+        "type": "TEXT",
+        "value": "UNIT NO 216 TOWN APARTMENTS NO 17 CONDOMINIUM"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "6jgcFf19mDuSvnexkhCWS8",
+      "type": "56TGg7svJVHH1ehtitzrJ9",
+      "fromEntity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "toEntity": "Gh5yKHkPsMfoR99jchENwG",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MSpzFLtGqLgpfUhcFkGFWs",
+      "type": "DLYc2qXL2P5461bNZUFTBz",
+      "fromEntity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "toEntity": "7hELw6Cb3KoFdym1kASoro",
+      "index": "AM4nrfB9.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "7oQCBN4cu69T6Zug5nLQRa",
+      "type": "VqwCZvHb5H2vNCemHctHNp",
+      "fromEntity": "TEvjnSjFZiorwNHQXn2Zzt",
+      "toEntity": "JfuY8UZivSUxrNj5FuPRGi",
+      "index": "AM4nrfB9.B"
+    }
+  }
+]
