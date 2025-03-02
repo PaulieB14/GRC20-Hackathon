@@ -3,12 +3,14 @@ import { parse } from 'csv-parse/sync';
 import { Graph, type Op } from '@graphprotocol/grc-20';
 
 interface DeedRecord {
+  DirectName: string;
+  IndirectName: string;
+  RecordDate: string;
+  DocTypeDescription: string;
+  BookType: string;
+  BookPage: string;
+  LegalDescription: string;
   InstrumentNumber: string;
-  DirectName?: string;
-  IndirectName?: string;
-  Comments?: string;
-  DocTypeDescription?: string;
-  Address?: string; // Added address field
 }
 
 // Mapping of seller names to addresses
@@ -25,20 +27,20 @@ const addressMapping: Record<string, string> = {
 };
 
 /**
- * Transforms deeds.csv into a set of Graph operations using the GRC-20 SDK.
+ * Transforms deeds CSV into a set of Graph operations using the GRC-20 SDK.
  * Creates properties, types, and entities for deed records.
  */
 export async function transformDeeds(): Promise<Op[]> {
   try {
-    // Read and parse CSV
-    const csvData = readFileSync('data/deeds.csv', 'utf-8');
+    // Read and parse CSV from data directory
+    const csvData = readFileSync('data/GRC20_Deeds.csv', 'utf-8');
     const records = parse(csvData, {
       columns: true,
       skip_empty_lines: true
     }) as DeedRecord[];
 
     if (!records.length) {
-      throw new Error('No records found in deeds.csv');
+      throw new Error('No records found in GRC20_Deeds.csv');
     }
 
     const ops: Op[] = [];
@@ -51,23 +53,41 @@ export async function transformDeeds(): Promise<Op[]> {
     });
     ops.push(...instrumentNumberOps);
 
-    const { id: sellerId, ops: sellerOps } = Graph.createProperty({
-      name: 'Seller',
+    const { id: directNameId, ops: directNameOps } = Graph.createProperty({
+      name: 'Direct Name',
       type: 'TEXT',
     });
-    ops.push(...sellerOps);
+    ops.push(...directNameOps);
 
-    const { id: buyerId, ops: buyerOps } = Graph.createProperty({
-      name: 'Buyer',
+    const { id: indirectNameId, ops: indirectNameOps } = Graph.createProperty({
+      name: 'Indirect Name',
       type: 'TEXT',
     });
-    ops.push(...buyerOps);
+    ops.push(...indirectNameOps);
 
-    const { id: propertyDetailsId, ops: propertyDetailsOps } = Graph.createProperty({
-      name: 'Property Details',
+    const { id: recordDateId, ops: recordDateOps } = Graph.createProperty({
+      name: 'Record Date',
       type: 'TEXT',
     });
-    ops.push(...propertyDetailsOps);
+    ops.push(...recordDateOps);
+
+    const { id: bookTypeId, ops: bookTypeOps } = Graph.createProperty({
+      name: 'Book Type',
+      type: 'TEXT',
+    });
+    ops.push(...bookTypeOps);
+
+    const { id: bookPageId, ops: bookPageOps } = Graph.createProperty({
+      name: 'Book Page',
+      type: 'TEXT',
+    });
+    ops.push(...bookPageOps);
+
+    const { id: legalDescriptionId, ops: legalDescriptionOps } = Graph.createProperty({
+      name: 'Legal Description',
+      type: 'TEXT',
+    });
+    ops.push(...legalDescriptionOps);
 
     const { id: docTypeId, ops: docTypeOps } = Graph.createProperty({
       name: 'Document Type',
@@ -75,78 +95,80 @@ export async function transformDeeds(): Promise<Op[]> {
     });
     ops.push(...docTypeOps);
 
-    const { id: addressId, ops: addressOps } = Graph.createProperty({
-      name: 'Property Address',
-      type: 'TEXT',
-    });
-    ops.push(...addressOps);
-
     // Create deed type
     console.log('Creating deed type...');
     const { id: deedTypeId, ops: deedTypeOps } = Graph.createType({
       name: 'Deed',
       properties: [
         instrumentNumberId,
-        sellerId,
-        buyerId,
-        propertyDetailsId,
-        docTypeId,
-        addressId,
+        directNameId,
+        indirectNameId,
+        recordDateId,
+        bookTypeId,
+        bookPageId,
+        legalDescriptionId,
+        docTypeId
       ],
     });
     ops.push(...deedTypeOps);
 
-    // Create entities for each deed record and store their IDs
+    // Create entities for each deed record
     console.log('Creating deed entities...');
     const deedEntities = [];
     for (const record of records) {
-      // Get address from mapping if available
-      const sellerName = record.DirectName || '';
-      const address = addressMapping[sellerName] || '';
-
       const { id: deedId, ops: entityOps } = Graph.createEntity({
-        name: record.InstrumentNumber,
+        name: record.InstrumentNumber, // Use instrument number as name
         types: [deedTypeId],
         properties: {
           [instrumentNumberId]: {
             type: 'TEXT',
             value: record.InstrumentNumber,
           },
-          [sellerId]: {
+          [directNameId]: {
             type: 'TEXT',
-            value: sellerName,
+            value: record.DirectName,
           },
-          [buyerId]: {
+          [indirectNameId]: {
             type: 'TEXT',
-            value: record.IndirectName || '',
+            value: record.IndirectName,
           },
-          [propertyDetailsId]: {
+          [recordDateId]: {
             type: 'TEXT',
-            value: record.Comments || '',
+            value: record.RecordDate,
+          },
+          [bookTypeId]: {
+            type: 'TEXT',
+            value: record.BookType,
+          },
+          [bookPageId]: {
+            type: 'TEXT',
+            value: record.BookPage,
+          },
+          [legalDescriptionId]: {
+            type: 'TEXT',
+            value: record.LegalDescription,
           },
           [docTypeId]: {
             type: 'TEXT',
-            value: record.DocTypeDescription || '',
-          },
-          [addressId]: {
-            type: 'TEXT',
-            value: address,
-          },
+            value: record.DocTypeDescription,
+          }
         },
       });
       ops.push(...entityOps);
       deedEntities.push({
         id: deedId,
         instrumentNumber: record.InstrumentNumber,
-        seller: sellerName,
-        buyer: record.IndirectName || '',
-        propertyDetails: record.Comments || '',
-        docType: record.DocTypeDescription || '',
-        address: address
+        directName: record.DirectName,
+        indirectName: record.IndirectName,
+        recordDate: record.RecordDate,
+        bookType: record.BookType,
+        bookPage: record.BookPage,
+        legalDescription: record.LegalDescription,
+        docType: record.DocTypeDescription
       });
     }
 
-    // Log the created entities with their IDs
+    // Log the created entities
     console.log('\nCreated deed entities:', {
       count: deedEntities.length,
       firstEntity: deedEntities.length > 0 ? JSON.stringify(deedEntities[0], null, 2) : 'none',

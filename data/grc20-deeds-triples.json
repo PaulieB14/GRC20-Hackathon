@@ -1,0 +1,623 @@
+[
+  {
+    "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035356"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "WATERMAN WANETA DECEASED"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "SWANK STAYS INC"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:05:35"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1024"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "WEST 1/2 OF LOT 20 AND ALL OF LOT 21 BLOCK 6 FLORAL VILLA PARK"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "7tzYRxS8QES1fQQLoUpc8U",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "PbuL6TM19rdkFoEh31VyQq",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035363"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "KIGER SUSAN DIANE"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "TRUE HAVEN LLC"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:07:15"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1037"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "UNIT 123 BUILDING 300 WINSTON PARK NORTHEAST 300 CONDOMINIUM"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "PbuL6TM19rdkFoEh31VyQq",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035367"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "CHRIST MARY J"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "REHG TIM"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:08:45"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1046"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 9 BLOCK U CAPRI ISLE BLOCKS U V AND P"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "GXSWc9tEJp5iP1idJDyuYC",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035368"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "RICCARDO JAMES C"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "CARRINGTON MORTGAGE SERVICES LLC"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:09:15"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1053"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 125 GULL AIRE VILLAGE"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "QQ2Cb5L4yNTUfva7aEXYdk",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "JUtVFrszpHccyEQPkURtUj",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035369"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "GARCIA DEBORAH NEELEY"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "JAIME AND DEBORAH GARCIA REVOCABLE HOMESTEAD TRUST"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:09:45"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1060"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "UNIT 108 OF SAND DOLLAR OF INDIAN SHORES CONDOMINIIUM"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "JUtVFrszpHccyEQPkURtUj",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035383"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "DENNARD BREHT K SR"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "FEDERAL NATIONAL MORTGAGE ASSOCIATION"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:12:15"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1082"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 23 LESS THE SOUTH 8 FEET DELMONTE SUBDIVISION"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "JSvDqnQxpXqdVYDm3G9Zyy",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035390"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "CHIRIBOGA FANNY MARTHA"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "CHIRIBOGA FANNY MARTHA TRUSTEE"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:14:45"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1096"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 5 BLOCK 6 WESTGATE HEIGHTS NORTH"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "YB7z9V1fXtBv1LU5kpY2i8",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "4a2Y9zUyeknUBCu8afhyds",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035391"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "BRITO JANET"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "CHIRIBOGA FANNY MARTHA TRUSTEE"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:15:15"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1102"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "LOT 35 BRENTWOOD HEIGHTS SECOND ADDITION"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "4a2Y9zUyeknUBCu8afhyds",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  },
+  {
+    "entityId": "8b6w38q92qaxvbvgrvJPNh",
+    "triples": [
+      {
+        "attributeId": "instrumentNumberId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "2025035398"
+        }
+      },
+      {
+        "attributeId": "directNameId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "LEONELLO MICHELE"
+        }
+      },
+      {
+        "attributeId": "indirectNameId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "CAYNE ALFRED"
+        }
+      },
+      {
+        "attributeId": "recordDateId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "2025-02-05 09:16:25"
+        }
+      },
+      {
+        "attributeId": "bookTypeId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "OR"
+        }
+      },
+      {
+        "attributeId": "bookPageId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "23053/1109"
+        }
+      },
+      {
+        "attributeId": "legalDescriptionId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "UNIT NO 216 TOWN APARTMENTS NO 17 CONDOMINIUM"
+        }
+      },
+      {
+        "attributeId": "docTypeId",
+        "entityId": "8b6w38q92qaxvbvgrvJPNh",
+        "value": {
+          "type": "TEXT",
+          "value": "DEED"
+        }
+      }
+    ]
+  }
+]

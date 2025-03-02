@@ -135,6 +135,29 @@ This is particularly useful after publishing data, when the entity IDs have chan
 - Extract the entity ID and the corresponding identifier (instrument number or record number)
 - Update the local triples files with the new entity IDs
 
+#### Option 3: Use the update-all-entities.ts script (Comprehensive)
+
+```bash
+# Install puppeteer if you haven't already
+npm install puppeteer
+
+# Run the shell script to compile and execute
+./update-all-entities.sh
+
+# Or using npm script
+npm run update:all-entities
+```
+
+This script combines the functionality of the capture-entity-ids.ts script with additional features:
+1. Captures entity IDs from both the deeds and permits spaces
+2. Updates the entity IDs in both deeds-triples.json and permits-triples.json
+3. Updates the working-deed-ids.json file with all deed entity IDs
+
+This is the recommended approach for a complete synchronization of all entity IDs across all files. It ensures that:
+- All entity IDs are up-to-date in the triples files
+- The working-deed-ids.json file contains all deed entity IDs
+- The permits-triples.json file has the correct entity structure
+
 For example, if you know that the entity ID for deed 2025035398 is "ERy6XnDt3nZuFFiGkfUdit", you can manually update the deeds-triples.json file to use this entity ID, or you can use one of these scripts to automate the process.
 
 ## Governance and Accepted Edits

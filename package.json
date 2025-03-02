@@ -16,6 +16,7 @@
     "update:knowledge-graph": "node dist/update-knowledge-graph.js",
     "overwrite:with-relations": "node dist/overwrite-with-relations.js",
     "verify:relations": "node dist/verify-relations.js",
+    "update:all-entities": "./update-all-entities.sh",
     "lint": "biome check --write --unsafe",
     "format": "biome check --write --unsafe"
   },
