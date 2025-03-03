@@ -88,7 +88,7 @@ export async function transformPermits() {
 
         // Create record type entity type
         const { id: recordTypeTypeId, ops: recordTypeTypeOps } = Graph.createType({
-          name: 'Record Type',
+          name: 'Record type',
           properties: [],
         });
         ops.push(...recordTypeTypeOps);
@@ -102,13 +102,13 @@ export async function transformPermits() {
 
         // Create relation types
         const { id: hasRecordTypeRelationTypeId, ops: hasRecordTypeRelationTypeOps } = Graph.createType({
-          name: 'Has Record Type',
+          name: 'Has record type',
           properties: [],
         });
         ops.push(...hasRecordTypeRelationTypeOps);
 
         const { id: hasStatusRelationTypeId, ops: hasStatusRelationTypeOps } = Graph.createType({
-          name: 'Has Status',
+          name: 'Has status',
           properties: [],
         });
         ops.push(...hasStatusRelationTypeOps);

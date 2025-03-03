@@ -62,7 +62,7 @@ export async function createBaseTypes(): Promise<{
   // Create record type type
   console.log('Creating record type type...');
   const { id: recordTypeTypeId, ops: recordTypeTypeOps } = Graph.createType({
-    name: 'Record Type',
+    name: 'Record type',
     properties: [], // Will add properties later
   });
   ops.push(...recordTypeTypeOps);
@@ -101,14 +101,14 @@ export async function createBaseTypes(): Promise<{
 
   // Record type relation type
   const { id: recordTypeRelationTypeId, ops: recordTypeRelationTypeOps } = Graph.createType({
-    name: 'Record Type Relation',
+    name: 'Record type relation',
     properties: [], // Will add properties later
   });
   ops.push(...recordTypeRelationTypeOps);
 
   // Status relation type
   const { id: statusRelationTypeId, ops: statusRelationTypeOps } = Graph.createType({
-    name: 'Status Relation',
+    name: 'Status relation',
     properties: [], // Will add properties later
   });
   ops.push(...statusRelationTypeOps);
