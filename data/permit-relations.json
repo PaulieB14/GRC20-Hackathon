@@ -1,0 +1,1561 @@
+[
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "HNrpgDeC2GBKTwaBfMGDgy",
+      "value": {
+        "type": "TEXT",
+        "value": "Record Number"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "RKxBDy3sc6PtqCw9PHY5si",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "HNrpgDeC2GBKTwaBfMGDgy",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "ENramnwLKVrrE1JoKzEBMR",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "HNrpgDeC2GBKTwaBfMGDgy",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "GH2KDcy5KRVYQi2h9bN81W",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "HNrpgDeC2GBKTwaBfMGDgy",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "LHH2tQcXogAyzLkFFyfkMK",
+      "value": {
+        "type": "TEXT",
+        "value": "Description"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "PP22TehC8UD8dPsu4Px53y",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "LHH2tQcXogAyzLkFFyfkMK",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Y5syRhye4pjaefHUxMSZvG",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "LHH2tQcXogAyzLkFFyfkMK",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "T42LZvB5uM9eBsBvBKBwvx",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "LHH2tQcXogAyzLkFFyfkMK",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "PsuVd3qhjjxwY8M24CqaT1",
+      "value": {
+        "type": "TEXT",
+        "value": "Address"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "2J1uw7Dy4sY7uvTrpeKc3H",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "PsuVd3qhjjxwY8M24CqaT1",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MGTaBYAQC7RZufZEcbrPxU",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "PsuVd3qhjjxwY8M24CqaT1",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "WLXo5SpiH5Qj2vsFzCApkH",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "PsuVd3qhjjxwY8M24CqaT1",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "WHDLSNDJnUaj1w75PKS9T6",
+      "value": {
+        "type": "TEXT",
+        "value": "Project Name"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "YQzXLTVWbvQGfoaCU6Swaa",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "WHDLSNDJnUaj1w75PKS9T6",
+      "toEntity": "GscJ2GELQjmLoaVrYyR3xm",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "GBZtwj55uXwYspXG1t9wGK",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "WHDLSNDJnUaj1w75PKS9T6",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Rxcgz8czyWU5ZLP4hvmZX6",
+      "type": "WQfdWjboZWFuTseDhG5Cw1",
+      "fromEntity": "WHDLSNDJnUaj1w75PKS9T6",
+      "toEntity": "LckSTmjBrYAJaFcDs89am5",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "value": {
+        "type": "TEXT",
+        "value": "Building Permit"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "DpNsBi6C18T9ckk5uv4uLC",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "5bon69ricjqJEFdXxeWmHX",
+      "type": "GscJ2GELQjmLoaVrYyR3xm",
+      "fromEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "toEntity": "HNrpgDeC2GBKTwaBfMGDgy",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "24XvWLmFs5zxue5ChQBPJB",
+      "type": "GscJ2GELQjmLoaVrYyR3xm",
+      "fromEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "toEntity": "LHH2tQcXogAyzLkFFyfkMK",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "GgHUX6KqcSoUpRCtvVqb5p",
+      "type": "GscJ2GELQjmLoaVrYyR3xm",
+      "fromEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "toEntity": "PsuVd3qhjjxwY8M24CqaT1",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "437xU518cJ8xAZc2KooK9p",
+      "type": "GscJ2GELQjmLoaVrYyR3xm",
+      "fromEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "toEntity": "WHDLSNDJnUaj1w75PKS9T6",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "G7HaDAL1djja2vvw86M6Ez",
+      "value": {
+        "type": "TEXT",
+        "value": "Record Type"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "9TpUvXwfKXDhqhar7Ys9Wi",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "9PWx3N3aPtXJMQeK82rJhW",
+      "value": {
+        "type": "TEXT",
+        "value": "Status"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Gs5GH21Np6gC8BhJXiKiA4",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "QrqocRvYswo3XBSwDHTVj5",
+      "value": {
+        "type": "TEXT",
+        "value": "Has Record Type"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "JrTDUxagAjdvFDE6GRGYce",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "QrqocRvYswo3XBSwDHTVj5",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "value": {
+        "type": "TEXT",
+        "value": "Has Status"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "LpELvrjhB7iayJ7hUztYNm",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "toEntity": "VdTsW1mGiy1XSooJaBBLc4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "7hKdba2fcE1FXK8vtXuTrY",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential Demolition"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "H5moY3227ZovE7eirtAabA",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "7hKdba2fcE1FXK8vtXuTrY",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "6fhqHkJEmeCpbvHrJfoh6K",
+      "value": {
+        "type": "TEXT",
+        "value": "Commercial Electrical"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "APvgsgVvjhdwnaG3G19UxE",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "6fhqHkJEmeCpbvHrJfoh6K",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "XA2Wu63g5wHBmXHwRNaWp4",
+      "value": {
+        "type": "TEXT",
+        "value": "Express Building Permit"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "5LpiHFJwdKnxh2nB3AE9pD",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "XA2Wu63g5wHBmXHwRNaWp4",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "6jL1kFh14am4612MHcDDNp",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential Plumbing"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "T6YBJNL4N2YK9Wwaa5xdWy",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "6jL1kFh14am4612MHcDDNp",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "9DJwewxiTFybeBgnHdHA2a",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential Electrical"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "8ykeb5WjEZniHT7QHLHcMR",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "9DJwewxiTFybeBgnHdHA2a",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "NWjFw3imq5qXELevbiagmr",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential Revision-Supplement"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "6kiLrMdZkAfuDmpjuGRZ5s",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "NWjFw3imq5qXELevbiagmr",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "X8ERXRd3qKpaRJvEQos5Uw",
+      "value": {
+        "type": "TEXT",
+        "value": "Commercial Demolition"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "KYty7ViSzHdcdTxNh71Nez",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "X8ERXRd3qKpaRJvEQos5Uw",
+      "toEntity": "G7HaDAL1djja2vvw86M6Ez",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "CNNYkcvAHHd2L1jw3UxJJw",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting Plans"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "N9E5iJqHx7ze2cfm3ybap6",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "CNNYkcvAHHd2L1jw3UxJJw",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "3eAS7siveUD9CAmiwfEV77",
+      "value": {
+        "type": "TEXT",
+        "value": "Incomplete Submittal"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "LDUTf96eUeLmoLnFgNathc",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "3eAS7siveUD9CAmiwfEV77",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "7ZnvYZzdsx1HWtggfEHhg7",
+      "value": {
+        "type": "TEXT",
+        "value": "Issued"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "T5W7nKDLG2YHhfBLMYLCsj",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "7ZnvYZzdsx1HWtggfEHhg7",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "F2QQhQ8cbow3JU4kt5dnsR",
+      "value": {
+        "type": "TEXT",
+        "value": "N/A"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Barwaah78Yv5FV3KVirpq9",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "F2QQhQ8cbow3JU4kt5dnsR",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "TL2bPYDkdwwF9trgQ3WvX4",
+      "value": {
+        "type": "TEXT",
+        "value": "Closed - Withdrawn"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "BSbVuBa5nAp5C1W6vJtDdh",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "TL2bPYDkdwwF9trgQ3WvX4",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "VQFDX9tjZoV8e4TVgd2qYx",
+      "value": {
+        "type": "TEXT",
+        "value": "Closed - Supp-Rev Approved"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "RYLFbd2wJn7s6huQBL76rn",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "VQFDX9tjZoV8e4TVgd2qYx",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "G44FATrgFio2PrgMA2Qj4L",
+      "value": {
+        "type": "TEXT",
+        "value": "Submitted"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "YP4gaRPsVWaFoU6CfPT1U6",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "G44FATrgFio2PrgMA2Qj4L",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "TVrcws6Un3pTXknu9QhRvu",
+      "value": {
+        "type": "TEXT",
+        "value": "In Review"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "4Vcjnk7QVjEuNF1RMxFtCi",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "TVrcws6Un3pTXknu9QhRvu",
+      "toEntity": "9PWx3N3aPtXJMQeK82rJhW",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "SppHWUzX46N63r7wgptkX9",
+      "value": {
+        "type": "TEXT",
+        "value": "Demolition of destroyed trailer home due to the storm"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MkvwDZixvS7M2BsasumFVu",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "SppHWUzX46N63r7wgptkX9",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "SppHWUzX46N63r7wgptkX9",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-DMO-25-00104"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "SppHWUzX46N63r7wgptkX9",
+      "value": {
+        "type": "TEXT",
+        "value": "Demolition of destroyed trailer home due to the storm"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "SppHWUzX46N63r7wgptkX9",
+      "value": {
+        "type": "TEXT",
+        "value": "10636 GANDY BLVD, 43, ST PETERSBURG 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "SppHWUzX46N63r7wgptkX9",
+      "value": {
+        "type": "TEXT",
+        "value": "Mobile Home Demolition"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "SVuY8348xcNGdhwBjCk8rJ",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "SppHWUzX46N63r7wgptkX9",
+      "toEntity": "7hKdba2fcE1FXK8vtXuTrY",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "8mZWutK6YeVSVjDhXkDpjD",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "SppHWUzX46N63r7wgptkX9",
+      "toEntity": "CNNYkcvAHHd2L1jw3UxJJw",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "value": {
+        "type": "TEXT",
+        "value": "Fire Alarm Panel Relocate"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "2ovmRgHd2KP6MZo1Lk4dtr",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "value": {
+        "type": "TEXT",
+        "value": "BC-ELE-25-00045"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "value": {
+        "type": "TEXT",
+        "value": "Fire Alarm Panel Relocate"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "value": {
+        "type": "TEXT",
+        "value": "10596 GANDY BLVD, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "value": {
+        "type": "TEXT",
+        "value": "(FLAG) CS - FIRE ALARM - Goodwill Suncoast"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "UQBXVK5kJGftn5PpAvSnhj",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "toEntity": "6fhqHkJEmeCpbvHrJfoh6K",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "L8mm5yphBuZFg5rHME25iX",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "SjUJ6fg7ooVRWMRT3c1hJk",
+      "toEntity": "3eAS7siveUD9CAmiwfEV77",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "value": {
+        "type": "TEXT",
+        "value": "Permit #EBP-25-02988"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MPs8aqo22SWcn9JeM4pJ4x",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "value": {
+        "type": "TEXT",
+        "value": "EBP-25-02988"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "value": {
+        "type": "TEXT",
+        "value": "Reroof 21sq. with Owens Corning shingles FL10674.1 R20 and Owens Corning Underlayment FL15216.1 R13. Reroof 4sq. flat roof with CertainTeed Modified FL2533.1 R32"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "value": {
+        "type": "TEXT",
+        "value": "6443 26TH WAY N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "value": {
+        "type": "TEXT",
+        "value": "Toebaas"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "WFGAgXW1LoXkDr9XYBA9pU",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "toEntity": "XA2Wu63g5wHBmXHwRNaWp4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Hr9vvjcKzc7fdT5vXGXYPd",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "AeyF6sKnP7HnRr1JH7tz7Z",
+      "toEntity": "7ZnvYZzdsx1HWtggfEHhg7",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "8kjbwMUxT4GwBmHyhuA2du",
+      "value": {
+        "type": "TEXT",
+        "value": "Permit #25TMP-011454"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "NMXtZn9cHwncHABqepdwEC",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "8kjbwMUxT4GwBmHyhuA2du",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "8kjbwMUxT4GwBmHyhuA2du",
+      "value": {
+        "type": "TEXT",
+        "value": "25TMP-011454"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "8kjbwMUxT4GwBmHyhuA2du",
+      "value": {
+        "type": "TEXT",
+        "value": "Disconnect old service meter, provide a new 150 amp meter main service box, and add 1 GFCI receptacle for temp power. New meter and service will be permanent after temp power."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "8kjbwMUxT4GwBmHyhuA2du",
+      "value": {
+        "type": "TEXT",
+        "value": "6599 31ST ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "8kjbwMUxT4GwBmHyhuA2du",
+      "value": {
+        "type": "TEXT",
+        "value": "New Meter Main"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "RMpiqhCcqFPXU2FwDyT9zx",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "8kjbwMUxT4GwBmHyhuA2du",
+      "toEntity": "XA2Wu63g5wHBmXHwRNaWp4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "83HB1x9aUC6E8v2wUjCwht",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "8kjbwMUxT4GwBmHyhuA2du",
+      "toEntity": "F2QQhQ8cbow3JU4kt5dnsR",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "S3ymCUywTr8UAoan7rtxpW",
+      "value": {
+        "type": "TEXT",
+        "value": "Permit #EBP-25-02793"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "PRmSr83DJ5wVvxdjn8ae8v",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "S3ymCUywTr8UAoan7rtxpW",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "S3ymCUywTr8UAoan7rtxpW",
+      "value": {
+        "type": "TEXT",
+        "value": "EBP-25-02793"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "S3ymCUywTr8UAoan7rtxpW",
+      "value": {
+        "type": "TEXT",
+        "value": "Remove old roofing system and install Atlas Shingle roofing system (30sq with 4/12 pitch). PPI - Nobility Inspections"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "S3ymCUywTr8UAoan7rtxpW",
+      "value": {
+        "type": "TEXT",
+        "value": "6563 28TH ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "S3ymCUywTr8UAoan7rtxpW",
+      "value": {
+        "type": "TEXT",
+        "value": "Brad Graham - Florida Real Estate Mgt. Invest."
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MreubR97MHBaQZA1nZuND8",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "S3ymCUywTr8UAoan7rtxpW",
+      "toEntity": "XA2Wu63g5wHBmXHwRNaWp4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "SyG1CJNkPKwJLKXi9RTLr4",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "S3ymCUywTr8UAoan7rtxpW",
+      "toEntity": "7ZnvYZzdsx1HWtggfEHhg7",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "value": {
+        "type": "TEXT",
+        "value": "Replace 40-gallon water heater"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "MUfBb4Q6gLtZL5ojfdAEqM",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-PLB-25-00053"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "value": {
+        "type": "TEXT",
+        "value": "Replace 40-gallon water heater"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "value": {
+        "type": "TEXT",
+        "value": "3231 66TH AVE N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "value": {
+        "type": "TEXT",
+        "value": "Ashley Fischer"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "RCwkrZgFaYWUT54yw6gjwj",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "toEntity": "6jL1kFh14am4612MHcDDNp",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "D5B4hw71o7fohcAYf9HmJk",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "JmMJRTB74r3h7Ej7RRVYdM",
+      "toEntity": "CNNYkcvAHHd2L1jw3UxJJw",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "3xKvS2jghfbdfXk2RdbhUj",
+      "value": {
+        "type": "TEXT",
+        "value": "Permit #BR-ELE-25-00132"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "D3DySaduTS8oRdnrELib3P",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "3xKvS2jghfbdfXk2RdbhUj",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "3xKvS2jghfbdfXk2RdbhUj",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-ELE-25-00132"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "3xKvS2jghfbdfXk2RdbhUj",
+      "value": {
+        "type": "TEXT",
+        "value": "Add a 150 amp meter main/tug box disconnect on side of house for temp service. Will be a permanent system after temp use."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "3xKvS2jghfbdfXk2RdbhUj",
+      "value": {
+        "type": "TEXT",
+        "value": "6599 31ST ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "3xKvS2jghfbdfXk2RdbhUj",
+      "value": {
+        "type": "TEXT",
+        "value": "Meter Main"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "C7xqXxd1YhXwRZ3vy4tH4s",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "3xKvS2jghfbdfXk2RdbhUj",
+      "toEntity": "9DJwewxiTFybeBgnHdHA2a",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "TRSPSpBrP8ViP2YWKnVih9",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "3xKvS2jghfbdfXk2RdbhUj",
+      "toEntity": "TL2bPYDkdwwF9trgQ3WvX4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "SmoFJEu4pLunvHo96vTbpZ",
+      "value": {
+        "type": "TEXT",
+        "value": "Permit #BR-SFR-24-00209.001"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "Kopsr2R9Uss6ienbsbjaxS",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "SmoFJEu4pLunvHo96vTbpZ",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "SmoFJEu4pLunvHo96vTbpZ",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-SFR-24-00209.001"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "SmoFJEu4pLunvHo96vTbpZ",
+      "value": {
+        "type": "TEXT",
+        "value": "Shifting the house 4' to the North to allow for more room between the new build and the adjacent home."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "SmoFJEu4pLunvHo96vTbpZ",
+      "value": {
+        "type": "TEXT",
+        "value": "6485 31ST ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "SmoFJEu4pLunvHo96vTbpZ",
+      "value": {
+        "type": "TEXT",
+        "value": "Revision Request (BR-SFR-24-00209)"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "N1j5f1Jg9cMYwXrdfr3XkM",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "SmoFJEu4pLunvHo96vTbpZ",
+      "toEntity": "NWjFw3imq5qXELevbiagmr",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "C7zdtnKRCHSwBkeh7G6qoV",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "SmoFJEu4pLunvHo96vTbpZ",
+      "toEntity": "VQFDX9tjZoV8e4TVgd2qYx",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "LWcMNJKXsKV8ztVb7iosJR",
+      "value": {
+        "type": "TEXT",
+        "value": "Full commercial building demolition"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "5aJphbqPR4vAaPXLtdT1R1",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "LWcMNJKXsKV8ztVb7iosJR",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "LWcMNJKXsKV8ztVb7iosJR",
+      "value": {
+        "type": "TEXT",
+        "value": "BC-DMO-25-00005"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "LWcMNJKXsKV8ztVb7iosJR",
+      "value": {
+        "type": "TEXT",
+        "value": "Full commercial building demolition"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "LWcMNJKXsKV8ztVb7iosJR",
+      "value": {
+        "type": "TEXT",
+        "value": "10490 GANDY BLVD, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "LWcMNJKXsKV8ztVb7iosJR",
+      "value": {
+        "type": "TEXT",
+        "value": "Kennel Club"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "HChgtKXqTHXCHhRqothNmP",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "LWcMNJKXsKV8ztVb7iosJR",
+      "toEntity": "X8ERXRd3qKpaRJvEQos5Uw",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "B2zvZqGbtJJaR5y9KUVwrC",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "LWcMNJKXsKV8ztVb7iosJR",
+      "toEntity": "CNNYkcvAHHd2L1jw3UxJJw",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "value": {
+        "type": "TEXT",
+        "value": "Remove and replace 18sq of shingles"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "8m3tXxZoMx7WrJJCWDTeE8",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "value": {
+        "type": "TEXT",
+        "value": "EBP-25-02511"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "value": {
+        "type": "TEXT",
+        "value": "Remove and replace 18sq of shingles"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "value": {
+        "type": "TEXT",
+        "value": "10947 1ST WAY N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "value": {
+        "type": "TEXT",
+        "value": "Mitchell residence"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "BCagwKwqpKWqmac8fCsxvR",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "toEntity": "XA2Wu63g5wHBmXHwRNaWp4",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "CA4pfwk3xdr1mwrT3MhAYW",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "7nzbrrfpbgJVKVGfk3pa5e",
+      "toEntity": "G44FATrgFio2PrgMA2Qj4L",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "XerdwXwShYYdM5aYg62auA",
+      "value": {
+        "type": "TEXT",
+        "value": "Permit #BR-SOL-24-00780.001"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "2D4FkCPTNi4BAhY8skza7N",
+      "type": "Jfmby78N4BCseZinBmdVov",
+      "fromEntity": "XerdwXwShYYdM5aYg62auA",
+      "toEntity": "ULYNAzh2F9pdcxvCgNCzkj",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "HNrpgDeC2GBKTwaBfMGDgy",
+      "entity": "XerdwXwShYYdM5aYg62auA",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-SOL-24-00780.001"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LHH2tQcXogAyzLkFFyfkMK",
+      "entity": "XerdwXwShYYdM5aYg62auA",
+      "value": {
+        "type": "TEXT",
+        "value": "The main meter is under 200A. Need to change the meter to a main meter combo, relocate breaker injection, and remove the feed-through panel."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "PsuVd3qhjjxwY8M24CqaT1",
+      "entity": "XerdwXwShYYdM5aYg62auA",
+      "value": {
+        "type": "TEXT",
+        "value": "2628 65TH AVE N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "WHDLSNDJnUaj1w75PKS9T6",
+      "entity": "XerdwXwShYYdM5aYg62auA",
+      "value": {
+        "type": "TEXT",
+        "value": "Revision Request (BR-SOL-24-00780)"
+      }
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "W4hxuQDLbAbDYvrpBWziWG",
+      "type": "QrqocRvYswo3XBSwDHTVj5",
+      "fromEntity": "XerdwXwShYYdM5aYg62auA",
+      "toEntity": "NWjFw3imq5qXELevbiagmr",
+      "index": "OXHypHbt.B"
+    }
+  },
+  {
+    "type": "CREATE_RELATION",
+    "relation": {
+      "id": "VY1H4Yzeo8oTo9ZAdp8yeq",
+      "type": "2m2hsyQwq6GfLQp9J7Cvjb",
+      "fromEntity": "XerdwXwShYYdM5aYg62auA",
+      "toEntity": "TVrcws6Un3pTXknu9QhRvu",
+      "index": "OXHypHbt.B"
+    }
+  }
+]
