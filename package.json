@@ -7,12 +7,13 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "setup-ontology": "node dist/cli/commands/setup-ontology.js",
-    "transform-deeds": "node dist/cli/commands/transform-deeds.js",
-    "transform-permits": "node dist/cli/commands/transform-permits.js",
-    "publish-deeds": "node dist/cli/commands/publish-deeds.js",
-    "publish-permits": "node dist/cli/commands/publish-permits.js",
-    "update-addresses": "node dist/cli/commands/update-addresses.js",
+    "grc20": "node dist/scripts/grc20-cli.js",
+    "create-space": "node dist/scripts/grc20-cli.js create-space",
+    "setup-ontology": "node dist/scripts/grc20-cli.js setup-ontology",
+    "publish-deeds": "node dist/scripts/publish-deeds.js",
+    "publish-permits": "node dist/scripts/publish-permits.js",
+    "check-entity": "node dist/scripts/check-entity.js",
+    "deploy-and-publish": "node dist/scripts/deploy-and-publish.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -24,13 +25,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@graphprotocol/grc-20": "^1.0.0",
+    "@graphprotocol/grc-20": "^0.6.4",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.0.0",
-    "node-fetch": "^3.2.0"
+    "node-fetch": "^3.2.0",
+    "viem": "^1.16.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "typescript": "^4.9.0"
+    "typescript": "^5.8.2"
   }
 }

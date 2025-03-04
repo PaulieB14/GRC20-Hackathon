@@ -36,15 +36,39 @@ Create a `.env` file in the root directory with the following variables:
 DEEDS_SPACE_ID=your-deeds-space-id
 PERMITS_SPACE_ID=your-permits-space-id
 
+# Wallet Configuration
+PRIVATE_KEY=your-private-key-here
+WALLET_ADDRESS=your-wallet-address-here
+
+# Network Configuration
+NETWORK=testnet
+RPC_URL=https://rpc-testnet.grc-20.thegraph.com
+CHAIN_ID=19411 # GRC-20 testnet chain ID
+
 # API Keys (if needed)
 GRC20_API_KEY=your-api-key
 ```
 
 ## Usage
 
+### Creating GRC-20 Spaces
+
+Before you can publish data, you need to create GRC-20 spaces:
+
+```bash
+# Create a space with a custom name
+npm run create-space -- --name "My Deed Space" --network testnet
+
+# Create a deed space (automatically updates DEEDS_SPACE_ID in .env)
+npm run create-space -- --name "Deed Space" --network testnet
+
+# Create a permit space (automatically updates PERMITS_SPACE_ID in .env)
+npm run create-space -- --name "Permit Space" --network testnet
+```
+
 ### Setting up the Ontology
 
-Before you can publish data, you need to set up the ontology in your GRC-20 spaces:
+After creating spaces, you need to set up the ontology:
 
 ```bash
 # Set up both deeds and permits ontologies
@@ -60,39 +84,57 @@ npm run setup-ontology -- --permit-only
 npm run setup-ontology -- --deed-space your-deed-space-id --permit-space your-permit-space-id
 ```
 
-### Publishing Deeds Data
+### Publishing Deeds and Permits
+
+Once you have created spaces and set up the ontology, you can publish deeds and permits data:
 
 ```bash
-# Transform and publish deeds data
-npm run transform-deeds
+# Publish deeds data to the space specified in DEEDS_SPACE_ID
 npm run publish-deeds
 
-# Or use the combined command
-npm run publish-deeds -- --transform
-```
+# Publish deeds data to a custom space
+npm run publish-deeds -- --space-id your-deed-space-id
 
-### Publishing Permits Data
-
-```bash
-# Transform and publish permits data
-npm run transform-permits
+# Publish permits data to the space specified in PERMITS_SPACE_ID
 npm run publish-permits
 
-# Or use the combined command
-npm run publish-permits -- --transform
+# Publish permits data to a custom space
+npm run publish-permits -- --space-id your-permit-space-id
 ```
 
-### Updating Property Addresses
+The publish scripts will:
+1. Read data from CSV files in the `data/input` directory
+2. Add property addresses from mapping files in the `data/mapping` directory
+3. Publish the combined data to the specified GRC-20 spaces
+
+### Deploying Spaces and Publishing Data in One Step
+
+To deploy spaces, set up the ontology, and publish data all in one step, use the deploy-and-publish script:
 
 ```bash
-# Update property addresses for deeds and permits
-npm run update-addresses
+# Deploy spaces, set up ontology, and publish data
+npm run deploy-and-publish
+```
 
-# Update only deed addresses
-npm run update-addresses -- --deed-only
+This script will:
+1. Ensure spaces exist (create them if they don't)
+2. Set up the ontology for both spaces
+3. Publish the deeds data
+4. Publish the permits data
 
-# Update only permit addresses
-npm run update-addresses -- --permit-only
+### Using the GRC-20 CLI
+
+The project includes a unified CLI for GRC-20 operations:
+
+```bash
+# Show help
+npm run grc20 -- help
+
+# Create a space
+npm run grc20 -- create-space --name "My Space" --network testnet
+
+# Set up ontology
+npm run grc20 -- setup-ontology --deed-only
 ```
 
 ## Data Model
@@ -111,7 +153,7 @@ This repository implements a relationship-based data model for deeds and permits
 ### Permit Model
 
 - **Permit**: The main entity representing a permit
-  - Properties: Record Number, Description, Project Name, Address
+  - Properties: Record Number, Description, Project Name, Address, Date, Expiration Date
   - Relations:
     - **Record Type**: Relates to a Record Type entity
     - **Status**: Relates to a Status entity
@@ -129,13 +171,37 @@ deeds-permits-publisher/
 │   ├── config/      # Configuration
 │   ├── core/        # Core utilities
 │   ├── models/      # Data models
+│   ├── scripts/     # Scripts for creating spaces and publishing data
+│   │   ├── deploy-space-direct.js  # Creates a new GRC-20 space
+│   │   ├── publish-deeds.ts        # Publishes deed records
+│   │   ├── publish-permits.ts      # Publishes permit records
+│   │   ├── check-entity.ts         # Checks if an entity exists
+│   │   ├── create-and-publish.ts   # Creates a space and publishes records
+│   │   ├── ensure-spaces.ts        # Ensures spaces exist
+│   │   ├── grc20-cli.ts            # Command-line interface
+│   │   ├── deploy-and-publish.ts   # Deploys spaces, sets up ontology, and publishes data
+│   │   └── old-scripts/            # Deprecated scripts kept for reference
 │   ├── services/    # Services
 │   └── utils/       # Utilities
-├── scripts/         # Helper scripts
 ├── package.json
 ├── tsconfig.json
 └── README.md
 ```
+
+## Working Scripts
+
+The following scripts are the main ones used in this application:
+
+- `deploy-space-direct.js` - Creates a new GRC-20 space using the correct API endpoint and transaction method
+- `publish-deeds.ts` - Publishes deed records to a GRC-20 space
+- `publish-permits.ts` - Publishes permit records to a GRC-20 space
+- `check-entity.ts` - Checks if an entity exists in a GRC-20 space
+- `create-and-publish.ts` - Creates a space and publishes records to it
+- `ensure-spaces.ts` - Ensures that the necessary spaces exist
+- `grc20-cli.ts` - Command-line interface for the GRC-20 application
+- `deploy-and-publish.ts` - Deploys spaces, sets up ontology, and publishes data in one step
+
+Note: Other experimental scripts have been moved to the `src/scripts/old-scripts/` directory.
 
 ## Contributing
 

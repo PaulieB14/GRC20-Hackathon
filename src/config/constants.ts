@@ -4,6 +4,11 @@
  * This file defines constants used throughout the application.
  */
 
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
 /**
  * Type IDs
  * 

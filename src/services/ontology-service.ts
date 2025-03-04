@@ -195,8 +195,23 @@ export class OntologyService {
   static async setupDeedOntology(spaceId: string = SpaceIds.DEEDS): Promise<void> {
     const ops = this.generateDeedOntologyOps();
     
-    // TODO: Submit operations to the GRC-20 space
+    if (!spaceId) {
+      throw new Error('Deed space ID is required. Set DEEDS_SPACE_ID in .env file or provide it as an argument.');
+    }
+    
     console.log(`Setting up deed ontology for space ${spaceId} with ${ops.length} operations`);
+    
+    // Import here to avoid circular dependency
+    const { TransactionService } = await import('./transaction-service.js');
+    
+    // Submit operations to the GRC-20 space
+    try {
+      const txHash = await TransactionService.submitOperations(spaceId, ops);
+      console.log(`Deed ontology setup complete. Transaction hash: ${txHash}`);
+    } catch (error) {
+      console.error('Failed to set up deed ontology:', error);
+      throw error;
+    }
   }
 
   /**
@@ -208,8 +223,23 @@ export class OntologyService {
   static async setupPermitOntology(spaceId: string = SpaceIds.PERMITS): Promise<void> {
     const ops = this.generatePermitOntologyOps();
     
-    // TODO: Submit operations to the GRC-20 space
+    if (!spaceId) {
+      throw new Error('Permit space ID is required. Set PERMITS_SPACE_ID in .env file or provide it as an argument.');
+    }
+    
     console.log(`Setting up permit ontology for space ${spaceId} with ${ops.length} operations`);
+    
+    // Import here to avoid circular dependency
+    const { TransactionService } = await import('./transaction-service.js');
+    
+    // Submit operations to the GRC-20 space
+    try {
+      const txHash = await TransactionService.submitOperations(spaceId, ops);
+      console.log(`Permit ontology setup complete. Transaction hash: ${txHash}`);
+    } catch (error) {
+      console.error('Failed to set up permit ontology:', error);
+      throw error;
+    }
   }
 
   /**
