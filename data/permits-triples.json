@@ -21,10 +21,10 @@
       {
         "entity": "UsdepoWa8vGmEuC2xn4j1f",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Residential Demolition"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Residential demolition"
+          }
       },
       {
         "entity": "UsdepoWa8vGmEuC2xn4j1f",
@@ -45,10 +45,10 @@
       {
         "entity": "UsdepoWa8vGmEuC2xn4j1f",
         "attribute": "3UP1qvruj8SipH9scUz1EY",
-        "value": {
-          "type": "TEXT",
-          "value": "Awaiting Plans"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Awaiting plans"
+          }
       }
     ]
   },
@@ -74,10 +74,10 @@
       {
         "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Commercial Electrical"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Commercial electrical"
+          }
       },
       {
         "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
@@ -98,10 +98,10 @@
       {
         "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
         "attribute": "3UP1qvruj8SipH9scUz1EY",
-        "value": {
-          "type": "TEXT",
-          "value": "Incomplete Submittal"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Incomplete submittal"
+          }
       }
     ]
   },
@@ -127,10 +127,10 @@
       {
         "entity": "LK6wzjrvGJVjex45bXyMTD",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Express Building Permit"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Express building permit"
+          }
       },
       {
         "entity": "LK6wzjrvGJVjex45bXyMTD",
@@ -182,7 +182,7 @@
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
-          "value": "Express Building Permit"
+          "value": "Express building permit"
         }
       },
       {
@@ -204,10 +204,10 @@
       {
         "entity": "HkkxEbhCBTqU1VGnV5R7JC",
         "attribute": "3UP1qvruj8SipH9scUz1EY",
-        "value": {
-          "type": "TEXT",
-          "value": "N/A"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "N/a"
+          }
       }
     ]
   },
@@ -235,7 +235,7 @@
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
-          "value": "Express Building Permit"
+          "value": "Express building permit"
         }
       },
       {
@@ -286,10 +286,10 @@
       {
         "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Residential Plumbing"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Residential plumbing"
+          }
       },
       {
         "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
@@ -312,7 +312,7 @@
         "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
-          "value": "Awaiting Plans"
+          "value": "Awaiting plans"
         }
       }
     ]
@@ -339,10 +339,10 @@
       {
         "entity": "RZByHuuGmDFXbtyNizH2Gt",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Residential Electrical"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Residential electrical"
+          }
       },
       {
         "entity": "RZByHuuGmDFXbtyNizH2Gt",
@@ -363,10 +363,10 @@
       {
         "entity": "RZByHuuGmDFXbtyNizH2Gt",
         "attribute": "3UP1qvruj8SipH9scUz1EY",
-        "value": {
-          "type": "TEXT",
-          "value": "Closed - Withdrawn"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Closed - withdrawn"
+          }
       }
     ]
   },
@@ -392,10 +392,10 @@
       {
         "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Residential Revision-Supplement"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Residential revision-supplement"
+          }
       },
       {
         "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
@@ -416,10 +416,10 @@
       {
         "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
         "attribute": "3UP1qvruj8SipH9scUz1EY",
-        "value": {
-          "type": "TEXT",
-          "value": "Closed - Supp-Rev Approved"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Closed - supp-rev approved"
+          }
       }
     ]
   },
@@ -445,10 +445,10 @@
       {
         "entity": "XrDuCGpVtBXEX7jE4YqQEc",
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
-        "value": {
-          "type": "TEXT",
-          "value": "Commercial Demolition"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "Commercial demolition"
+          }
       },
       {
         "entity": "XrDuCGpVtBXEX7jE4YqQEc",
@@ -471,7 +471,7 @@
         "attribute": "3UP1qvruj8SipH9scUz1EY",
         "value": {
           "type": "TEXT",
-          "value": "Awaiting Plans"
+          "value": "Awaiting plans"
         }
       }
     ]
@@ -500,7 +500,7 @@
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
-          "value": "Express Building Permit"
+          "value": "Express building permit"
         }
       },
       {
@@ -553,7 +553,7 @@
         "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
         "value": {
           "type": "TEXT",
-          "value": "Residential Revision-Supplement"
+          "value": "Residential revision-supplement"
         }
       },
       {
@@ -575,10 +575,10 @@
       {
         "entity": "VfRjw4eaBvqiAqgA5JiPTN",
         "attribute": "3UP1qvruj8SipH9scUz1EY",
-        "value": {
-          "type": "TEXT",
-          "value": "In Review"
-        }
+          "value": {
+            "type": "TEXT",
+            "value": "In review"
+          }
       }
     ]
   }

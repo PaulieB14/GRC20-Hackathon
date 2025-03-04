@@ -1,0 +1,662 @@
+[
+  {
+    "type": "CREATE_ENTITY",
+    "id": "XrDuCGpVtBXEX7jE4YqQEc",
+    "name": "Commercial demolition - BC-DMO-25-00005"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BC-DMO-25-00005"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Commercial demolition"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "10490 GANDY BLVD, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Kennel Club"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting plans"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "Tk2TLvxj5GtEbV7vVNrx1N",
+    "name": "Commercial electrical - BC-ELE-25-00045"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BC-ELE-25-00045"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Commercial electrical"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "10596 GANDY BLVD, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "(FLAG) CS - FIRE ALARM - Goodwill Suncoast"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Incomplete submittal"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "UsdepoWa8vGmEuC2xn4j1f",
+    "name": "Residential demolition - BR-DMO-25-00104"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-DMO-25-00104"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential demolition"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "10636 GANDY BLVD, 43, ST PETERSBURG 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Mobile Home Demolition"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting plans"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "6Cd8uVKtsEmquNdwpojkqS",
+    "name": "Express building permit - EBP-25-02511"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "6Cd8uVKtsEmquNdwpojkqS",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "EBP-25-02511"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "6Cd8uVKtsEmquNdwpojkqS",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "6Cd8uVKtsEmquNdwpojkqS",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "10947 1ST WAY N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "6Cd8uVKtsEmquNdwpojkqS",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Mitchell residence"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "6Cd8uVKtsEmquNdwpojkqS",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Submitted"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "VfRjw4eaBvqiAqgA5JiPTN",
+    "name": "Residential revision-supplement - BR-SOL-24-00780.001"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-SOL-24-00780.001"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential revision-supplement"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "2628 65TH AVE N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Revision Request (BR-SOL-24-00780)"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "In review"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "LmDNEMdLE1jwpKVtU3NQcJ",
+    "name": "Residential plumbing - BR-PLB-25-00053"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-PLB-25-00053"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential plumbing"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "3231 66TH AVE N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Ashley Fischer"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting plans"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "LK6wzjrvGJVjex45bXyMTD",
+    "name": "Express building permit - EBP-25-02988"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "EBP-25-02988"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "6443 26TH WAY N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Toebaas"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Issued"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "Y1TS4rBUY5Cg2SasK1o3g7",
+    "name": "Residential revision-supplement - BR-SFR-24-00209.001"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-SFR-24-00209.001"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential revision-supplement"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "6485 31ST ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Revision Request (BR-SFR-24-00209)"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Closed - supp-rev approved"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "Y3fdGQw6kXnEKTXAjFCwnm",
+    "name": "Express building permit - EBP-25-02793"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "EBP-25-02793"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "6563 28TH ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Brad Graham - Florida Real Estate Mgt. Invest."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Issued"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "HkkxEbhCBTqU1VGnV5R7JC",
+    "name": "Express building permit - 25TMP-011454"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "25TMP-011454"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "6599 31ST ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "New Meter Main"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "N/a"
+      }
+    }
+  },
+  {
+    "type": "CREATE_ENTITY",
+    "id": "RZByHuuGmDFXbtyNizH2Gt",
+    "name": "Residential electrical - BR-ELE-25-00132"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "value": {
+        "type": "TEXT",
+        "value": "BR-ELE-25-00132"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential electrical"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "attribute": "DfjyQFDy6k4dW9XaSgYttn",
+      "value": {
+        "type": "TEXT",
+        "value": "6599 31ST ST N, ST PETERSBURG FL 33702"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "attribute": "5yDjGNQEErVNpVZ3c61Uib",
+      "value": {
+        "type": "TEXT",
+        "value": "Meter Main"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "value": {
+        "type": "TEXT",
+        "value": "Closed - withdrawn"
+      }
+    }
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "XAwPgVdgEW2docWS9LgeCD",
+      "value": {
+        "type": "TEXT",
+        "value": "Building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "5KkCXkKdjJnsbq9JgC65Li",
+      "value": {
+        "type": "TEXT",
+        "value": "Record number"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LuBWqZAu6pz54eiJS5mLv8",
+      "entity": "3pbdpqkPqX2TgBJFayysAb",
+      "value": {
+        "type": "TEXT",
+        "value": "Project name"
+      }
+    }
+  }
+]

@@ -19,33 +19,26 @@ const statusIds = new Set();
 
 // Function to determine entity type
 function getEntityType(entity) {
-  // Check if it's a permit entity
-  if (entity.type === 'SET_TRIPLE' && 
-      entity.triple && 
-      entity.triple.attribute === 'LuBWqZAu6pz54eiJS5mLv8') {
-    
+  // For permit-relations.json, we need to check the triple structure
+  if (entity.type === 'SET_TRIPLE' && entity.triple) {
     // Check if it's a record type entity
-    if (entity.triple.value && 
-        entity.triple.value.type === 'TEXT' && 
-        ['Residential Demolition', 'Commercial Electrical', 'Express Building Permit', 
-         'Residential Plumbing', 'Residential Electrical', 'Residential Revision-Supplement',
-         'Commercial Demolition'].includes(entity.triple.value.value)) {
+    if (entity.triple.attribute === 'SyaPQfHTf3uxTAqwhuMHHa' && 
+        entity.triple.value && 
+        entity.triple.value.type === 'TEXT') {
       return 'Record Type';
     }
     
     // Check if it's a status entity
-    if (entity.triple.value && 
-        entity.triple.value.type === 'TEXT' && 
-        ['Awaiting Plans', 'Incomplete Submittal', 'Issued', 'N/A', 
-         'Closed - Withdrawn', 'Closed - Supp-Rev Approved', 'Submitted', 
-         'In Review'].includes(entity.triple.value.value)) {
+    if (entity.triple.attribute === '3UP1qvruj8SipH9scUz1EY' && 
+        entity.triple.value && 
+        entity.triple.value.type === 'TEXT') {
       return 'Status';
     }
     
-    // Check if it's a permit entity (has a longer description)
-    if (entity.triple.value && 
-        entity.triple.value.type === 'TEXT' && 
-        entity.triple.value.value.length > 20) {
+    // Check if it's a permit number (record number)
+    if (entity.triple.attribute === 'LuBWqZAu6pz54eiJS5mLv8' && 
+        entity.triple.value && 
+        entity.triple.value.type === 'TEXT') {
       return 'Permit';
     }
   }
@@ -53,7 +46,21 @@ function getEntityType(entity) {
   return 'Other';
 }
 
-// Process each operation
+// First, let's extract all unique entity IDs from permits-triples.json
+try {
+  const permitsTriples = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'permits-triples.json'), 'utf8'));
+  
+  // Add all entity IDs from permits-triples.json
+  permitsTriples.forEach(permit => {
+    entityIds.add(permit.entityId);
+  });
+  
+  console.log(`Found ${entityIds.size} permit entities directly from permits-triples.json`);
+} catch (error) {
+  console.error('Error reading permits-triples.json:', error);
+}
+
+// Also process permit-relations.json as a backup
 permitRelations.forEach(op => {
   if (op.type === 'SET_TRIPLE') {
     const entityType = getEntityType(op);

@@ -1,0 +1,57 @@
+[
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "XrDuCGpVtBXEX7jE4YqQEc",
+    "name": "Commercial demolition - BC-DMO-25-00005"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "Tk2TLvxj5GtEbV7vVNrx1N",
+    "name": "Commercial electrical - BC-ELE-25-00045"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "UsdepoWa8vGmEuC2xn4j1f",
+    "name": "Residential demolition - BR-DMO-25-00104"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "6Cd8uVKtsEmquNdwpojkqS",
+    "name": "Express building permit - EBP-25-02511"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "VfRjw4eaBvqiAqgA5JiPTN",
+    "name": "Residential revision-supplement - BR-SOL-24-00780.001"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "LmDNEMdLE1jwpKVtU3NQcJ",
+    "name": "Residential plumbing - BR-PLB-25-00053"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "LK6wzjrvGJVjex45bXyMTD",
+    "name": "Express building permit - EBP-25-02988"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "Y1TS4rBUY5Cg2SasK1o3g7",
+    "name": "Residential revision-supplement - BR-SFR-24-00209.001"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "Y3fdGQw6kXnEKTXAjFCwnm",
+    "name": "Express building permit - EBP-25-02793"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "HkkxEbhCBTqU1VGnV5R7JC",
+    "name": "Express building permit - 25TMP-011454"
+  },
+  {
+    "type": "UPDATE_ENTITY",
+    "id": "RZByHuuGmDFXbtyNizH2Gt",
+    "name": "Residential electrical - BR-ELE-25-00132"
+  }
+]

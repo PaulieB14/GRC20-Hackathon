@@ -1,0 +1,408 @@
+[
+  {
+    "path": [
+      "entity",
+      "XPDXPK263bYjSrjH19cRg9",
+      "name"
+    ],
+    "value": "The main meter is under 200a. need to change the meter to a main meter combo relocate breaker injection and remove the feed-through panel."
+  },
+  {
+    "path": [
+      "entity",
+      "WJWfwXVv82ZNomkBJgEAXN",
+      "name"
+    ],
+    "value": "Residential demolition"
+  },
+  {
+    "path": [
+      "entity",
+      "Ru1ni1xBN6JwYcomEQSfVF",
+      "name"
+    ],
+    "value": "Commercial electrical"
+  },
+  {
+    "path": [
+      "entity",
+      "Q5J1t9jeNJ7e4wx5cYutJ5",
+      "name"
+    ],
+    "value": "Express building permit"
+  },
+  {
+    "path": [
+      "entity",
+      "8weDS1pBNPuU471a9bopUx",
+      "name"
+    ],
+    "value": "Residential plumbing"
+  },
+  {
+    "path": [
+      "entity",
+      "7yZzXj2VM9Fg2ZJSj1dxn6",
+      "name"
+    ],
+    "value": "Residential electrical"
+  },
+  {
+    "path": [
+      "entity",
+      "F48g7BBR2NrPcaoTr7pKJo",
+      "name"
+    ],
+    "value": "Residential revision-supplement"
+  },
+  {
+    "path": [
+      "entity",
+      "V2CG2Ap3FafoXX1GvxpuhC",
+      "name"
+    ],
+    "value": "Commercial demolition"
+  },
+  {
+    "path": [
+      "entity",
+      "TrbTyCwww7mxV7V5ZCv48v",
+      "name"
+    ],
+    "value": "Awaiting plans"
+  },
+  {
+    "path": [
+      "entity",
+      "4DRWmnannepX9iHUHTG2s6",
+      "name"
+    ],
+    "value": "Incomplete submittal"
+  },
+  {
+    "path": [
+      "entity",
+      "WNhSEPKdRXnEj6B1m41asS",
+      "name"
+    ],
+    "value": "N/a"
+  },
+  {
+    "path": [
+      "entity",
+      "VPVR4yC1fnmufhdDVgKyDo",
+      "name"
+    ],
+    "value": "Closed - withdrawn"
+  },
+  {
+    "path": [
+      "entity",
+      "RUHmk85M4tprUKSpM2SyAB",
+      "name"
+    ],
+    "value": "Closed - supp-rev approved"
+  },
+  {
+    "path": [
+      "entity",
+      "Uso7LbkJsGDA7xkDGKfHeP",
+      "name"
+    ],
+    "value": "In review"
+  },
+  {
+    "path": [
+      "entity",
+      "NHV5RxxUHQsLMPKyxhFJiD",
+      "name"
+    ],
+    "value": "Permit #br-sol-24-00780.001"
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential demolition"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "UsdepoWa8vGmEuC2xn4j1f",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting plans"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "value": {
+        "type": "TEXT",
+        "value": "Fire alarm panel relocate"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "value": {
+        "type": "TEXT",
+        "value": "Commercial electrical"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "Tk2TLvxj5GtEbV7vVNrx1N",
+      "value": {
+        "type": "TEXT",
+        "value": "Incomplete submittal"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "value": {
+        "type": "TEXT",
+        "value": "Reroof 21sq. with owens corning shingles fl10674.1 r20 and owens corning underlayment fl15216.1 r13. reroof 4sq. flat roof with certainteed modified fl2533.1 r32"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "LK6wzjrvGJVjex45bXyMTD",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "value": {
+        "type": "TEXT",
+        "value": "Disconnect old service meter, provide a new 150 amp meter main service box, and add 1 gfci receptacle for temp power. new meter and service will be permanent after temp power."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "HkkxEbhCBTqU1VGnV5R7JC",
+      "value": {
+        "type": "TEXT",
+        "value": "N/a"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "value": {
+        "type": "TEXT",
+        "value": "Remove old roofing system and install atlas shingle roofing system (30sq with 4/12 pitch). ppi - nobility inspections"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "Y3fdGQw6kXnEKTXAjFCwnm",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential plumbing"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "LmDNEMdLE1jwpKVtU3NQcJ",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting plans"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "value": {
+        "type": "TEXT",
+        "value": "Add a 150 amp meter main/tug box disconnect on side of house for temp service. will be a permanent system after temp use."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential electrical"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "RZByHuuGmDFXbtyNizH2Gt",
+      "value": {
+        "type": "TEXT",
+        "value": "Closed - withdrawn"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "value": {
+        "type": "TEXT",
+        "value": "Shifting the house 4' to the north to allow for more room between the new build and the adjacent home."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential revision-supplement"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "Y1TS4rBUY5Cg2SasK1o3g7",
+      "value": {
+        "type": "TEXT",
+        "value": "Closed - supp-rev approved"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "value": {
+        "type": "TEXT",
+        "value": "Commercial demolition"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "XrDuCGpVtBXEX7jE4YqQEc",
+      "value": {
+        "type": "TEXT",
+        "value": "Awaiting plans"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "6Cd8uVKtsEmquNdwpojkqS",
+      "value": {
+        "type": "TEXT",
+        "value": "Express building permit"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "LA1DqP5v6QAdsgLPXGF3YA",
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "value": {
+        "type": "TEXT",
+        "value": "The main meter is under 200a. need to change the meter to a main meter combo, relocate breaker injection, and remove the feed-through panel."
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "SyaPQfHTf3uxTAqwhuMHHa",
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "value": {
+        "type": "TEXT",
+        "value": "Residential revision-supplement"
+      }
+    }
+  },
+  {
+    "type": "SET_TRIPLE",
+    "triple": {
+      "attribute": "3UP1qvruj8SipH9scUz1EY",
+      "entity": "VfRjw4eaBvqiAqgA5JiPTN",
+      "value": {
+        "type": "TEXT",
+        "value": "In review"
+      }
+    }
+  }
+]

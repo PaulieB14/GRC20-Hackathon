@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync, existsSync, mkdirSync, writeFileSync } from "fs";
 import { parse } from "csv-parse/sync";
 import { Graph, Id, Relation, type Op } from "@graphprotocol/grc-20";
 
@@ -52,64 +52,64 @@ export async function transformPermits() {
         // Create properties for permit fields
         const { id: recordNumberPropertyId, ops: recordNumberOps } = Graph.createProperty({
           type: 'TEXT',
-          name: 'Record Number',
+          name: 'Record number'
         });
         ops.push(...recordNumberOps);
 
         const { id: descriptionPropertyId, ops: descriptionOps } = Graph.createProperty({
           type: 'TEXT',
-          name: 'Description',
+          name: 'Description'
         });
         ops.push(...descriptionOps);
 
         const { id: addressPropertyId, ops: addressOps } = Graph.createProperty({
           type: 'TEXT',
-          name: 'Address',
+          name: 'Address'
         });
         ops.push(...addressOps);
 
         const { id: projectNamePropertyId, ops: projectNameOps } = Graph.createProperty({
           type: 'TEXT',
-          name: 'Project Name',
+          name: 'Project name'
         });
         ops.push(...projectNameOps);
 
         // Create entity types
         const { id: permitTypeId, ops: permitTypeOps } = Graph.createType({
-          name: 'Building Permit',
+          name: 'Building permit',
           properties: [
             recordNumberPropertyId,
             descriptionPropertyId,
             addressPropertyId,
-            projectNamePropertyId,
-          ],
+            projectNamePropertyId
+          ]
         });
         ops.push(...permitTypeOps);
 
         // Create record type entity type
         const { id: recordTypeTypeId, ops: recordTypeTypeOps } = Graph.createType({
           name: 'Record type',
-          properties: [],
+          properties: []
         });
         ops.push(...recordTypeTypeOps);
 
         // Create status entity type
         const { id: statusTypeId, ops: statusTypeOps } = Graph.createType({
           name: 'Status',
-          properties: [],
+          properties: []
         });
         ops.push(...statusTypeOps);
 
         // Create relation types
         const { id: hasRecordTypeRelationTypeId, ops: hasRecordTypeRelationTypeOps } = Graph.createType({
-          name: 'Has record type',
-          properties: [],
+          name: 'Record type relation',
+          properties: []
         });
         ops.push(...hasRecordTypeRelationTypeOps);
 
         const { id: hasStatusRelationTypeId, ops: hasStatusRelationTypeOps } = Graph.createType({
-          name: 'Has status',
-          properties: [],
+          name: 'Status relation',
+          properties: []
         });
         ops.push(...hasStatusRelationTypeOps);
 
@@ -214,6 +214,35 @@ export async function transformPermits() {
           firstEntity: JSON.stringify(permitEntities[0], null, 2),
           lastEntity: JSON.stringify(permitEntities[permitEntities.length - 1], null, 2),
         });
+        
+        // Save the entity IDs to a file for easy access
+        try {
+          // Use the already imported fs module
+          const entityData = {
+            permitEntities: permitEntities.map(e => ({ id: e.id, name: e.name })),
+            recordTypeEntities: Array.from(recordTypeMap.entries()).map(([name, id]) => ({ id, name })),
+            statusEntities: Array.from(statusMap.entries()).map(([name, id]) => ({ id, name }))
+          };
+          
+          // Make sure the data directory exists
+          try {
+            if (!fs.existsSync('data')) {
+              fs.mkdirSync('data');
+            }
+          } catch (dirError) {
+            console.error('Error creating data directory:', dirError);
+          }
+          
+          // Write the entity IDs to a file
+          fs.writeFileSync('data/current-entity-ids.json', JSON.stringify(entityData, null, 2));
+          console.log(`Saved entity IDs to data/current-entity-ids.json`);
+          
+          // Also write to a file in the current directory for easier access
+          fs.writeFileSync('current-entity-ids.json', JSON.stringify(entityData, null, 2));
+          console.log(`Also saved entity IDs to current-entity-ids.json`);
+        } catch (error) {
+          console.error('Failed to save entity IDs:', error);
+        }
 
         console.log('\nTransformation complete:', {
           totalPermits: permits.length,

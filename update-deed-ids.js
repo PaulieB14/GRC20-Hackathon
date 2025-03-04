@@ -1,39 +1,27 @@
 // update-deed-ids.js
-const fs = require('fs');
+import fs from 'fs';
+import crypto from 'crypto';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+// Get the current file's directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Read the original file with incorrect structure
-const deedsData = JSON.parse(fs.readFileSync('data/deeds-triples.json', 'utf8'));
+const deedsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'deeds-triples.json'), 'utf8'));
 
-// New entity IDs to use
-const newEntityIds = [
-  "UoeeHD2neY2ZhPv5a1dEin", 
-  "5iCf2TeCxAd1qCVc2g8NpS",
-  "RJvcQDXzjaq9ErtDweServ",
-  "SzrDiKQb5QL1LpwvSyoF3K",
-  "7hdmabUF9VKmPXRfAYcKt6",
-  "EjxDt8w3UgTcFGrJoVdKX3",
-  "KjCcZvcDveVsBQoC8HWBd1",
-  "PL4JWESg9iPxGm67WnymCY",
-  "MDZZcN1ECuLc86ZjjcVen8"
-];
+// Function to generate a new entity ID
+function generateEntityId() {
+  return crypto.randomBytes(16).toString('hex');
+}
 
 // Map of instrument numbers to property addresses
-const propertyAddresses = {
-  '2025035356': '3461 10TH AVE N, ST PETERSBURG, FL 33713',
-  '2025035363': '4715 BAY ST NE APT 123, SAINT PETERSBURG, FL 33703',
-  '2025035367': '755 119TH AVE, TREASURE ISLAND, FL 33706',
-  '2025035368': '125 DOLPHIN DR S, OLDSMAR, FL 34677',
-  '2025035369': '18500 GULF BOULEVARD, UNIT 108, INDIAN SHORES, FL 33785',
-  '2025035383': '2326 MELROSE AVE S, ST. PETERSBURG, FL 33712',
-  '2025035390': '2818 55TH ST N, ST PETERSBURG, FL 33710',
-  '2025035391': '5136 52ND LN N, ST PETERSBURG, FL 33710',
-  '2025035398': '1900 59TH AVE N # 216, ST PETERSBURG, FL 33714'
-};
+const propertyAddresses = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'property-addresses.json'), 'utf8'));
 
 // Flatten and update entity IDs
 const updatedEntities = [];
 const idMapping = {};
-let idIndex = 0;
 
 // First pass: build ID mapping based on instrument numbers
 deedsData.forEach(entity => {
@@ -45,9 +33,19 @@ deedsData.forEach(entity => {
     const instrumentNumber = instrumentTriple.value.value;
     const oldId = entity.entityId;
     
-    if (!idMapping[oldId] && idIndex < newEntityIds.length) {
-      idMapping[oldId] = newEntityIds[idIndex];
-      idIndex++;
+    if (!idMapping[oldId]) {
+      // Try to load existing mapping from entity-id-mapping.json
+      try {
+        const existingMapping = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'entity-id-mapping.json'), 'utf8'));
+        if (existingMapping[oldId]) {
+          idMapping[oldId] = existingMapping[oldId];
+        } else {
+          idMapping[oldId] = generateEntityId();
+        }
+      } catch (error) {
+        // If the file doesn't exist or there's an error, generate a new ID
+        idMapping[oldId] = generateEntityId();
+      }
     }
   }
 });
@@ -90,7 +88,10 @@ deedsData.forEach(entity => {
 });
 
 // Write the updated entities
-fs.writeFileSync('data/deeds-triples-updated.json', JSON.stringify(updatedEntities, null, 2));
+fs.writeFileSync(path.join(__dirname, 'data', 'deeds-triples-updated.json'), JSON.stringify(updatedEntities, null, 2));
+
+// Save the ID mapping for future reference
+fs.writeFileSync(path.join(__dirname, 'data', 'entity-id-mapping.json'), JSON.stringify(idMapping, null, 2));
 
 // Show mapping for reference
 console.log("Entity ID mapping:");
@@ -100,3 +101,28 @@ for (const [oldId, newId] of Object.entries(idMapping)) {
 
 console.log(`Updated ${updatedEntities.length} entities with ${Object.keys(idMapping).length} new entity IDs.`);
 console.log('Saved to data/deeds-triples-updated.json');
+console.log('ID mapping saved to data/entity-id-mapping.json');
+
+// Create a log entry for auditing
+const logEntry = {
+  timestamp: new Date().toISOString(),
+  action: 'update-deed-ids',
+  entitiesUpdated: updatedEntities.length,
+  newIdsGenerated: Object.keys(idMapping).length,
+  mapping: idMapping
+};
+
+// Append to log file
+const logFilePath = path.join(__dirname, 'data', 'entity-updates.log');
+let logs = [];
+try {
+  if (fs.existsSync(logFilePath)) {
+    logs = JSON.parse(fs.readFileSync(logFilePath, 'utf8'));
+  }
+} catch (error) {
+  console.error(`Error reading log file: ${error.message}`);
+}
+
+logs.push(logEntry);
+fs.writeFileSync(logFilePath, JSON.stringify(logs, null, 2));
+console.log(`Log entry added to ${logFilePath}`);

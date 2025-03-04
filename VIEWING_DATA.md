@@ -21,20 +21,20 @@ We have two spaces set up:
 The deeds data is published to the Deeds Space. Each deed has a unique entity ID. Here are some example entity URLs:
 
 - Deed 2025035356 (WATERMAN WANETA DECEASED to SWANK STAYS INC):
-  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/P77ioa8U9EipVASzVHBA9B/entity/HsviSN53psykkDCir7kvtJ
+  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/P77ioa8U9EipVASzVHBA9B/HsviSN53psykkDCir7kvtJ
 
 - Deed 2025035398 (LEONELLO MICHELE to CAYNE ALFRED):
-  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/P77ioa8U9EipVASzVHBA9B/entity/ERy6XnDt3nZuFFiGkfUdit
+  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/P77ioa8U9EipVASzVHBA9B/ERy6XnDt3nZuFFiGkfUdit
 
 ### Permits
 
 The permits data is published to the Permits Space. Each permit has a unique entity ID. Here are some example entity URLs:
 
 - Permit BR-DMO-25-00104 (Residential Demolition):
-  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/XPZ8fnf3DvNMRDbFgxEZi2/entity/UsdepoWa8vGmEuC2xn4j1f
+  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/XPZ8fnf3DvNMRDbFgxEZi2/UsdepoWa8vGmEuC2xn4j1f
 
 - Permit BR-SOL-24-00780.001 (Residential Revision-Supplement):
-  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/XPZ8fnf3DvNMRDbFgxEZi2/entity/VfRjw4eaBvqiAqgA5JiPTN
+  https://geogenesis-git-feat-testnet-geo-browser.vercel.app/space/XPZ8fnf3DvNMRDbFgxEZi2/VfRjw4eaBvqiAqgA5JiPTN
 
 ## Data Structure
 

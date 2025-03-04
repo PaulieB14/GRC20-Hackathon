@@ -1,0 +1,16 @@
+Record type entities:
+    '  "recordType": "Residential Demolition",\n' +
+    '  "recordType": "Residential Revision-Supplement",\n' +
+  "recordType": "Residential Demolition",
+  "recordType": "Residential Revision-Supplement",
+    '  "recordType": "Residential Demolition",\n' +
+    '  "id": "2D3YcgEhj6ADWZFS8XG7D7",\n' +
+    '  "recordType": "Residential Revision-Supplement",\n' +
+Status entities:
+    '  "recordType": "Residential Revision-Supplement",\n' +
+  "recordType": "Residential Demolition",
+  "recordType": "Residential Revision-Supplement",
+    '  "id": "LL2gqVrS8xvvXVUWQ7RX4N",\n' +
+    '  "recordType": "Residential Demolition",\n' +
+    '  "id": "2D3YcgEhj6ADWZFS8XG7D7",\n' +
+    '  "recordType": "Residential Revision-Supplement",\n' +
