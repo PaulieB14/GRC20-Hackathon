@@ -70,7 +70,10 @@ async function getEntities(spaceId) {
           'CKWTWCBBEasHb9S8LDn66A',
           '6cDkLidRufcGdRW3mhQHKf',
           'YS7h8EhNZ2S6QybswSp5V',
-          'TFyjnSjFZiorwNHQXn2Zzt'
+          'TFyjnSjFZiorwNHQXn2Zzt',
+          // Add the newly created entity IDs
+          'deed-record-1741131036572', // From the previous update
+          'deed-record-1741132970602', // From the latest update with sentence case
         ];
         
         // Create entities for each known ID
@@ -91,7 +94,10 @@ async function getEntities(spaceId) {
           'CKWTWCBBEasHb9S8LDn66A',
           '6cDkLidRufcGdRW3mhQHKf',
           'YS7h8EhNZ2S6QybswSp5V',
-          'TFyjnSjFZiorwNHQXn2Zzt'
+          'TFyjnSjFZiorwNHQXn2Zzt',
+          // Add the newly created entity IDs
+          'permit-record-1741131037533', // From the previous update
+          'permit-record-1741132971563', // From the latest update with sentence case
         ];
         
         // Create entities for each known ID

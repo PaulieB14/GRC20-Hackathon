@@ -34,10 +34,13 @@ function readJson(filePath) {
  * @param {string} spaceId The space ID
  * @param {Array} entities The array of entities
  * @param {string} type The entity type (Deed or Permit)
+ * @param {string} otherSpaceId The ID of the other space (for cross-space links)
  * @returns {Array} The array of entity links
  */
-function generateEntityLinks(spaceId, entities, type) {
-  return entities.map(entity => {
+function generateEntityLinks(spaceId, entities, type, otherSpaceId) {
+  const links = [];
+  
+  entities.forEach(entity => {
     const entityId = entity.entityId;
     
     // Extract a name from the triples
@@ -56,17 +59,34 @@ function generateEntityLinks(spaceId, entities, type) {
       }
     }
     
-    // Generate browser link
-    const browserLink = `${TESTNET_BROWSER_URL}/${spaceId}/${entityId}`;
+    // Generate browser link for primary space
+    const primaryBrowserLink = `${TESTNET_BROWSER_URL}/${spaceId}/${entityId}`;
     
-    return {
+    links.push({
       entityId,
       name,
       identifier,
       type,
-      browserLink
-    };
+      spaceId,
+      spaceName: spaceId === process.env.DEEDS_SPACE_ID ? 'Deeds Space' : 'Permits Space',
+      browserLink: primaryBrowserLink
+    });
+    
+    // Generate browser link for other space (cross-space link)
+    const otherBrowserLink = `${TESTNET_BROWSER_URL}/${otherSpaceId}/${entityId}`;
+    
+    links.push({
+      entityId,
+      name,
+      identifier,
+      type,
+      spaceId: otherSpaceId,
+      spaceName: otherSpaceId === process.env.DEEDS_SPACE_ID ? 'Deeds Space' : 'Permits Space',
+      browserLink: otherBrowserLink
+    });
   });
+  
+  return links;
 }
 
 /**
@@ -77,11 +97,11 @@ function generateEntityLinks(spaceId, entities, type) {
  */
 function writeEntityLinksToCsv(entityLinks, outputPath) {
   // Create CSV header
-  const csvHeader = 'Entity ID,Name,Identifier,Type,Browser Link\n';
+  const csvHeader = 'Entity ID,Name,Identifier,Type,Space,Space Name,Browser Link\n';
   
   // Create CSV rows
   const csvRows = entityLinks.map(link => 
-    `${link.entityId},"${link.name.replace(/"/g, '""')}","${link.identifier.replace(/"/g, '""')}","${link.type}",${link.browserLink}`
+    `${link.entityId},"${link.name.replace(/"/g, '""')}","${link.identifier.replace(/"/g, '""')}","${link.type}","${link.spaceId}","${link.spaceName}",${link.browserLink}`
   ).join('\n');
   
   // Write CSV to file
@@ -125,9 +145,9 @@ async function main() {
     
     console.log(`Read ${deedsTriples.length} deed entities and ${permitsTriples.length} permit entities`);
     
-    // Generate entity links
-    const deedLinks = generateEntityLinks(deedsSpaceId, deedsTriples, 'Deed');
-    const permitLinks = generateEntityLinks(permitsSpaceId, permitsTriples, 'Permit');
+    // Generate entity links for both spaces
+    const deedLinks = generateEntityLinks(deedsSpaceId, deedsTriples, 'Deed', permitsSpaceId);
+    const permitLinks = generateEntityLinks(permitsSpaceId, permitsTriples, 'Permit', deedsSpaceId);
     
     // Combine all entity links
     const allLinks = [...deedLinks, ...permitLinks];
