@@ -61,21 +61,46 @@ async function fetchEntities(spaceId) {
   });
   
   // Fetch entities from the GRC-20 API
-  const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${spaceId}/entities`, {
-    method: "GET",
-    headers: {
-      "Accept": "application/json"
+  console.log(`Fetching from: https://api-testnet.grc-20.thegraph.com/space/${spaceId}/entities`);
+  try {
+    const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${spaceId}/entities`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+    
+    if (!result.ok) {
+      const errorText = await result.text();
+      throw new Error(`Failed to fetch entities: ${result.status} ${result.statusText} - ${errorText}`);
     }
-  });
-  
-  if (!result.ok) {
-    throw new Error(`Failed to fetch entities: ${result.statusText}`);
+    
+    const data = await result.json();
+    console.log(`Fetched ${data.entities ? data.entities.length : 0} entities from space ${spaceId}`);
+    
+    return data.entities || [];
+  } catch (error) {
+    console.error(`Error fetching entities: ${error.message}`);
+    
+    // Try alternative API endpoint format
+    console.log("Trying alternative API endpoint...");
+    const altResult = await fetch(`https://api-testnet.grc-20.thegraph.com/spaces/${spaceId}/entities`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+    
+    if (!altResult.ok) {
+      throw new Error(`Failed to fetch entities from alternative endpoint: ${altResult.status} ${altResult.statusText}`);
+    }
+    
+    const altData = await altResult.json();
+    console.log(`Fetched ${altData.entities ? altData.entities.length : 0} entities from alternative endpoint`);
+    
+    return altData.entities || [];
   }
   
-  const data = await result.json();
-  console.log(`Fetched ${data.entities.length} entities from space ${spaceId}`);
-  
-  return data.entities;
 }
 
 /**
@@ -89,22 +114,46 @@ async function fetchEntityProperties(spaceId, entityId) {
   console.log(`Fetching properties for entity ${entityId}...`);
   
   // Fetch entity properties from the GRC-20 API
-  const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${spaceId}/entity/${entityId}/properties`, {
-    method: "GET",
-    headers: {
-      "Accept": "application/json"
+  try {
+    console.log(`Fetching properties from: https://api-testnet.grc-20.thegraph.com/space/${spaceId}/entity/${entityId}/properties`);
+    const result = await fetch(`https://api-testnet.grc-20.thegraph.com/space/${spaceId}/entity/${entityId}/properties`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+    
+    if (!result.ok) {
+      const errorText = await result.text();
+      console.warn(`Failed to fetch properties for entity ${entityId}: ${result.status} ${result.statusText} - ${errorText}`);
+      
+      // Try alternative API endpoint
+      console.log("Trying alternative API endpoint for properties...");
+      const altResult = await fetch(`https://api-testnet.grc-20.thegraph.com/spaces/${spaceId}/entities/${entityId}/properties`, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+      
+      if (!altResult.ok) {
+        console.warn(`Failed to fetch properties from alternative endpoint: ${altResult.status} ${altResult.statusText}`);
+        return [];
+      }
+      
+      const altData = await altResult.json();
+      console.log(`Fetched ${altData.properties ? altData.properties.length : 0} properties from alternative endpoint`);
+      return altData.properties || [];
     }
-  });
-  
-  if (!result.ok) {
-    console.warn(`Failed to fetch properties for entity ${entityId}: ${result.statusText}`);
+    
+    const data = await result.json();
+    console.log(`Fetched ${data.properties ? data.properties.length : 0} properties for entity ${entityId}`);
+    
+    return data.properties || [];
+  } catch (error) {
+    console.error(`Error fetching properties: ${error.message}`);
     return [];
   }
-  
-  const data = await result.json();
-  console.log(`Fetched ${data.properties.length} properties for entity ${entityId}`);
-  
-  return data.properties;
 }
 
 /**
@@ -124,27 +173,52 @@ async function exportEntitiesToCsv(spaceId, entities, outputPath) {
   // Create CSV rows
   let csvRows = '';
   
-  for (const entity of entities) {
-    const entityId = entity.id;
-    const entityName = entity.name || 'Unnamed Entity';
-    const entityType = entity.types && entity.types.length > 0 ? entity.types[0] : 'Unknown Type';
-    const browserLink = `${TESTNET_BROWSER_URL}/${spaceId}/${entityId}`;
+  // Process entities in batches to avoid overwhelming the API
+  const batchSize = 5;
+  for (let i = 0; i < entities.length; i += batchSize) {
+    const batch = entities.slice(i, i + batchSize);
+    console.log(`Processing batch ${Math.floor(i / batchSize) + 1} of ${Math.ceil(entities.length / batchSize)}...`);
     
-    // Fetch entity properties
-    const properties = await fetchEntityProperties(spaceId, entityId);
-    
-    if (properties.length === 0) {
-      // Add a row for the entity without properties
-      csvRows += `${entityId},"${entityName.replace(/"/g, '""')}","${entityType.replace(/"/g, '""')}","","","",${browserLink}\n`;
-    } else {
-      // Add a row for each property
-      for (const property of properties) {
-        const propertyId = property.id;
-        const propertyName = property.name || 'Unnamed Property';
-        const propertyValue = property.value ? property.value.value : '';
-        
-        csvRows += `${entityId},"${entityName.replace(/"/g, '""')}","${entityType.replace(/"/g, '""')}",${propertyId},"${propertyName.replace(/"/g, '""')}","${String(propertyValue).replace(/"/g, '""')}",${browserLink}\n`;
+    // Process entities in parallel within each batch
+    const batchPromises = batch.map(async (entity) => {
+      const entityId = entity.id;
+      const entityName = entity.name || 'Unnamed Entity';
+      const entityType = entity.types && entity.types.length > 0 ? entity.types[0] : 'Unknown Type';
+      const browserLink = `${TESTNET_BROWSER_URL}/${spaceId}/${entityId}`;
+      
+      // Fetch entity properties
+      const properties = await fetchEntityProperties(spaceId, entityId);
+      
+      let entityRows = '';
+      if (properties.length === 0) {
+        // Add a row for the entity without properties
+        entityRows += `${entityId},"${entityName.replace(/"/g, '""')}","${entityType.replace(/"/g, '""')}","","","",${browserLink}\n`;
+      } else {
+        // Add a row for each property
+        for (const property of properties) {
+          const propertyId = property.id || '';
+          const propertyName = property.name || 'Unnamed Property';
+          const propertyValue = property.value ? property.value.value : '';
+          
+          entityRows += `${entityId},"${entityName.replace(/"/g, '""')}","${entityType.replace(/"/g, '""')}",${propertyId},"${propertyName.replace(/"/g, '""')}","${String(propertyValue).replace(/"/g, '""')}",${browserLink}\n`;
+        }
       }
+      
+      return entityRows;
+    });
+    
+    // Wait for all entities in the batch to be processed
+    const batchResults = await Promise.all(batchPromises);
+    
+    // Add batch results to CSV rows
+    for (const result of batchResults) {
+      csvRows += result;
+    }
+    
+    // Add a small delay between batches to avoid rate limiting
+    if (i + batchSize < entities.length) {
+      console.log('Waiting before processing next batch...');
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
   }
   
