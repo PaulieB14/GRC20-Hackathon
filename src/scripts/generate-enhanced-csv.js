@@ -51,9 +51,10 @@ function readCsv(filePath) {
  * @param {Array} deedsData The original deeds CSV data
  * @param {Array} deedsTriples The deeds triples data
  * @param {string} spaceId The space ID
+ * @param {object} propertyAddresses The property addresses mapping
  * @returns {Array} The enhanced deeds data
  */
-function generateEnhancedDeedsData(deedsData, deedsTriples, spaceId) {
+function generateEnhancedDeedsData(deedsData, deedsTriples, spaceId, propertyAddresses) {
   // Create a map of instrument numbers to entity IDs
   const instrumentToEntityMap = new Map();
   
@@ -82,18 +83,20 @@ function generateEnhancedDeedsData(deedsData, deedsTriples, spaceId) {
   console.log('Instrument to entity map:', Object.fromEntries(instrumentToEntityMap));
   
   // Add entity ID and link to each deed
-  console.log('Adding entity IDs and browser links to deeds...');
+  console.log('Adding entity IDs, property addresses, and browser links to deeds...');
   return deedsData.map(deed => {
     const instrumentNumber = deed['InstrumentNumber'];
     console.log(`Looking up entity ID for instrument number ${instrumentNumber}`);
     
     const entityId = instrumentToEntityMap.get(instrumentNumber) || '';
     const browserLink = entityId ? `${TESTNET_BROWSER_URL}/${spaceId}/${entityId}` : '';
+    const propertyAddress = propertyAddresses[instrumentNumber] || '';
     
     console.log(`Instrument number ${instrumentNumber} -> Entity ID ${entityId}`);
     
     return {
       ...deed,
+      'Property Address': propertyAddress,
       'Entity ID': entityId,
       'Browser Link': browserLink
     };
@@ -221,8 +224,12 @@ async function main() {
     
     console.log(`Read ${deedsData.length} deed records and ${permitsData.length} permit records from CSV`);
     
+    // Read property addresses from file
+    const propertyAddresses = readJson(path.resolve(process.cwd(), 'data/mapping/property-addresses.json'));
+    console.log(`Read ${Object.keys(propertyAddresses).length} property addresses`);
+    
     // Generate enhanced data
-    const enhancedDeedsData = generateEnhancedDeedsData(deedsData, deedsTriples, deedsSpaceId);
+    const enhancedDeedsData = generateEnhancedDeedsData(deedsData, deedsTriples, deedsSpaceId, propertyAddresses);
     const enhancedPermitsData = generateEnhancedPermitsData(permitsData, permitsTriples, permitsSpaceId);
     
     // Create output directory if it doesn't exist
