@@ -50,7 +50,7 @@ export class TransactionService {
     try {
       // Import the deploySpace function dynamically to avoid circular dependencies
       // @ts-ignore - Ignore TypeScript error for missing type definitions
-      const { deploySpace } = await import('../scripts/deploy-space-direct.js');
+      const { deploySpace } = await import('../scripts/old-scripts/deploy-space-direct.js');
       
       // Deploy the space using the deploySpace function
       const hash = await deploySpace(name);

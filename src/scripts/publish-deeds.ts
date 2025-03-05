@@ -154,11 +154,24 @@ function generateDeedOps(deeds: Deed[]): EntityOp[] {
     // Generate a unique ID for the deed
     const deedId = `deed-${deed.InstrumentNumber}`;
     
-    // Create the deed entity with sentence case name
+    // Create a more descriptive entity name
+    let entityName: string;
+    
+    if (deed.PropertyAddress) {
+      entityName = `Deed at ${deed.PropertyAddress}`;
+    } else if (deed.DirectName && deed.IndirectName) {
+      entityName = `Deed from ${toSentenceCase(deed.DirectName)} to ${toSentenceCase(deed.IndirectName)}`;
+    } else if (deed.BookPage) {
+      entityName = `Deed #${deed.BookPage}`;
+    } else {
+      entityName = `Deed ${deed.InstrumentNumber}`;
+    }
+    
+    // Create the deed entity with descriptive name
     ops.push({
       type: 'CREATE_ENTITY',
       id: deedId,
-      name: `Deed ${deed.InstrumentNumber}`,
+      name: entityName,
       types: ['deed-type-id'],
     });
     
@@ -203,6 +216,17 @@ function generateDeedOps(deeds: Deed[]): EntityOp[] {
       },
     });
     
+    // Add legal description
+    ops.push({
+      type: 'SET_PROPERTY',
+      entityId: deedId,
+      propertyId: 'legal-description-property-id',
+      value: {
+        type: 'TEXT',
+        value: deed.LegalDescription,
+      },
+    });
+    
     // Add property address if available
     if (deed.PropertyAddress) {
       ops.push({
@@ -212,6 +236,26 @@ function generateDeedOps(deeds: Deed[]): EntityOp[] {
         value: {
           type: 'TEXT',
           value: deed.PropertyAddress,
+        },
+      });
+    }
+    
+    // Add a description property with more details
+    let description = '';
+    if (deed.DocTypeDescription) description += `${toSentenceCase(deed.DocTypeDescription)} `;
+    if (deed.BookPage) description += `#${deed.BookPage} `;
+    if (deed.DirectName && deed.IndirectName) description += `from ${toSentenceCase(deed.DirectName)} to ${toSentenceCase(deed.IndirectName)} `;
+    if (deed.LegalDescription) description += `for ${deed.LegalDescription} `;
+    if (deed.PropertyAddress) description += `at ${deed.PropertyAddress}`;
+    
+    if (description) {
+      ops.push({
+        type: 'SET_PROPERTY',
+        entityId: deedId,
+        propertyId: 'description-property-id',
+        value: {
+          type: 'TEXT',
+          value: description.trim(),
         },
       });
     }

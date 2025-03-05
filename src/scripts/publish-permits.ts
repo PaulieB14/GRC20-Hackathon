@@ -169,11 +169,25 @@ function generatePermitOps(permits: Permit[]): EntityOp[] {
     // Generate a unique ID for the permit
     const permitId = `permit-${permit['Record Number']}`;
     
-    // Create the permit entity with sentence case name
+    // Create a more descriptive entity name
+    let entityName: string;
+    const address = permit.MappedAddress || permit.Address;
+    
+    if (address) {
+      entityName = `Permit at ${address}`;
+    } else if (permit['Project Name']) {
+      entityName = `Permit for ${toSentenceCase(permit['Project Name'])}`;
+    } else if (permit['Record Type']) {
+      entityName = `${toSentenceCase(permit['Record Type'])} Permit #${permit['Record Number']}`;
+    } else {
+      entityName = `Permit ${permit['Record Number']}`;
+    }
+    
+    // Create the permit entity with descriptive name
     ops.push({
       type: 'CREATE_ENTITY',
       id: permitId,
-      name: `Permit ${permit['Record Number']}`,
+      name: entityName,
       types: ['permit-type-id'],
     });
     
@@ -199,7 +213,6 @@ function generatePermitOps(permits: Permit[]): EntityOp[] {
     });
     
     // Use mapped address if available, otherwise use the original address
-    const address = permit.MappedAddress || permit.Address;
     ops.push({
       type: 'SET_PROPERTY',
       entityId: permitId,
@@ -239,6 +252,27 @@ function generatePermitOps(permits: Permit[]): EntityOp[] {
         value: permit.Description,
       },
     });
+    
+    // Add a comprehensive description property
+    let description = '';
+    if (permit['Record Type']) description += `${toSentenceCase(permit['Record Type'])} `;
+    if (permit['Record Number']) description += `#${permit['Record Number']} `;
+    if (permit.Status) description += `(${toSentenceCase(permit.Status)}) `;
+    if (permit['Project Name']) description += `for ${toSentenceCase(permit['Project Name'])} `;
+    if (address) description += `at ${address} `;
+    if (permit.Description) description += `- ${permit.Description}`;
+    
+    if (description) {
+      ops.push({
+        type: 'SET_PROPERTY',
+        entityId: permitId,
+        propertyId: 'full-description-property-id',
+        value: {
+          type: 'TEXT',
+          value: description.trim(),
+        },
+      });
+    }
     
     // Create record type entity if it doesn't exist
     const recordType = permit['Record Type'];
@@ -307,7 +341,21 @@ async function publishPermits(spaceId: string, permits: Permit[]): Promise<void>
   // Split operations into batches
   const batches = TransactionService.splitIntoBatches(ops);
   
+  // Check if space exists
+  console.log(`Checking if space ${spaceId} exists...`);
+  const spaceExists = await TransactionService.spaceExists(spaceId);
+  
+  if (!spaceExists) {
+    console.log(`Space ${spaceId} does not exist. Creating it...`);
+    const newSpaceId = await TransactionService.createSpace('Permits Space');
+    console.log(`Created new space with ID: ${newSpaceId}`);
+    spaceId = newSpaceId;
+  } else {
+    console.log(`Space ${spaceId} exists.`);
+  }
+  
   // Submit batches to the GRC-20 space
+  console.log(`Submitting ${batches.length} batches to space ${spaceId}...`);
   const txHashes = await TransactionService.submitOperationBatches(spaceId, batches);
   
   console.log(`Published ${permits.length} permits to space ${spaceId} in ${batches.length} batches.`);

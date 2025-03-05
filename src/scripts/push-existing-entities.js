@@ -72,14 +72,17 @@ async function pushEntitiesToSpace(spaceId, entitiesTriples) {
     // Create ops array for this entity
     const ops = [];
     
-    // Create entity name and type
-    const entityName = `Entity ${entityId}`;
-    const entityType = spaceId === process.env.DEEDS_SPACE_ID ? 'Deed' : 'Permit';
-    
     // Create a properties object for the entity creation
     const properties = {};
     
-    // Add triples as properties
+    // Add triples as properties and collect information for entity name
+    let bookPage = '';
+    let propertyAddress = '';
+    let grantor = '';
+    let grantee = '';
+    let legalDescription = '';
+    let documentType = '';
+    
     for (const triple of triples) {
       // Convert value to sentence case if it's a string
       let value = triple.value.value;
@@ -96,6 +99,21 @@ async function pushEntitiesToSpace(spaceId, entitiesTriples) {
         continue;
       }
       
+      // Store specific property values for entity naming
+      if (attributeId === 'LuBWqZAu6pz54eiJS5mLv8') {
+        bookPage = value;
+      } else if (attributeId === 'PropertyAddress') {
+        propertyAddress = value;
+      } else if (attributeId === 'SyaPQfHTf3uxTAqwhuMHHa') {
+        grantor = value;
+      } else if (attributeId === 'DfjyQFDy6k4dW9XaSgYttn') {
+        grantee = value;
+      } else if (attributeId === '5yDjGNQEErVNpVZ3c61Uib') {
+        legalDescription = value;
+      } else if (attributeId === '3UP1qvruj8SipH9scUz1EY') {
+        documentType = value;
+      }
+      
       // Add the property to the properties object
       properties[attributeId] = {
         type: triple.value.type,
@@ -105,11 +123,41 @@ async function pushEntitiesToSpace(spaceId, entitiesTriples) {
       console.log(`Added property ${attributeId} with value: ${value}`);
     }
     
+    // Create a more descriptive entity name
+    let entityType = spaceId === process.env.DEEDS_SPACE_ID ? 'Deed' : 'Permit';
+    let entityName;
+    
+    if (propertyAddress) {
+      entityName = `${entityType} at ${propertyAddress}`;
+    } else if (grantor && grantee) {
+      entityName = `${entityType} from ${grantor} to ${grantee}`;
+    } else if (bookPage) {
+      entityName = `${entityType} #${bookPage}`;
+    } else {
+      entityName = `${entityType} ${entityId}`;
+    }
+    
+    // Add a description property with more details
+    let description = '';
+    if (documentType) description += `${documentType} `;
+    if (bookPage) description += `#${bookPage} `;
+    if (grantor && grantee) description += `from ${grantor} to ${grantee} `;
+    if (legalDescription) description += `for ${legalDescription} `;
+    if (propertyAddress) description += `at ${propertyAddress}`;
+    
+    if (description) {
+      properties['description'] = {
+        type: 'TEXT',
+        value: description.trim()
+      };
+    }
+    
     // Create the entity with all properties at once
     const { id: newEntityId, ops: createEntityOps } = Graph.createEntity({
       name: entityName,
       types: [entityType],
-      properties: properties
+      properties: properties,
+      id: entityId // Use the existing entityId to ensure consistency
     });
     
     console.log(`Created entity with ID: ${newEntityId} and ${Object.keys(properties).length} properties`);

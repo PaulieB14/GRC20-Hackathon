@@ -140,25 +140,46 @@ async function publishOperations(spaceId, ops, description) {
  * Create entity operations from triples
  * 
  * @param {Array} triples The triples data
+ * @param {string} entityType The type of entity ('Deed' or 'Permit')
  * @returns {Array} The operations for creating entities
  */
-function createEntityOpsFromTriples(triples) {
+function createEntityOpsFromTriples(triples, entityType) {
   const ops = [];
   
   for (const triple of triples) {
     const { entityId, triples: entityTriples } = triple;
     
-    // Extract entity properties
+    // Extract entity properties and collect information for entity name
     const properties = {};
-    let entityName = `Entity ${entityId}`;
+    let bookPage = '';
+    let propertyAddress = '';
+    let grantor = '';
+    let grantee = '';
+    let legalDescription = '';
+    let documentType = '';
     
     for (const t of entityTriples) {
       const attributeId = t.attributeId || t.attribute;
-      const value = t.value.value;
+      let value = t.value.value;
       
-      // Use the first property as the entity name
-      if (Object.keys(properties).length === 0) {
-        entityName = `${attributeId}: ${value}`;
+      // Convert value to sentence case if it's a string
+      if (typeof value === 'string') {
+        value = toSentenceCase(value);
+      }
+      
+      // Store specific property values for entity naming
+      if (attributeId === 'LuBWqZAu6pz54eiJS5mLv8') {
+        bookPage = value;
+      } else if (attributeId === 'PropertyAddress') {
+        propertyAddress = value;
+      } else if (attributeId === 'SyaPQfHTf3uxTAqwhuMHHa') {
+        grantor = value;
+      } else if (attributeId === 'DfjyQFDy6k4dW9XaSgYttn') {
+        grantee = value;
+      } else if (attributeId === '5yDjGNQEErVNpVZ3c61Uib') {
+        legalDescription = value;
+      } else if (attributeId === '3UP1qvruj8SipH9scUz1EY') {
+        documentType = value;
       }
       
       // Add property to entity
@@ -168,10 +189,40 @@ function createEntityOpsFromTriples(triples) {
       };
     }
     
+    // Create a more descriptive entity name
+    let entityName;
+    
+    if (propertyAddress) {
+      entityName = `${entityType} at ${propertyAddress}`;
+    } else if (grantor && grantee) {
+      entityName = `${entityType} from ${grantor} to ${grantee}`;
+    } else if (bookPage) {
+      entityName = `${entityType} #${bookPage}`;
+    } else {
+      entityName = `${entityType} ${entityId}`;
+    }
+    
+    // Add a description property with more details
+    let description = '';
+    if (documentType) description += `${documentType} `;
+    if (bookPage) description += `#${bookPage} `;
+    if (grantor && grantee) description += `from ${grantor} to ${grantee} `;
+    if (legalDescription) description += `for ${legalDescription} `;
+    if (propertyAddress) description += `at ${propertyAddress}`;
+    
+    if (description) {
+      properties['description'] = {
+        type: 'TEXT',
+        value: description.trim()
+      };
+    }
+    
     // Create entity
     const { ops: entityOps } = Graph.createEntity({
       name: entityName,
-      properties
+      types: [entityType],
+      properties,
+      id: entityId // Use the existing entityId to ensure consistency
     });
     
     ops.push(...entityOps);
@@ -194,7 +245,7 @@ async function publishDeeds(spaceId) {
   console.log(`Read ${deedsTriples.length} deed entities`);
   
   // Create operations from triples
-  const ops = createEntityOpsFromTriples(deedsTriples);
+  const ops = createEntityOpsFromTriples(deedsTriples, 'Deed');
   
   // Publish deeds
   await publishOperations(spaceId, ops, "Publish deeds with property addresses");
@@ -216,7 +267,7 @@ async function publishPermits(spaceId) {
   console.log(`Read ${permitsTriples.length} permit entities`);
   
   // Create operations from triples
-  const ops = createEntityOpsFromTriples(permitsTriples);
+  const ops = createEntityOpsFromTriples(permitsTriples, 'Permit');
   
   // Publish permits
   await publishOperations(spaceId, ops, "Publish permits");
