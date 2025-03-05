@@ -229,11 +229,11 @@ async function publishDeedsWithRelationships(spaceId, typeIds) {
     let sellerName = '';
     let buyerName = '';
     let documentType = '';
-    
+
     for (const triple of triples) {
       const attributeId = triple.attributeId || triple.attribute;
       const value = triple.value.value;
-      
+
       // Map attribute IDs to deed properties
       if (attributeId === 'LuBWqZAu6pz54eiJS5mLv8') {
         instrumentNumber = value;
@@ -245,6 +245,8 @@ async function publishDeedsWithRelationships(spaceId, typeIds) {
         sellerName = value;
       } else if (attributeId === '3UP1qvruj8SipH9scUz1EY') {
         documentType = value;
+      } else if (attributeId === 'PropertyAddress') {
+        propertyAddress = value;
       }
     }
     
